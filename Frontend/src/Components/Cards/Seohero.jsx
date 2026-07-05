@@ -59,7 +59,7 @@ const Banner = ({
 
             <div className="flex gap-[18px] flex-wrap lg:flex-nowrap">
               {primaryBtnText && (
-                <a href={primaryBtnLink} className="no-underline">
+                <a href={primaryBtnLink || "/contact"} className="no-underline">
                   <button className="px-[34px] py-[15px] text-[15px] font-bold rounded-lg border-0 bg-[#e31e24] text-white shadow-[0_6px_20px_rgba(227,30,36,0.35)] transition-all duration-300 hover:bg-[#c4151a] hover:scale-[1.03] hover:shadow-[0_12px_25px_rgba(227,30,36,0.45)] cursor-pointer">
                     {primaryBtnText}
                   </button>
@@ -67,7 +67,7 @@ const Banner = ({
               )}
 
               {secondaryBtnText && (
-                <a href={secondaryBtnLink} className="no-underline">
+                <a href={secondaryBtnLink || "/services"} className="no-underline">
                   <button className="px-[34px] py-[15px] text-[15px] font-bold rounded-lg bg-transparent text-slate-900 border border-slate-900 transition-all duration-300 hover:bg-slate-900 hover:text-white hover:scale-[1.03] cursor-pointer">
                     {secondaryBtnText}
                   </button>
