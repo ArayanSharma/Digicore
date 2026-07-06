@@ -344,30 +344,31 @@ const SeoService = () => {
 
       {/* Impact / Timeline Section */}
       {impactData?.timeline?.length > 0 && (
-        <section className="w-full py-24 px-5 bg-white border-b border-[#e5e7eb]">
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section className="py-[100px] px-[7%] bg-white border-b border-[#e5e7eb]">
+          <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-[60px] lg:flex-row flex-col px-5">
             {impactData.image && (
-              <div className="relative rounded-3xl overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.05)] border border-slate-100">
+              <div className="w-full max-w-[500px] lg:max-w-[45%]">
                 <img
                   src={resolveImage(impactData.image)}
                   alt="Impact"
-                  className="w-full h-full object-cover"
+                  className="w-full block rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] border border-[#e5e7eb]"
                 />
               </div>
             )}
 
-            <div className="relative pl-6 space-y-8 border-l-2 border-[#e31e24]/20 py-2">
-              {impactData.timeline.map((item, index) => (
-                <div className="relative pl-8 group" key={item.id || index}>
-                  <div className={`absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-[#e31e24] shadow-[0_0_10px_rgba(227,30,36,0.3)] transition-all duration-300 group-hover:scale-125 ${index === 0 ? "bg-[#e31e24]" : ""
-                    }`}></div>
+            <div className="w-full lg:max-w-[50%] pt-10 lg:pt-0">
+              <div className="relative border-l border-[#e5e7eb] pl-6 ml-3">
+                {impactData.timeline.map((item, index) => (
+                  <div key={item.id || index} className="relative mb-[40px] last:mb-0">
+                    <div className="absolute left-[-31px] top-1 w-[14px] h-[14px] rounded-full border-2 border-[#e31e24] bg-white shadow-[0_0_8px_rgba(227,30,36,0.4)] z-[2]"></div>
 
-                  <div className="timeline-content">
-                    {item.title && <h3 className="text-[18px] font-bold text-[#1c1c1e] mb-2 leading-tight">{item.title}</h3>}
-                    {item.description && <p className="text-[14px] leading-relaxed text-[#4b5563]">{item.description}</p>}
+                    <div>
+                      {item.title && <h3 className="mb-[8px] text-[22px] max-[769px]:text-[19px] font-heading font-bold text-[#2b2b2e] leading-tight">{item.title}</h3>}
+                      {item.description && <p className="text-[15px] leading-[1.6] text-[#4b5563]">{item.description}</p>}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
