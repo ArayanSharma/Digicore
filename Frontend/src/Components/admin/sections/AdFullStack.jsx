@@ -164,13 +164,17 @@ export default function AdFullStack() {
     backgroundImage: "",
   });
 
+  const [technologiesHeader, setTechnologiesHeader] = useState({ eyebrow: "", title: "", description: "" });
   const [technologies, setTechnologies] = useState([]);
   const [techSearch, setTechSearch] = useState("");
   const [dragIndex, setDragIndex] = useState(null);
 
+  const [processHeader, setProcessHeader] = useState({ eyebrow: "", title: "", description: "" });
   const [process, setProcess] = useState([]);
+  const [featuresHeader, setFeaturesHeader] = useState({ eyebrow: "", title: "", description: "" });
   const [features, setFeatures] = useState([]);
 
+  const [projectsHeader, setProjectsHeader] = useState({ eyebrow: "", title: "", description: "" });
   const [projects, setProjects] = useState([]);
   const [projectSearch, setProjectSearch] = useState("");
 
@@ -184,6 +188,7 @@ export default function AdFullStack() {
   const [whyChooseHeader, setWhyChooseHeader] = useState({ eyebrow: "", title: "" });
   const [whyChooses, setWhyChooses] = useState([]);
 
+  const [faqHeader, setFaqHeader] = useState({ eyebrow: "", title: "", description: "" });
   const [faq, setFaq] = useState([]);
 
   const [seo, setSeo] = useState({
@@ -296,13 +301,18 @@ export default function AdFullStack() {
     }
     if (data) {
       if (data.hero) setHero((prev) => ({ ...prev, ...data.hero }));
+      if (data.technologiesHeader) setTechnologiesHeader((prev) => ({ ...prev, ...data.technologiesHeader }));
       if (data.technologies) setTechnologies(data.technologies);
+      if (data.processHeader) setProcessHeader((prev) => ({ ...prev, ...data.processHeader }));
       if (data.process) setProcess(data.process);
+      if (data.featuresHeader) setFeaturesHeader((prev) => ({ ...prev, ...data.featuresHeader }));
       if (data.features) setFeatures(data.features);
+      if (data.projectsHeader) setProjectsHeader((prev) => ({ ...prev, ...data.projectsHeader }));
       if (data.projects) setProjects(data.projects);
       if (data.statistics) setStatistics((prev) => ({ ...prev, ...data.statistics }));
       if (data.whyChooseHeader) setWhyChooseHeader((prev) => ({ ...prev, ...data.whyChooseHeader }));
       if (data.whyChooses) setWhyChooses(data.whyChooses);
+      if (data.faqHeader) setFaqHeader((prev) => ({ ...prev, ...data.faqHeader }));
       if (data.faq) setFaq(data.faq);
       if (data.seo) setSeo((prev) => ({ ...prev, ...data.seo }));
     }
@@ -317,7 +327,23 @@ export default function AdFullStack() {
 
   const handleSave = async (e) => {
     e?.preventDefault();
-    const payload = { hero, technologies, process, features, projects, statistics, whyChooseHeader, whyChooses, faq, seo };
+    const payload = {
+      hero,
+      technologiesHeader,
+      technologies,
+      processHeader,
+      process,
+      featuresHeader,
+      features,
+      projectsHeader,
+      projects,
+      statistics,
+      whyChooseHeader,
+      whyChooses,
+      faqHeader,
+      faq,
+      seo,
+    };
     setStatus("saving");
     try {
       await savePageContent(PAGE_SLUG, payload);
@@ -385,6 +411,16 @@ export default function AdFullStack() {
             {/* ================= TECHNOLOGIES ================= */}
             <TabsContent value="technologies">
               <TabPanel>
+                <Field label="Section Eyebrow">
+                  <TextInput value={technologiesHeader.eyebrow} onChange={(e) => setTechnologiesHeader({ ...technologiesHeader, eyebrow: e.target.value })} placeholder="Our Tech Stack" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={technologiesHeader.title} onChange={(e) => setTechnologiesHeader({ ...technologiesHeader, title: e.target.value })} placeholder="Technologies We Master" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={2} value={technologiesHeader.description} onChange={(e) => setTechnologiesHeader({ ...technologiesHeader, description: e.target.value })} />
+                </Field>
+
                 <ListHeader title="Technology Cards" count={technologies.length} onAdd={addTechnology} addLabel="Add Technology" />
                 <SearchBox value={techSearch} onChange={setTechSearch} placeholder="Search technologies by name..." />
 
@@ -466,6 +502,16 @@ export default function AdFullStack() {
             {/* ================= PROCESS ================= */}
             <TabsContent value="process">
               <TabPanel>
+                <Field label="Section Eyebrow">
+                  <TextInput value={processHeader.eyebrow} onChange={(e) => setProcessHeader({ ...processHeader, eyebrow: e.target.value })} placeholder="How We Work" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={processHeader.title} onChange={(e) => setProcessHeader({ ...processHeader, title: e.target.value })} placeholder="Our Process" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={2} value={processHeader.description} onChange={(e) => setProcessHeader({ ...processHeader, description: e.target.value })} />
+                </Field>
+
                 <ListHeader title="Process Timeline" count={process.length} onAdd={addProcessStep} addLabel="Add Step" />
                 {process.length === 0 ? (
                   <div className="md:col-span-2">
@@ -497,6 +543,16 @@ export default function AdFullStack() {
             {/* ================= FEATURES ================= */}
             <TabsContent value="features">
               <TabPanel>
+                <Field label="Section Eyebrow">
+                  <TextInput value={featuresHeader.eyebrow} onChange={(e) => setFeaturesHeader({ ...featuresHeader, eyebrow: e.target.value })} placeholder="What You Get" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={featuresHeader.title} onChange={(e) => setFeaturesHeader({ ...featuresHeader, title: e.target.value })} placeholder="Features Built In" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={2} value={featuresHeader.description} onChange={(e) => setFeaturesHeader({ ...featuresHeader, description: e.target.value })} />
+                </Field>
+
                 <ListHeader title="Feature Cards" count={features.length} onAdd={addFeature} addLabel="Add Feature" />
                 {features.length === 0 ? (
                   <div className="md:col-span-2">
@@ -533,6 +589,16 @@ export default function AdFullStack() {
             {/* ================= PROJECTS ================= */}
             <TabsContent value="projects">
               <TabPanel>
+                <Field label="Section Eyebrow">
+                  <TextInput value={projectsHeader.eyebrow} onChange={(e) => setProjectsHeader({ ...projectsHeader, eyebrow: e.target.value })} placeholder="Portfolio" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={projectsHeader.title} onChange={(e) => setProjectsHeader({ ...projectsHeader, title: e.target.value })} placeholder="Project Showcase" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={2} value={projectsHeader.description} onChange={(e) => setProjectsHeader({ ...projectsHeader, description: e.target.value })} />
+                </Field>
+
                 <ListHeader title="Project Showcase" count={projects.length} onAdd={addProject} addLabel="Add Project" />
                 <SearchBox value={projectSearch} onChange={setProjectSearch} placeholder="Search projects by name..." />
 
@@ -683,6 +749,16 @@ export default function AdFullStack() {
                     <p className="text-xs font-semibold text-slate-500 mt-1">Manage the frequently asked questions shown on the public page.</p>
                   </div>
                 </div>
+                <Field label="Section Eyebrow">
+                  <TextInput value={faqHeader.eyebrow} onChange={(e) => setFaqHeader({ ...faqHeader, eyebrow: e.target.value })} placeholder="FAQ" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={faqHeader.title} onChange={(e) => setFaqHeader({ ...faqHeader, title: e.target.value })} placeholder="Frequently Asked Questions" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={2} value={faqHeader.description} onChange={(e) => setFaqHeader({ ...faqHeader, description: e.target.value })} />
+                </Field>
+
                 <ListHeader title="Questions" count={faq.length} onAdd={addFaqItem} addLabel="Add Question" />
                 {faq.length === 0 ? (
                   <div className="md:col-span-2">

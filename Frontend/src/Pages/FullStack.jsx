@@ -173,9 +173,39 @@ const defaultProjects = [
   },
 ];
 
+const defaultTechnologiesHeader = {
+  eyebrow: "Our Tech Stack",
+  title: "Technologies We Master",
+  description: "A modern, production-proven toolkit spanning the entire stack — from database to deployment.",
+};
+
+const defaultProcessHeader = {
+  eyebrow: "How We Work",
+  title: "Our Process",
+  description: "A proven five-step workflow that takes your idea from concept to launch.",
+};
+
+const defaultFeaturesHeader = {
+  eyebrow: "What You Get",
+  title: "Features Built In",
+  description: "Every project ships with these production-grade essentials by default.",
+};
+
+const defaultProjectsHeader = {
+  eyebrow: "Portfolio",
+  title: "Project Showcase",
+  description: "A sample of full stack products we've designed, built, and shipped.",
+};
+
 const defaultWhyChooseHeader = {
   eyebrow: "Why Us",
   title: "Why Choose Us",
+};
+
+const defaultFaqHeader = {
+  eyebrow: "FAQ",
+  title: "Frequently Asked Questions",
+  description: "Find answers to common questions about our full stack development services and process.",
 };
 
 const defaultWhyChooses = [
@@ -263,9 +293,13 @@ export default function FullStack() {
   const hero = { ...defaultHero, ...(c?.hero || {}) };
   const technologies = c?.technologies?.length ? c.technologies : defaultTechnologies;
   const visibleTechnologies = technologies.filter((t) => t.visible !== false);
+  const technologiesHeader = { ...defaultTechnologiesHeader, ...(c?.technologiesHeader || {}) };
   const processSteps = c?.process?.length ? c.process : defaultProcess;
+  const processHeader = { ...defaultProcessHeader, ...(c?.processHeader || {}) };
   const features = c?.features?.length ? c.features : defaultFeatures;
+  const featuresHeader = { ...defaultFeaturesHeader, ...(c?.featuresHeader || {}) };
   const projects = c?.projects?.length ? c.projects : defaultProjects;
+  const projectsHeader = { ...defaultProjectsHeader, ...(c?.projectsHeader || {}) };
   const stats = {
     projects: { ...defaultStats.projects, ...(c?.statistics?.projects || {}) },
     clients: { ...defaultStats.clients, ...(c?.statistics?.clients || {}) },
@@ -278,6 +312,7 @@ export default function FullStack() {
   };
   const whyChooses = c?.whyChooses?.length ? c.whyChooses : defaultWhyChooses;
   const faqs = (c?.faq?.length ? c.faq : defaultFaq).filter((f) => f.visible !== false);
+  const faqHeader = { ...defaultFaqHeader, ...(c?.faqHeader || {}) };
   const seo = { ...defaultSeo, ...(c?.seo || {}) };
 
   /* SEO tags */
@@ -391,11 +426,9 @@ export default function FullStack() {
       {/* ================= TECHNOLOGIES ================= */}
       <section className="container-custom py-24 md:py-28">
         <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
-          <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">Our Tech Stack</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">Technologies We Master</h2>
-          <p className="text-text-muted mt-4">
-            A modern, production-proven toolkit spanning the entire stack — from database to deployment.
-          </p>
+          <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">{technologiesHeader.eyebrow}</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">{technologiesHeader.title}</h2>
+          <p className="text-text-muted mt-4">{technologiesHeader.description}</p>
         </div>
 
         <div className="fs-stagger-group grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -441,9 +474,9 @@ export default function FullStack() {
       <section className="bg-bg-secondary py-24 md:py-28">
         <div className="container-custom">
           <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
-            <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">How We Work</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">Our Process</h2>
-            <p className="text-text-muted mt-4">A proven five-step workflow that takes your idea from concept to launch.</p>
+            <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">{processHeader.eyebrow}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">{processHeader.title}</h2>
+            <p className="text-text-muted mt-4">{processHeader.description}</p>
           </div>
 
           <div className="relative">
@@ -466,9 +499,9 @@ export default function FullStack() {
       {/* ================= FEATURES ================= */}
       <section className="container-custom py-24 md:py-28">
         <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
-          <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">What You Get</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">Features Built In</h2>
-          <p className="text-text-muted mt-4">Every project ships with these production-grade essentials by default.</p>
+          <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">{featuresHeader.eyebrow}</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">{featuresHeader.title}</h2>
+          <p className="text-text-muted mt-4">{featuresHeader.description}</p>
         </div>
 
         <div className="fs-stagger-group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -494,9 +527,9 @@ export default function FullStack() {
       <section className="bg-bg-secondary py-24 md:py-28">
         <div className="container-custom">
           <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
-            <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">Portfolio</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">Project Showcase</h2>
-            <p className="text-text-muted mt-4">A sample of full stack products we've designed, built, and shipped.</p>
+            <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">{projectsHeader.eyebrow}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">{projectsHeader.title}</h2>
+            <p className="text-text-muted mt-4">{projectsHeader.description}</p>
           </div>
 
           <div className="fs-stagger-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -589,11 +622,9 @@ export default function FullStack() {
       {faqs.length > 0 && (
         <section className="container-custom py-24 md:py-28 border-t border-slate-100">
           <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
-            <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">FAQ</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">Frequently Asked Questions</h2>
-            <p className="text-text-muted mt-4">
-              Find answers to common questions about our full stack development services and process.
-            </p>
+            <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">{faqHeader.eyebrow}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">{faqHeader.title}</h2>
+            <p className="text-text-muted mt-4">{faqHeader.description}</p>
           </div>
 
           <div className="max-w-3xl mx-auto space-y-4">

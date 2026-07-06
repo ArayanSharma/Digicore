@@ -252,6 +252,9 @@ const initialData = {
   seoCase: {
     heading: "Case Studies",
     description: "We have used the best SEO practices to help our clients succeed in organic search marketing. Our dedicated support all round the year, aligned with robust SEO efforts has made it easier for their target customers to find them online.",
+    rankingsTitle: "Rankings",
+    keywordColumnLabel: "Keywords",
+    rankColumnLabel: "Ranking",
     caseStudies: [
       {
         logo: "",
@@ -555,6 +558,15 @@ export default function AdReseller() {
           </Field>
           <Field label="Description">
             <TextArea value={pageData.seoCase.description} onChange={(e) => updateSection("seoCase", "description", e.target.value)} rows={6} placeholder="Description" />
+          </Field>
+          <Field label="Rankings Block Title">
+            <TextInput value={pageData.seoCase.rankingsTitle} onChange={(e) => updateSection("seoCase", "rankingsTitle", e.target.value)} placeholder="Rankings" />
+          </Field>
+          <Field label="Keyword Column Label">
+            <TextInput value={pageData.seoCase.keywordColumnLabel} onChange={(e) => updateSection("seoCase", "keywordColumnLabel", e.target.value)} placeholder="Keywords" />
+          </Field>
+          <Field label="Ranking Column Label">
+            <TextInput value={pageData.seoCase.rankColumnLabel} onChange={(e) => updateSection("seoCase", "rankColumnLabel", e.target.value)} placeholder="Ranking" />
           </Field>
           <AddableList
             items={pageData.seoCase.caseStudies}

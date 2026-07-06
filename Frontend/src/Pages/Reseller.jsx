@@ -333,14 +333,14 @@ const Reseller = () => {
             {displayCaseStudies[currentCase] && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-slate-50 rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
                 <div className="space-y-6">
-                  <h3 className="text-[24px] font-bold text-slate-800 border-b border-slate-200 pb-3">Rankings</h3>
+                  <h3 className="text-[24px] font-bold text-slate-800 border-b border-slate-200 pb-3">{seoCase?.rankingsTitle || "Rankings"}</h3>
                   {Array.isArray(displayCaseStudies[currentCase].rankings) && (
                     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
                       <table className="w-full text-left border-collapse">
                         <thead>
                           <tr className="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold text-[14px]">
-                            <th className="px-6 py-4">Keywords</th>
-                            <th className="px-6 py-4">Ranking</th>
+                            <th className="px-6 py-4">{seoCase?.keywordColumnLabel || "Keywords"}</th>
+                            <th className="px-6 py-4">{seoCase?.rankColumnLabel || "Ranking"}</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100">
