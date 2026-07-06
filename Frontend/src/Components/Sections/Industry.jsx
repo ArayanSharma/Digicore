@@ -84,8 +84,8 @@ export default function Industry() {
               <SwiperSlide key={`${item._id}-${index}`} className="py-6">
                 <div className="workindustry-card w-full bg-white rounded-[20px] p-6 text-center border border-[#e5e7eb]/60 shadow-[0_4px_20px_rgba(0,0,0,0.04)] flex flex-col justify-between items-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(227,30,36,0.1)] hover:border-[#e31e24]/20">
                   <div>
-                    <div className="w-16 h-16 rounded-full bg-[#fee2e2] flex items-center justify-center mb-5 mx-auto">
-                      <img src={item.image} alt={item.title} className="w-8 h-8 object-contain" />
+                    <div className="w-16 h-16 rounded-full overflow-hidden bg-[#fee2e2] flex items-center justify-center mb-5 mx-auto">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                     </div>
 
                     <h3 className="text-[20px] font-heading font-bold text-[#2b2b2e] mb-3">{item.title}</h3>
