@@ -274,7 +274,7 @@ const Ecoseo = () => {
             <div className="relative flex justify-center items-center">
               <div className="absolute w-[350px] h-[350px] rounded-full bg-[#fee2e2] -z-10 animate-pulse"></div>
               <img
-                src={impact}
+                src={impactData.image ? resolveImage(impactData.image) : impact}
                 alt="Impact"
                 className="max-w-full h-auto rounded-3xl shadow-[0_15px_30px_rgba(0,0,0,0.05)] border border-slate-100 object-cover"
               />

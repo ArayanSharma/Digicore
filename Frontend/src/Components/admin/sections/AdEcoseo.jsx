@@ -81,6 +81,7 @@ const initialData = {
     button2: { text: "REQUEST A CALLBACK", link: "/contact" },
   },
   impact: {
+    image: "",
     items: [
       {
         id: uid(),
@@ -370,6 +371,7 @@ export default function AdEcoseo() {
 
         {/* IMPACT TIMELINE */}
         <Section title="9. Impact Timeline Section" open={openSection === "impact"} onToggle={() => toggle("impact")}>
+          <ImageInput label="Impact Image" value={pageData.impact.image} onChange={(e) => updateSection("impact", "image", e.target.value)} />
           <LeadForm
             title="Timeline Items"
             addLabel="Add Timeline Item"
