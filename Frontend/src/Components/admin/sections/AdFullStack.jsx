@@ -13,6 +13,8 @@ import {
   ChevronLeft,
   ChevronRight,
   HelpCircle,
+  Award,
+  ShieldCheck,
 } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../../ui/tabs";
 import { loadPageContent, savePageContent } from "../../../utils/pageApi";
@@ -52,6 +54,19 @@ const FEATURE_ICON_OPTIONS = [
   "Sparkles",
 ];
 
+const WHY_CHOOSE_ICON_OPTIONS = [
+  "Award",
+  "Cpu",
+  "Code2",
+  "Layers",
+  "Rocket",
+  "Headphones",
+  "Sparkles",
+  "ShieldCheck",
+  "Star",
+  "Wrench",
+];
+
 const TABS = [
   { value: "hero", label: "Hero", icon: Sparkles },
   { value: "technologies", label: "Technologies", icon: Braces },
@@ -59,6 +74,7 @@ const TABS = [
   { value: "features", label: "Features", icon: CheckSquare },
   { value: "projects", label: "Projects", icon: FolderKanban },
   { value: "statistics", label: "Statistics", icon: BarChart3 },
+  { value: "whyChoose", label: "Why Choose Us", icon: Award },
   { value: "faq", label: "FAQ", icon: HelpCircle },
   { value: "seo", label: "SEO", icon: SearchIcon },
 ];
@@ -165,6 +181,9 @@ export default function AdFullStack() {
     experience: { value: "", label: "" },
   });
 
+  const [whyChooseHeader, setWhyChooseHeader] = useState({ eyebrow: "", title: "" });
+  const [whyChooses, setWhyChooses] = useState([]);
+
   const [faq, setFaq] = useState([]);
 
   const [seo, setSeo] = useState({
@@ -226,6 +245,15 @@ export default function AdFullStack() {
     showToast("Feature removed");
   };
 
+  /* ---------- Why Choose Us ---------- */
+  const addWhyChoose = () => setWhyChooses([...whyChooses, { id: uid(), icon: WHY_CHOOSE_ICON_OPTIONS[0], title: "", desc: "" }]);
+  const updateWhyChoose = (id, field, value) => setWhyChooses(whyChooses.map((wc) => (wc.id === id ? { ...wc, [field]: value } : wc)));
+  const removeWhyChoose = (id, title) => {
+    if (!window.confirm(`Remove "${title || "this reason"}"?`)) return;
+    setWhyChooses(whyChooses.filter((wc) => wc.id !== id));
+    showToast("Reason removed");
+  };
+
   /* ---------- Projects ---------- */
   const addProject = () =>
     setProjects([
@@ -273,6 +301,8 @@ export default function AdFullStack() {
       if (data.features) setFeatures(data.features);
       if (data.projects) setProjects(data.projects);
       if (data.statistics) setStatistics((prev) => ({ ...prev, ...data.statistics }));
+      if (data.whyChooseHeader) setWhyChooseHeader((prev) => ({ ...prev, ...data.whyChooseHeader }));
+      if (data.whyChooses) setWhyChooses(data.whyChooses);
       if (data.faq) setFaq(data.faq);
       if (data.seo) setSeo((prev) => ({ ...prev, ...data.seo }));
     }
@@ -287,7 +317,7 @@ export default function AdFullStack() {
 
   const handleSave = async (e) => {
     e?.preventDefault();
-    const payload = { hero, technologies, process, features, projects, statistics, faq, seo };
+    const payload = { hero, technologies, process, features, projects, statistics, whyChooseHeader, whyChooses, faq, seo };
     setStatus("saving");
     try {
       await savePageContent(PAGE_SLUG, payload);
@@ -587,6 +617,57 @@ export default function AdFullStack() {
                     </Field>
                   </div>
                 ))}
+              </TabPanel>
+            </TabsContent>
+
+            {/* ================= WHY CHOOSE US ================= */}
+            <TabsContent value="whyChoose">
+              <TabPanel>
+                <div className="md:col-span-2 flex items-center gap-4 pb-5 mb-1 border-b border-slate-100">
+                  <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
+                    <Award size={22} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base tracking-tight">Why Choose Us</h3>
+                    <p className="text-xs font-semibold text-slate-500 mt-1">Manage the reasons cards shown on the public page.</p>
+                  </div>
+                </div>
+                <Field label="Section Eyebrow">
+                  <TextInput value={whyChooseHeader.eyebrow} onChange={(e) => setWhyChooseHeader({ ...whyChooseHeader, eyebrow: e.target.value })} placeholder="Why Us" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={whyChooseHeader.title} onChange={(e) => setWhyChooseHeader({ ...whyChooseHeader, title: e.target.value })} placeholder="Why Choose Us" />
+                </Field>
+
+                <ListHeader title="Reasons Cards" count={whyChooses.length} onAdd={addWhyChoose} addLabel="Add Reason" />
+
+                {whyChooses.length === 0 ? (
+                  <div className="md:col-span-2">
+                    <EmptyState message='No reasons yet — click "Add Reason" to create the first one.' />
+                  </div>
+                ) : (
+                  <div className="md:col-span-2 space-y-3">
+                    {whyChooses.map((reason, idx) => (
+                      <div key={reason.id} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-xs font-bold text-slate-500">Reason #{idx + 1}</span>
+                          <RemoveBtn onClick={() => removeWhyChoose(reason.id, reason.title)} />
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <Field label="Title">
+                            <TextInput value={reason.title} onChange={(e) => updateWhyChoose(reason.id, "title", e.target.value)} />
+                          </Field>
+                          <Field label="Icon Preset">
+                            <SelectInput options={WHY_CHOOSE_ICON_OPTIONS} value={reason.icon} onChange={(e) => updateWhyChoose(reason.id, "icon", e.target.value)} />
+                          </Field>
+                        </div>
+                        <Field label="Description">
+                          <TextArea rows={2} value={reason.desc} onChange={(e) => updateWhyChoose(reason.id, "desc", e.target.value)} />
+                        </Field>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </TabPanel>
             </TabsContent>
 

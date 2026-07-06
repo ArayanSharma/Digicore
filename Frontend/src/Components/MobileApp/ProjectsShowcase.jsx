@@ -2,14 +2,18 @@ import { ExternalLink } from "lucide-react";
 import { FaAndroid, FaApple, FaGithub } from "react-icons/fa";
 import { PhoneMockup, AppScreenSkeleton, SectionKicker } from "./shared";
 
-export default function ProjectsShowcase({ projects }) {
+export default function ProjectsShowcase({ header, projects }) {
+  const eyebrow = header?.eyebrow || "Portfolio";
+  const title = header?.title || "Featured Mobile Projects";
+  const description = header?.description || "A sample of Android and iOS products we've designed, engineered, and shipped to real users.";
+
   return (
     <section className="bg-slate-50 py-24 md:py-28">
       <div className="container-custom">
         <SectionKicker
-          eyebrow="Portfolio"
-          title="Featured Mobile Projects"
-          description="A sample of Android and iOS products we've designed, engineered, and shipped to real users."
+          eyebrow={eyebrow}
+          title={title}
+          description={description}
         />
 
         <div className="mp-stagger-group grid grid-cols-1 lg:grid-cols-2 gap-8">

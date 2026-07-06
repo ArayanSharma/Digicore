@@ -22,9 +22,13 @@ function buildCurvePath(count) {
   return d;
 }
 
-export default function DevelopmentProcess({ steps }) {
+export default function DevelopmentProcess({ header, steps }) {
   const pathRef = useRef(null);
   const wrapRef = useRef(null);
+
+  const eyebrow = header?.eyebrow || "How We Work";
+  const title = header?.title || "Mobile App Development Process";
+  const description = header?.description || "A proven, transparent path from your first idea to a five-star rated app in production.";
 
   useEffect(() => {
     const path = pathRef.current;
@@ -52,9 +56,9 @@ export default function DevelopmentProcess({ steps }) {
     <section className="bg-slate-50 py-24 md:py-28 overflow-hidden">
       <div className="container-custom">
         <SectionKicker
-          eyebrow="How We Work"
-          title="Mobile App Development Process"
-          description="A proven, transparent path from your first idea to a five-star rated app in production."
+          eyebrow={eyebrow}
+          title={title}
+          description={description}
         />
 
         <div ref={wrapRef} className="relative max-w-3xl mx-auto" style={{ minHeight: totalHeight }}>

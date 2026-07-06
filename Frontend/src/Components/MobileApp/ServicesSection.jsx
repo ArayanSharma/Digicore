@@ -5,13 +5,14 @@ import { resolveImage } from "../../hooks/usePageContent";
 
 export default function ServicesSection({
   services,
+  eyebrow = "App Development Services",
   heading = "Everything Your Mobile Product Needs",
   subheading = "From first sketch to store listing — a full-cycle mobile engineering team under one roof.",
 }) {
   return (
     <section className="container-custom py-24 md:py-28">
       <SectionKicker
-        eyebrow="App Development Services"
+        eyebrow={eyebrow}
         title={heading}
         description={subheading}
       />

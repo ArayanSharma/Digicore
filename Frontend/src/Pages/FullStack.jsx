@@ -24,6 +24,7 @@ import {
   Braces,
   Plus,
   Minus,
+  Star,
 } from "lucide-react";
 import {
   SiMongodb,
@@ -75,6 +76,19 @@ const FEATURE_ICON_MAP = {
   Cloud,
   Wrench,
   Sparkles,
+};
+
+const WHY_CHOOSE_ICON_MAP = {
+  Award,
+  Cpu,
+  Code2,
+  Layers,
+  Rocket,
+  Headphones,
+  Sparkles,
+  ShieldCheck,
+  Star,
+  Wrench,
 };
 
 /* ------------------------------------------------------------------ */
@@ -159,13 +173,18 @@ const defaultProjects = [
   },
 ];
 
-const whyChooseUs = [
-  { icon: Award, title: "5+ Years Experience", desc: "A seasoned team that has shipped full stack products across industries." },
-  { icon: Cpu, title: "Modern Technologies", desc: "We build on current, battle-tested frameworks — never legacy stacks." },
-  { icon: Code2, title: "Clean Code", desc: "Readable, well-documented, maintainable code your team can build on." },
-  { icon: Layers, title: "Scalable Architecture", desc: "Systems designed to grow from first users to millions of requests." },
-  { icon: Rocket, title: "Fast Delivery", desc: "Agile sprints and clear milestones keep your project moving quickly." },
-  { icon: Headphones, title: "Support", desc: "Post-launch monitoring, maintenance, and support whenever you need it." },
+const defaultWhyChooseHeader = {
+  eyebrow: "Why Us",
+  title: "Why Choose Us",
+};
+
+const defaultWhyChooses = [
+  { icon: "Award", title: "5+ Years Experience", desc: "A seasoned team that has shipped full stack products across industries." },
+  { icon: "Cpu", title: "Modern Technologies", desc: "We build on current, battle-tested frameworks — never legacy stacks." },
+  { icon: "Code2", title: "Clean Code", desc: "Readable, well-documented, maintainable code your team can build on." },
+  { icon: "Layers", title: "Scalable Architecture", desc: "Systems designed to grow from first users to millions of requests." },
+  { icon: "Rocket", title: "Fast Delivery", desc: "Agile sprints and clear milestones keep your project moving quickly." },
+  { icon: "Headphones", title: "Support", desc: "Post-launch monitoring, maintenance, and support whenever you need it." },
 ];
 
 const defaultStats = {
@@ -253,6 +272,11 @@ export default function FullStack() {
     technologies: { ...defaultStats.technologies, ...(c?.statistics?.technologies || {}) },
     experience: { ...defaultStats.experience, ...(c?.statistics?.experience || {}) },
   };
+  const whyChooseHeader = {
+    eyebrow: c?.whyChooseHeader?.eyebrow || defaultWhyChooseHeader.eyebrow,
+    title: c?.whyChooseHeader?.title || defaultWhyChooseHeader.title,
+  };
+  const whyChooses = c?.whyChooses?.length ? c.whyChooses : defaultWhyChooses;
   const faqs = (c?.faq?.length ? c.faq : defaultFaq).filter((f) => f.visible !== false);
   const seo = { ...defaultSeo, ...(c?.seo || {}) };
 
@@ -534,23 +558,26 @@ export default function FullStack() {
       {/* ================= WHY CHOOSE US ================= */}
       <section className="container-custom py-24 md:py-28">
         <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
-          <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">Why Us</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">Why Choose Us</h2>
+          <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">{whyChooseHeader.eyebrow}</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-brand-primary mt-3">{whyChooseHeader.title}</h2>
         </div>
 
         <div className="fs-stagger-group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {whyChooseUs.map((item, i) => (
-            <div
-              key={i}
-              className="rounded-2xl p-7 bg-gradient-to-br from-brand-primary/5 to-brand-accent/5 border border-brand-primary/10 hover:border-brand-accent/30 hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-xl bg-white shadow-sm text-brand-accent flex items-center justify-center mb-4">
-                <item.icon size={22} />
+          {whyChooses.map((item, i) => {
+            const IconComponent = WHY_CHOOSE_ICON_MAP[item.icon] || Star;
+            return (
+              <div
+                key={item.id || i}
+                className="rounded-2xl p-7 bg-gradient-to-br from-brand-primary/5 to-brand-accent/5 border border-brand-primary/10 hover:border-brand-accent/30 hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-white shadow-sm text-brand-accent flex items-center justify-center mb-4">
+                  <IconComponent size={22} />
+                </div>
+                <h3 className="font-bold text-brand-primary">{item.title}</h3>
+                <p className="text-sm text-text-muted mt-2 leading-relaxed">{item.desc}</p>
               </div>
-              <h3 className="font-bold text-brand-primary">{item.title}</h3>
-              <p className="text-sm text-text-muted mt-2 leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

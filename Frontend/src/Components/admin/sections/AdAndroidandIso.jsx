@@ -14,6 +14,10 @@ import {
   ChevronLeft,
   ChevronRight,
   Star,
+  Layers,
+  LayoutGrid,
+  Building2,
+  ShieldCheck,
 } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../../ui/tabs";
 import { loadPageContent, savePageContent } from "../../../utils/pageApi";
@@ -60,16 +64,62 @@ const SERVICE_ICON_OPTIONS = [
   "CustomBusinessApps",
 ];
 
+const PLATFORM_ICON_OPTIONS = ["FaAndroid", "FaApple", "Repeat", "Layers"];
+const BENTO_ICON_OPTIONS = [
+  "Bell",
+  "MessageCircle",
+  "MapPin",
+  "Fingerprint",
+  "CreditCard",
+  "WifiOff",
+  "RefreshCw",
+  "QrCode",
+  "BarChart3",
+  "Languages",
+  "Moon",
+  "BrainCircuit",
+];
+const WHY_CHOOSE_ICON_OPTIONS = [
+  "Users",
+  "Palette",
+  "FaAppStoreIos",
+  "FaGooglePlay",
+  "ShieldCheck",
+  "Gauge",
+  "Layers",
+  "Repeat2",
+  "Headphones",
+  "Cpu",
+];
+const INDUSTRY_ICON_OPTIONS = [
+  "HeartPulse",
+  "Landmark",
+  "ShoppingCart",
+  "UtensilsCrossed",
+  "Truck",
+  "GraduationCap",
+  "Building2",
+  "Plane",
+  "Dumbbell",
+  "Clapperboard",
+  "Factory",
+  "Zap",
+];
+
 const SUPPORTED_TECH_HINT =
   "Auto-matches a logo for: Kotlin, Java, Swift, SwiftUI, Flutter, React Native, Node.js, Express, Django, MongoDB, MySQL, PostgreSQL, SQLite, AWS, Google Cloud, Firebase, Appwrite, Android Studio, Xcode, GitHub, Docker, Figma, Postman.";
 
 const TABS = [
   { value: "hero", label: "Hero", icon: Sparkles },
+  { value: "platforms", label: "Platforms", icon: Layers },
   { value: "services", label: "Services", icon: Boxes },
   { value: "technologies", label: "Technologies", icon: Braces },
+  { value: "bento", label: "Bento Features", icon: LayoutGrid },
   { value: "process", label: "Process", icon: Workflow },
-  { value: "projects", label: "Projects", icon: FolderKanban },
+  { value: "whyChoose", label: "Why Choose Us", icon: ShieldCheck },
   { value: "statistics", label: "Statistics", icon: BarChart3 },
+  { value: "industries", label: "Industries", icon: Building2 },
+  { value: "projects", label: "Projects", icon: FolderKanban },
   { value: "testimonials", label: "Testimonials", icon: MessageSquareText },
   { value: "faq", label: "FAQ", icon: HelpCircle },
   { value: "seo", label: "SEO", icon: SearchIcon },
@@ -181,31 +231,59 @@ export default function AdAndroidandIso() {
     secondaryBtn: { text: "", link: "" },
   });
 
-  const [servicesHeader, setServicesHeader] = useState({ heading: "", subheading: "" });
+  const [platformsHeader, setPlatformsHeader] = useState({ eyebrow: "", title: "", description: "" });
+  const [platforms, setPlatforms] = useState([]);
+
+  const [servicesHeader, setServicesHeader] = useState({ eyebrow: "", heading: "", subheading: "" });
   const [services, setServices] = useState([]);
   const [serviceSearch, setServiceSearch] = useState("");
   const [serviceDragIndex, setServiceDragIndex] = useState(null);
 
+  const [techHeader, setTechHeader] = useState({ eyebrow: "", title: "", description: "" });
   const [technologies, setTechnologies] = useState([]);
   const [techSearch, setTechSearch] = useState("");
   const [techDragIndex, setTechDragIndex] = useState(null);
 
+  const [bentoHeader, setBentoHeader] = useState({ eyebrow: "", title: "", description: "" });
+  const [bentos, setBentos] = useState([]);
+
+  const [processHeader, setProcessHeader] = useState({ eyebrow: "", title: "", description: "" });
   const [process, setProcess] = useState([]);
 
+  const [whyChooseHeader, setWhyChooseHeader] = useState({ eyebrow: "", title: "", description: "" });
+  const [whyChooses, setWhyChooses] = useState([]);
+
+  const [statistics, setStatistics] = useState({
+    apps: { value: "", suffix: "", label: "" },
+    downloads: { value: "", suffix: "", label: "" },
+    countries: { value: "", suffix: "", label: "" },
+    clients: { value: "", suffix: "", label: "" },
+    rating: { value: "", suffix: "", label: "" },
+    satisfaction: { value: "", suffix: "", label: "" },
+  });
+
+  const [industriesHeader, setIndustriesHeader] = useState({ eyebrow: "", title: "", description: "" });
+  const [industries, setIndustries] = useState([]);
+
+  const [projectsHeader, setProjectsHeader] = useState({ eyebrow: "", title: "", description: "" });
   const [projects, setProjects] = useState([]);
   const [projectSearch, setProjectSearch] = useState("");
 
-  const [statistics, setStatistics] = useState({
-    apps: { value: "", label: "" },
-    clients: { value: "", label: "" },
-    countries: { value: "", label: "" },
-    satisfaction: { value: "", label: "" },
-  });
-
+  const [testimonialsHeader, setTestimonialsHeader] = useState({ eyebrow: "", title: "" });
   const [testimonials, setTestimonials] = useState([]);
+  const [faqHeader, setFaqHeader] = useState({ eyebrow: "", title: "", description: "" });
   const [faq, setFaq] = useState([]);
 
   const [seo, setSeo] = useState({ metaTitle: "", metaDescription: "", keywords: "", ogImage: "" });
+
+  /* ---------- Platforms ---------- */
+  const addPlatform = () => setPlatforms([...platforms, { id: uid(), icon: PLATFORM_ICON_OPTIONS[0], color: "#3B82F6", title: "", description: "", chips: "", benefits: "" }]);
+  const updatePlatform = (id, field, value) => setPlatforms(platforms.map((p) => (p.id === id ? { ...p, [field]: value } : p)));
+  const removePlatform = (id, title) => {
+    if (!window.confirm(`Remove "${title || "this platform"}"?`)) return;
+    setPlatforms(platforms.filter((p) => p.id !== id));
+    showToast("Platform removed");
+  };
 
   /* ---------- Services ---------- */
   const addService = () =>
@@ -261,6 +339,24 @@ export default function AdAndroidandIso() {
     showToast("Process step removed");
   };
 
+  /* ---------- Bento Features ---------- */
+  const addBento = () => setBentos([...bentos, { id: uid(), icon: BENTO_ICON_OPTIONS[0], title: "", desc: "", span: "" }]);
+  const updateBento = (id, field, value) => setBentos(bentos.map((b) => (b.id === id ? { ...b, [field]: value } : b)));
+  const removeBento = (id, title) => {
+    if (!window.confirm(`Remove "${title || "this feature"}"?`)) return;
+    setBentos(bentos.filter((b) => b.id !== id));
+    showToast("Bento feature removed");
+  };
+
+  /* ---------- Why Choose Us ---------- */
+  const addWhyChoose = () => setWhyChooses([...whyChooses, { id: uid(), icon: WHY_CHOOSE_ICON_OPTIONS[0], title: "", desc: "" }]);
+  const updateWhyChoose = (id, field, value) => setWhyChooses(whyChooses.map((w) => (w.id === id ? { ...w, [field]: value } : w)));
+  const removeWhyChoose = (id, title) => {
+    if (!window.confirm(`Remove "${title || "this reason"}"?`)) return;
+    setWhyChooses(whyChooses.filter((w) => w.id !== id));
+    showToast("Reason removed");
+  };
+
   /* ---------- Projects ---------- */
   const addProject = () =>
     setProjects([
@@ -295,6 +391,15 @@ export default function AdAndroidandIso() {
     showToast("FAQ item removed");
   };
 
+  /* ---------- Industries ---------- */
+  const addIndustry = () => setIndustries([...industries, { id: uid(), icon: INDUSTRY_ICON_OPTIONS[0], title: "", desc: "" }]);
+  const updateIndustry = (id, field, value) => setIndustries(industries.map((ind) => (ind.id === id ? { ...ind, [field]: value } : ind)));
+  const removeIndustry = (id, title) => {
+    if (!window.confirm(`Remove "${title || "this industry"}"?`)) return;
+    setIndustries(industries.filter((ind) => ind.id !== id));
+    showToast("Industry removed");
+  };
+
   /* ---------- Load / Save ---------- */
   const load = useCallback(async () => {
     setLoading(true);
@@ -307,13 +412,26 @@ export default function AdAndroidandIso() {
     }
     if (data) {
       if (data.hero) setHero((prev) => ({ ...prev, ...data.hero }));
+      if (data.platformsHeader) setPlatformsHeader((prev) => ({ ...prev, ...data.platformsHeader }));
+      if (data.platforms) setPlatforms(data.platforms);
       if (data.servicesHeader) setServicesHeader((prev) => ({ ...prev, ...data.servicesHeader }));
       if (data.services) setServices(data.services);
+      if (data.techHeader) setTechHeader((prev) => ({ ...prev, ...data.techHeader }));
       if (data.technologies) setTechnologies(data.technologies);
+      if (data.bentoHeader) setBentoHeader((prev) => ({ ...prev, ...data.bentoHeader }));
+      if (data.bentos) setBentos(data.bentos);
+      if (data.processHeader) setProcessHeader((prev) => ({ ...prev, ...data.processHeader }));
       if (data.process) setProcess(data.process);
-      if (data.projects) setProjects(data.projects);
+      if (data.whyChooseHeader) setWhyChooseHeader((prev) => ({ ...prev, ...data.whyChooseHeader }));
+      if (data.whyChooses) setWhyChooses(data.whyChooses);
       if (data.statistics) setStatistics((prev) => ({ ...prev, ...data.statistics }));
+      if (data.industriesHeader) setIndustriesHeader((prev) => ({ ...prev, ...data.industriesHeader }));
+      if (data.industries) setIndustries(data.industries);
+      if (data.projectsHeader) setProjectsHeader((prev) => ({ ...prev, ...data.projectsHeader }));
+      if (data.projects) setProjects(data.projects);
+      if (data.testimonialsHeader) setTestimonialsHeader((prev) => ({ ...prev, ...data.testimonialsHeader }));
       if (data.testimonials) setTestimonials(data.testimonials);
+      if (data.faqHeader) setFaqHeader((prev) => ({ ...prev, ...data.faqHeader }));
       if (data.faq) setFaq(data.faq);
       if (data.seo) setSeo((prev) => ({ ...prev, ...data.seo }));
     }
@@ -328,7 +446,31 @@ export default function AdAndroidandIso() {
 
   const handleSave = async (e) => {
     e?.preventDefault();
-    const payload = { hero, servicesHeader, services, technologies, process, projects, statistics, testimonials, faq, seo };
+    const payload = {
+      hero,
+      platformsHeader,
+      platforms,
+      servicesHeader,
+      services,
+      techHeader,
+      technologies,
+      bentoHeader,
+      bentos,
+      processHeader,
+      process,
+      whyChooseHeader,
+      whyChooses,
+      statistics,
+      industriesHeader,
+      industries,
+      projectsHeader,
+      projects,
+      testimonialsHeader,
+      testimonials,
+      faqHeader,
+      faq,
+      seo,
+    };
     setStatus("saving");
     try {
       await savePageContent(PAGE_SLUG, payload);
@@ -391,10 +533,72 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
+            {/* ================= PLATFORMS ================= */}
+            <TabsContent value="platforms">
+              <TabPanel>
+                <TabSectionHeader icon={Layers} title="Platforms Section" description="Configure the platforms list (Native Android, iOS, Cross Platform)." />
+                <Field label="Section Eyebrow">
+                  <TextInput value={platformsHeader.eyebrow} onChange={(e) => setPlatformsHeader({ ...platformsHeader, eyebrow: e.target.value })} placeholder="Mobile Platforms We Build" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={platformsHeader.title} onChange={(e) => setPlatformsHeader({ ...platformsHeader, title: e.target.value })} placeholder="Every Platform. One Standard of Excellence." />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={3} value={platformsHeader.description} onChange={(e) => setPlatformsHeader({ ...platformsHeader, description: e.target.value })} placeholder="Whether your users live on Android, iOS, or both..." />
+                </Field>
+
+                <ListHeader title="Platforms Cards" count={platforms.length} onAdd={addPlatform} addLabel="Add Platform" />
+
+                {platforms.length === 0 ? (
+                  <div className="md:col-span-2">
+                    <EmptyState message='No platforms yet — click "Add Platform" to create the first one.' />
+                  </div>
+                ) : (
+                  <div className="md:col-span-2 space-y-3">
+                    {platforms.map((platform, idx) => (
+                      <div key={platform.id} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-xs font-bold text-slate-500">Platform #{idx + 1}</span>
+                          <RemoveBtn onClick={() => removePlatform(platform.id, platform.title)} />
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <Field label="Title">
+                            <TextInput value={platform.title} onChange={(e) => updatePlatform(platform.id, "title", e.target.value)} placeholder="e.g. Native Android" />
+                          </Field>
+                          <Field label="Icon Preset">
+                            <SelectInput options={PLATFORM_ICON_OPTIONS} value={platform.icon} onChange={(e) => updatePlatform(platform.id, "icon", e.target.value)} />
+                          </Field>
+                          <Field label="Color Theme (Hex or CSS color)">
+                            <TextInput value={platform.color} onChange={(e) => updatePlatform(platform.id, "color", e.target.value)} placeholder="e.g. #3DDC84" />
+                          </Field>
+                        </div>
+                        <Field label="Description">
+                          <TextArea rows={2} value={platform.description} onChange={(e) => updatePlatform(platform.id, "description", e.target.value)} />
+                        </Field>
+                        <Field label="Chips (comma separated)">
+                          <TextInput value={platform.chips} onChange={(e) => updatePlatform(platform.id, "chips", e.target.value)} placeholder="e.g. Kotlin, Java, Material Design" />
+                        </Field>
+                        <Field label="Benefits / Key points (comma separated)">
+                          <TextArea rows={3} value={platform.benefits} onChange={(e) => updatePlatform(platform.id, "benefits", e.target.value)} placeholder="e.g. Deep hardware & OS integration, Distributed via Google Play" />
+                        </Field>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </TabPanel>
+            </TabsContent>
+
             {/* ================= SERVICES ================= */}
             <TabsContent value="services">
               <TabPanel>
                 <TabSectionHeader icon={Boxes} title="Services" description="The mobile app services grid shown on the public page." />
+                <Field label="Section Eyebrow">
+                  <TextInput
+                    value={servicesHeader.eyebrow}
+                    onChange={(e) => setServicesHeader({ ...servicesHeader, eyebrow: e.target.value })}
+                    placeholder="App Development Services"
+                  />
+                </Field>
                 <Field label="Section Heading">
                   <TextInput
                     value={servicesHeader.heading}
@@ -469,6 +673,15 @@ export default function AdAndroidandIso() {
             <TabsContent value="technologies">
               <TabPanel>
                 <TabSectionHeader icon={Braces} title="Technologies" description="The floating technology stack strip shown on the public page." />
+                <Field label="Section Eyebrow">
+                  <TextInput value={techHeader.eyebrow} onChange={(e) => setTechHeader({ ...techHeader, eyebrow: e.target.value })} placeholder="Our Tech Stack" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={techHeader.title} onChange={(e) => setTechHeader({ ...techHeader, title: e.target.value })} placeholder="Technologies We Use" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={3} value={techHeader.description} onChange={(e) => setTechHeader({ ...techHeader, description: e.target.value })} placeholder="A modern, production-proven toolkit spanning mobile, backend, data, cloud, and tooling." />
+                </Field>
                 <ListHeader title="Technology Cards" count={technologies.length} onAdd={addTechnology} addLabel="Add Technology" />
                 <SearchBox value={techSearch} onChange={setTechSearch} placeholder="Search technologies by name..." />
 
@@ -514,10 +727,68 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
+            {/* ================= BENTO FEATURES ================= */}
+            <TabsContent value="bento">
+              <TabPanel>
+                <TabSectionHeader icon={LayoutGrid} title="Bento Features Section" description="Configure the grid of app features." />
+                <Field label="Section Eyebrow">
+                  <TextInput value={bentoHeader.eyebrow} onChange={(e) => setBentoHeader({ ...bentoHeader, eyebrow: e.target.value })} placeholder="App Features" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={bentoHeader.title} onChange={(e) => setBentoHeader({ ...bentoHeader, title: e.target.value })} placeholder="Capabilities Your App Can Ship With" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={3} value={bentoHeader.description} onChange={(e) => setBentoHeader({ ...bentoHeader, description: e.target.value })} placeholder="Production-ready features we wire into every build..." />
+                </Field>
+
+                <ListHeader title="Bento Features Cards" count={bentos.length} onAdd={addBento} addLabel="Add Feature" />
+
+                {bentos.length === 0 ? (
+                  <div className="md:col-span-2">
+                    <EmptyState message='No features yet — click "Add Feature" to create the first one.' />
+                  </div>
+                ) : (
+                  <div className="md:col-span-2 space-y-3">
+                    {bentos.map((bento, idx) => (
+                      <div key={bento.id} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-xs font-bold text-slate-500">Feature #{idx + 1}</span>
+                          <RemoveBtn onClick={() => removeBento(bento.id, bento.title)} />
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <Field label="Title">
+                            <TextInput value={bento.title} onChange={(e) => updateBento(bento.id, "title", e.target.value)} />
+                          </Field>
+                          <Field label="Icon Preset">
+                            <SelectInput options={BENTO_ICON_OPTIONS} value={bento.icon} onChange={(e) => updateBento(bento.id, "icon", e.target.value)} />
+                          </Field>
+                        </div>
+                        <Field label="Description">
+                          <TextArea rows={2} value={bento.desc} onChange={(e) => updateBento(bento.id, "desc", e.target.value)} />
+                        </Field>
+                        <Field label="Grid Span Class (optional)">
+                          <TextInput value={bento.span} onChange={(e) => updateBento(bento.id, "span", e.target.value)} placeholder="e.g. lg:col-span-2 lg:row-span-1" />
+                        </Field>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </TabPanel>
+            </TabsContent>
+
             {/* ================= PROCESS ================= */}
             <TabsContent value="process">
               <TabPanel>
                 <TabSectionHeader icon={Workflow} title="Development Process" description="The vertical step-by-step timeline shown on the public page." />
+                <Field label="Section Eyebrow">
+                  <TextInput value={processHeader.eyebrow} onChange={(e) => setProcessHeader({ ...processHeader, eyebrow: e.target.value })} placeholder="How We Work" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={processHeader.title} onChange={(e) => setProcessHeader({ ...processHeader, title: e.target.value })} placeholder="Mobile App Development Process" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={3} value={processHeader.description} onChange={(e) => setProcessHeader({ ...processHeader, description: e.target.value })} placeholder="A proven, transparent path from your first idea to a five-star rated app in production." />
+                </Field>
                 <ListHeader title="Process Timeline" count={process.length} onAdd={addProcessStep} addLabel="Add Step" />
                 {process.length === 0 ? (
                   <div className="md:col-span-2">
@@ -544,10 +815,65 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
+            {/* ================= WHY CHOOSE US ================= */}
+            <TabsContent value="whyChoose">
+              <TabPanel>
+                <TabSectionHeader icon={ShieldCheck} title="Why Choose Us Section" description="Configure the grid of reasons to choose DigiCore." />
+                <Field label="Section Eyebrow">
+                  <TextInput value={whyChooseHeader.eyebrow} onChange={(e) => setWhyChooseHeader({ ...whyChooseHeader, eyebrow: e.target.value })} placeholder="Why Us" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={whyChooseHeader.title} onChange={(e) => setWhyChooseHeader({ ...whyChooseHeader, title: e.target.value })} placeholder="Why Choose DigiCore" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={3} value={whyChooseHeader.description} onChange={(e) => setWhyChooseHeader({ ...whyChooseHeader, description: e.target.value })} placeholder="Ten reasons founders and enterprises trust us..." />
+                </Field>
+
+                <ListHeader title="Reasons Cards" count={whyChooses.length} onAdd={addWhyChoose} addLabel="Add Reason" />
+
+                {whyChooses.length === 0 ? (
+                  <div className="md:col-span-2">
+                    <EmptyState message='No reasons yet — click "Add Reason" to create the first one.' />
+                  </div>
+                ) : (
+                  <div className="md:col-span-2 space-y-3">
+                    {whyChooses.map((reason, idx) => (
+                      <div key={reason.id} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-xs font-bold text-slate-500">Reason #{idx + 1}</span>
+                          <RemoveBtn onClick={() => removeWhyChoose(reason.id, reason.title)} />
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <Field label="Title">
+                            <TextInput value={reason.title} onChange={(e) => updateWhyChoose(reason.id, "title", e.target.value)} />
+                          </Field>
+                          <Field label="Icon Preset">
+                            <SelectInput options={WHY_CHOOSE_ICON_OPTIONS} value={reason.icon} onChange={(e) => updateWhyChoose(reason.id, "icon", e.target.value)} />
+                          </Field>
+                        </div>
+                        <Field label="Description">
+                          <TextArea rows={2} value={reason.desc} onChange={(e) => updateWhyChoose(reason.id, "desc", e.target.value)} />
+                        </Field>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </TabPanel>
+            </TabsContent>
+
             {/* ================= PROJECTS ================= */}
             <TabsContent value="projects">
               <TabPanel>
                 <TabSectionHeader icon={FolderKanban} title="App Showcase Projects" description="The phone-mockup portfolio shown on the public page." />
+                <Field label="Section Eyebrow">
+                  <TextInput value={projectsHeader.eyebrow} onChange={(e) => setProjectsHeader({ ...projectsHeader, eyebrow: e.target.value })} placeholder="Portfolio" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={projectsHeader.title} onChange={(e) => setProjectsHeader({ ...projectsHeader, title: e.target.value })} placeholder="Featured Mobile Projects" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={3} value={projectsHeader.description} onChange={(e) => setProjectsHeader({ ...projectsHeader, description: e.target.value })} placeholder="A sample of Android and iOS products we've designed, engineered, and shipped to real users." />
+                </Field>
                 <ListHeader title="Projects" count={projects.length} onAdd={addProject} addLabel="Add Project" />
                 <SearchBox value={projectSearch} onChange={setProjectSearch} placeholder="Search projects by name..." />
 
@@ -602,15 +928,22 @@ export default function AdAndroidandIso() {
                 <TabSectionHeader icon={BarChart3} title="Statistics" description="The animated counters shown on the public page." />
                 {[
                   { key: "apps", title: "Apps Delivered Counter" },
-                  { key: "clients", title: "Client Retention Counter" },
+                  { key: "downloads", title: "Downloads Generated Counter" },
                   { key: "countries", title: "Countries Served Counter" },
+                  { key: "clients", title: "Client Retention Counter" },
+                  { key: "rating", title: "Average App Rating Counter" },
                   { key: "satisfaction", title: "Years Experience Counter" },
                 ].map(({ key, title }) => (
                   <div key={key} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
                     <h4 className="text-sm font-bold text-slate-700">{title}</h4>
-                    <Field label="Value">
-                      <TextInput type="number" value={statistics[key].value} onChange={(e) => setStatistics({ ...statistics, [key]: { ...statistics[key], value: e.target.value } })} />
-                    </Field>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <Field label="Value">
+                        <TextInput type="number" value={statistics[key].value} onChange={(e) => setStatistics({ ...statistics, [key]: { ...statistics[key], value: e.target.value } })} />
+                      </Field>
+                      <Field label="Suffix">
+                        <TextInput value={statistics[key].suffix} onChange={(e) => setStatistics({ ...statistics, [key]: { ...statistics[key], suffix: e.target.value } })} placeholder="e.g. +, %, K+, ★" />
+                      </Field>
+                    </div>
                     <Field label="Label">
                       <TextInput value={statistics[key].label} onChange={(e) => setStatistics({ ...statistics, [key]: { ...statistics[key], label: e.target.value } })} />
                     </Field>
@@ -619,10 +952,62 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
+            {/* ================= INDUSTRIES ================= */}
+            <TabsContent value="industries">
+              <TabPanel>
+                <TabSectionHeader icon={Building2} title="Industries Section" description="Configure the grid of industries served." />
+                <Field label="Section Eyebrow">
+                  <TextInput value={industriesHeader.eyebrow} onChange={(e) => setIndustriesHeader({ ...industriesHeader, eyebrow: e.target.value })} placeholder="Industries We Serve" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={industriesHeader.title} onChange={(e) => setIndustriesHeader({ ...industriesHeader, title: e.target.value })} placeholder="Domain Expertise Across Every Sector" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={3} value={industriesHeader.description} onChange={(e) => setIndustriesHeader({ ...industriesHeader, description: e.target.value })} placeholder="We've shipped mobile products for founders and enterprises..." />
+                </Field>
+
+                <ListHeader title="Industries Cards" count={industries.length} onAdd={addIndustry} addLabel="Add Industry" />
+
+                {industries.length === 0 ? (
+                  <div className="md:col-span-2">
+                    <EmptyState message='No industries yet — click "Add Industry" to create the first one.' />
+                  </div>
+                ) : (
+                  <div className="md:col-span-2 space-y-3">
+                    {industries.map((ind, idx) => (
+                      <div key={ind.id} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-xs font-bold text-slate-500">Industry #{idx + 1}</span>
+                          <RemoveBtn onClick={() => removeIndustry(ind.id, ind.title)} />
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <Field label="Title">
+                            <TextInput value={ind.title} onChange={(e) => updateIndustry(ind.id, "title", e.target.value)} />
+                          </Field>
+                          <Field label="Icon Preset">
+                            <SelectInput options={INDUSTRY_ICON_OPTIONS} value={ind.icon} onChange={(e) => updateIndustry(ind.id, "icon", e.target.value)} />
+                          </Field>
+                        </div>
+                        <Field label="Description">
+                          <TextArea rows={2} value={ind.desc} onChange={(e) => updateIndustry(ind.id, "desc", e.target.value)} />
+                        </Field>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </TabPanel>
+            </TabsContent>
+
             {/* ================= TESTIMONIALS ================= */}
             <TabsContent value="testimonials">
               <TabPanel>
                 <TabSectionHeader icon={MessageSquareText} title="Testimonials" description="The auto-sliding client review carousel shown on the public page." />
+                <Field label="Section Eyebrow">
+                  <TextInput value={testimonialsHeader.eyebrow} onChange={(e) => setTestimonialsHeader({ ...testimonialsHeader, eyebrow: e.target.value })} placeholder="Client Testimonials" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={testimonialsHeader.title} onChange={(e) => setTestimonialsHeader({ ...testimonialsHeader, title: e.target.value })} placeholder="What Our Clients Say" />
+                </Field>
                 <ListHeader title="Client Testimonials" count={testimonials.length} onAdd={addTestimonial} addLabel="Add Testimonial" />
                 {testimonials.length === 0 ? (
                   <div className="md:col-span-2">
@@ -663,6 +1048,15 @@ export default function AdAndroidandIso() {
             <TabsContent value="faq">
               <TabPanel>
                 <TabSectionHeader icon={HelpCircle} title="FAQ" description="The accordion of frequently asked questions shown on the public page." />
+                <Field label="Section Eyebrow">
+                  <TextInput value={faqHeader.eyebrow} onChange={(e) => setFaqHeader({ ...faqHeader, eyebrow: e.target.value })} placeholder="FAQ" />
+                </Field>
+                <Field label="Section Title">
+                  <TextInput value={faqHeader.title} onChange={(e) => setFaqHeader({ ...faqHeader, title: e.target.value })} placeholder="Frequently Asked Questions" />
+                </Field>
+                <Field label="Section Description" full>
+                  <TextArea rows={3} value={faqHeader.description} onChange={(e) => setFaqHeader({ ...faqHeader, description: e.target.value })} placeholder="Straight answers to the questions we hear most often about mobile app development." />
+                </Field>
                 <ListHeader title="Questions" count={faq.length} onAdd={addFaqItem} addLabel="Add Question" />
                 {faq.length === 0 ? (
                   <div className="md:col-span-2">

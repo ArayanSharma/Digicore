@@ -4,8 +4,12 @@ import { resolveImage } from "../../hooks/usePageContent";
 import { TECH_META, TECH_CATEGORIES, DEFAULT_TECH_ICON } from "./iconMaps";
 import { SectionKicker } from "./shared";
 
-export default function TechStackSection({ technologies }) {
+export default function TechStackSection({ header, technologies }) {
   const [category, setCategory] = useState("All");
+
+  const eyebrow = header?.eyebrow || "Our Tech Stack";
+  const title = header?.title || "Technologies We Use";
+  const description = header?.description || "A modern, production-proven toolkit spanning mobile, backend, data, cloud, and tooling.";
 
   const filtered = useMemo(() => {
     if (category === "All") return technologies;
@@ -16,9 +20,9 @@ export default function TechStackSection({ technologies }) {
     <section className="bg-white py-24 md:py-28">
       <div className="container-custom">
         <SectionKicker
-          eyebrow="Our Tech Stack"
-          title="Technologies We Use"
-          description="A modern, production-proven toolkit spanning mobile, backend, data, cloud, and tooling."
+          eyebrow={eyebrow}
+          title={title}
+          description={description}
         />
 
         <div className="mp-reveal flex justify-center mb-12">

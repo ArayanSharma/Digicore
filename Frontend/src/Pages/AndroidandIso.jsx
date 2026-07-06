@@ -24,6 +24,103 @@ const PAGE_SLUG = "android-ios-development";
 /* Default content (used until admin-saved content loads)              */
 /* ------------------------------------------------------------------ */
 
+const defaultPlatformsHeader = {
+  eyebrow: "Mobile Platforms We Build",
+  title: "Every Platform. One Standard of Excellence.",
+  description: "Whether your users live on Android, iOS, or both — we engineer apps native to how each platform actually works.",
+};
+
+const defaultPlatforms = [
+  {
+    id: "android",
+    icon: "FaAndroid",
+    color: "#3DDC84",
+    title: "Native Android",
+    description: "High-performance apps built directly for the world's largest mobile ecosystem.",
+    chips: "Kotlin, Java, Material Design",
+    benefits: "Deep hardware & OS integration, Optimized for diverse device ranges, Distributed via Google Play",
+  },
+  {
+    id: "ios",
+    icon: "FaApple",
+    color: "#0f172a",
+    title: "Native iOS",
+    description: "Polished, premium apps engineered for Apple's tightly controlled, high-performing ecosystem.",
+    chips: "Swift, SwiftUI, UIKit",
+    benefits: "Buttery-smooth, consistent performance, Pixel-perfect Apple HIG compliance, Distributed via the App Store",
+  },
+  {
+    id: "cross",
+    icon: "Repeat",
+    color: "#3B82F6",
+    title: "Cross Platform",
+    description: "One codebase, two platforms — ship faster without compromising on native feel.",
+    chips: "Flutter, React Native, Expo",
+    benefits: "Single codebase, faster delivery, Native-grade UI & performance, Lower long-term maintenance cost",
+  },
+];
+
+const defaultBentoHeader = {
+  eyebrow: "App Features",
+  title: "Capabilities Your App Can Ship With",
+  description: "Production-ready features we wire into every build, on demand.",
+};
+
+const defaultBentos = [
+  { id: "b1", icon: "Bell", title: "Push Notifications", desc: "Real-time alerts that bring users back into the experience.", span: "lg:col-span-2 lg:row-span-1" },
+  { id: "b2", icon: "MessageCircle", title: "Live Chat", desc: "In-app real-time messaging built for speed and scale." },
+  { id: "b3", icon: "MapPin", title: "GPS Tracking", desc: "Precise location for delivery, ride-hailing, and geo apps." },
+  { id: "b4", icon: "Fingerprint", title: "Secure Authentication", desc: "Biometric login, 2FA, and rock-solid session security." },
+  { id: "b5", icon: "CreditCard", title: "Payment Gateway", desc: "Seamless in-app payments with providers users trust." },
+  { id: "b6", icon: "BrainCircuit", title: "AI Integration", desc: "Smart recommendations, chat assistants, and on-device ML baked in.", span: "lg:col-span-2 lg:row-span-1" },
+  { id: "b7", icon: "WifiOff", title: "Offline Mode", desc: "Apps that keep working smoothly without a live connection." },
+  { id: "b8", icon: "RefreshCw", title: "Cloud Sync", desc: "Seamless data sync across every device your users own." },
+  { id: "b9", icon: "QrCode", title: "QR Scanner", desc: "Native scanning for check-ins, payments, and quick actions." },
+  { id: "b10", icon: "BarChart3", title: "Analytics", desc: "In-depth behavioral analytics baked into every build." },
+  { id: "b11", icon: "Languages", title: "Multi-language", desc: "Full localization support for global audiences." },
+  { id: "b12", icon: "Moon", title: "Dark Mode", desc: "Beautiful, accessible dark themes out of the box." },
+];
+
+const defaultWhyChooseHeader = {
+  eyebrow: "Why Us",
+  title: "Why Choose DigiCore",
+  description: "Ten reasons founders and enterprises trust us with their most important mobile products.",
+};
+
+const defaultWhyChooses = [
+  { id: "wc1", icon: "Users", title: "Experienced Mobile Developers", desc: "A senior team that has shipped apps across every major industry." },
+  { id: "wc2", icon: "Palette", title: "Pixel Perfect UI", desc: "Interfaces crafted to match design specs down to the last pixel." },
+  { id: "wc3", icon: "FaAppStoreIos", title: "App Store Ready", desc: "Smooth, compliant submissions to Apple's App Store." },
+  { id: "wc4", icon: "FaGooglePlay", title: "Google Play Ready", desc: "End-to-end Google Play listing, release & rollout management." },
+  { id: "wc5", icon: "ShieldCheck", title: "Secure Architecture", desc: "Best-practice encryption, auth, and data handling by default." },
+  { id: "wc6", icon: "Gauge", title: "Fast Performance", desc: "Optimized builds engineered for speed on every device." },
+  { id: "wc7", icon: "Layers", title: "Scalable Codebase", desc: "Clean, modular architecture built to grow with your business." },
+  { id: "wc8", icon: "Repeat2", title: "Agile Development", desc: "Transparent sprints and milestones that keep launches on time." },
+  { id: "wc9", icon: "Headphones", title: "Ongoing Support", desc: "Continuous monitoring, patches, and support after release." },
+  { id: "wc10", icon: "Cpu", title: "Latest Technologies", desc: "We build on current, battle-tested frameworks — never legacy stacks." },
+];
+
+const defaultIndustriesHeader = {
+  eyebrow: "Industries We Serve",
+  title: "Domain Expertise Across Every Sector",
+  description: "We've shipped mobile products for founders and enterprises across a wide range of industries.",
+};
+
+const defaultIndustries = [
+  { id: "ind1", icon: "HeartPulse", title: "Healthcare", desc: "Telemedicine, patient portals & HIPAA-ready records." },
+  { id: "ind2", icon: "Landmark", title: "Finance", desc: "Secure banking, trading & digital wallet apps." },
+  { id: "ind3", icon: "ShoppingCart", title: "Ecommerce", desc: "High-converting shopping & marketplace experiences." },
+  { id: "ind4", icon: "UtensilsCrossed", title: "Food Delivery", desc: "Live tracking, ordering & kitchen dashboards." },
+  { id: "ind5", icon: "Truck", title: "Logistics", desc: "Fleet tracking, route optimization & dispatch tools." },
+  { id: "ind6", icon: "GraduationCap", title: "Education", desc: "Interactive learning, live classes & progress tracking." },
+  { id: "ind7", icon: "Building2", title: "Real Estate", desc: "Property listings, virtual tours & lead management." },
+  { id: "ind8", icon: "Plane", title: "Travel", desc: "Bookings, itineraries & real-time trip updates." },
+  { id: "ind9", icon: "Dumbbell", title: "Fitness", desc: "Workout plans, wearable sync & community challenges." },
+  { id: "ind10", icon: "Clapperboard", title: "Entertainment", desc: "Streaming, ticketing & fan engagement platforms." },
+  { id: "ind11", icon: "Factory", title: "Manufacturing", desc: "IoT dashboards, inventory & plant-floor visibility." },
+  { id: "ind12", icon: "Zap", title: "On-Demand Services", desc: "Booking, dispatch & real-time service marketplaces." },
+];
+
 const defaultHero = {
   visible: true,
   badge: "📱 DigiCore Mobile Studio",
@@ -38,6 +135,7 @@ const defaultHero = {
 };
 
 const defaultServicesHeader = {
+  eyebrow: "App Development Services",
   heading: "Everything Your Mobile Product Needs",
   subheading: "From first sketch to store listing — a full-cycle mobile engineering team under one roof.",
 };
@@ -83,6 +181,12 @@ const defaultTechnologies = [
   { id: "t23", name: "Postman", description: "API design, testing, and documentation toolkit.", visible: true },
 ];
 
+const defaultProcessHeader = {
+  eyebrow: "How We Work",
+  title: "Mobile App Development Process",
+  description: "A proven, transparent path from your first idea to a five-star rated app in production.",
+};
+
 const defaultProcess = [
   { title: "Discovery", desc: "Understanding your goals, users, and platform requirements in depth." },
   { title: "Wireframing", desc: "Mapping every screen and flow before a single line of UI is built." },
@@ -93,6 +197,18 @@ const defaultProcess = [
   { title: "App Store Deployment", desc: "Managing App Store and Google Play submissions end-to-end." },
   { title: "Maintenance & Updates", desc: "Ongoing monitoring, updates, and support after launch." },
 ];
+
+const defaultTechHeader = {
+  eyebrow: "Our Tech Stack",
+  title: "Technologies We Use",
+  description: "A modern, production-proven toolkit spanning mobile, backend, data, cloud, and tooling.",
+};
+
+const defaultProjectsHeader = {
+  eyebrow: "Portfolio",
+  title: "Featured Mobile Projects",
+  description: "A sample of Android and iOS products we've designed, engineered, and shipped to real users.",
+};
 
 const defaultProjects = [
   {
@@ -147,9 +263,16 @@ const defaultProjects = [
 
 const defaultStatistics = {
   apps: { value: 120, suffix: "+", label: "Apps Delivered" },
+  downloads: { value: 250, suffix: "K+", label: "Downloads Generated" },
   clients: { value: 96, suffix: "%", label: "Client Retention" },
   countries: { value: 15, suffix: "+", label: "Countries Served" },
+  rating: { value: 4.9, suffix: "★", label: "Average App Rating" },
   satisfaction: { value: 5, suffix: "+", label: "Years Experience" },
+};
+
+const defaultTestimonialsHeader = {
+  eyebrow: "Client Testimonials",
+  title: "What Our Clients Say",
 };
 
 const defaultTestimonials = [
@@ -157,6 +280,12 @@ const defaultTestimonials = [
   { id: "r2", name: "Marcus Lee", company: "CTO, UrbanEats", avatar: "", review: "Rock-solid engineering and constant communication. Our app hasn't had a single major crash since launch.", rating: 5, visible: true },
   { id: "r3", name: "Priya Nair", company: "Product Lead, WalletWise", avatar: "", review: "The attention to UX detail is unmatched — our retention numbers improved within the first month.", rating: 5, visible: true },
 ];
+
+const defaultFaqHeader = {
+  eyebrow: "FAQ",
+  title: "Frequently Asked Questions",
+  description: "Straight answers to the questions we hear most often about mobile app development.",
+};
 
 const defaultFaq = [
   { id: "f1", question: "Android vs iOS — which should I build first?", answer: "It depends on where your users are. We'll help you decide based on your target market, budget, and timeline — or build both from a single cross-platform codebase.", visible: true },
@@ -184,21 +313,80 @@ export default function AndroidandIso() {
   const rootRef = useRef(null);
 
   const hero = { ...defaultHero, ...(c?.hero || {}) };
+  const platformsHeader = {
+    eyebrow: c?.platformsHeader?.eyebrow || defaultPlatformsHeader.eyebrow,
+    title: c?.platformsHeader?.title || defaultPlatformsHeader.title,
+    description: c?.platformsHeader?.description || defaultPlatformsHeader.description,
+  };
+  const platforms = c?.platforms?.length ? c.platforms : defaultPlatforms;
+
   const servicesHeader = {
+    eyebrow: c?.servicesHeader?.eyebrow || defaultServicesHeader.eyebrow,
     heading: c?.servicesHeader?.heading || defaultServicesHeader.heading,
     subheading: c?.servicesHeader?.subheading || defaultServicesHeader.subheading,
   };
   const services = (c?.services?.length ? c.services : defaultServices).filter((s) => s.visible !== false);
+
+  const techHeader = {
+    eyebrow: c?.techHeader?.eyebrow || defaultTechHeader.eyebrow,
+    title: c?.techHeader?.title || defaultTechHeader.title,
+    description: c?.techHeader?.description || defaultTechHeader.description,
+  };
   const technologies = (c?.technologies?.length ? c.technologies : defaultTechnologies).filter((t) => t.visible !== false);
+
+  const bentoHeader = {
+    eyebrow: c?.bentoHeader?.eyebrow || defaultBentoHeader.eyebrow,
+    title: c?.bentoHeader?.title || defaultBentoHeader.title,
+    description: c?.bentoHeader?.description || defaultBentoHeader.description,
+  };
+  const bentos = c?.bentos?.length ? c.bentos : defaultBentos;
+
+  const processHeader = {
+    eyebrow: c?.processHeader?.eyebrow || defaultProcessHeader.eyebrow,
+    title: c?.processHeader?.title || defaultProcessHeader.title,
+    description: c?.processHeader?.description || defaultProcessHeader.description,
+  };
   const processSteps = c?.process?.length ? c.process : defaultProcess;
+
+  const whyChooseHeader = {
+    eyebrow: c?.whyChooseHeader?.eyebrow || defaultWhyChooseHeader.eyebrow,
+    title: c?.whyChooseHeader?.title || defaultWhyChooseHeader.title,
+    description: c?.whyChooseHeader?.description || defaultWhyChooseHeader.description,
+  };
+  const whyChooses = c?.whyChooses?.length ? c.whyChooses : defaultWhyChooses;
+
+  const projectsHeader = {
+    eyebrow: c?.projectsHeader?.eyebrow || defaultProjectsHeader.eyebrow,
+    title: c?.projectsHeader?.title || defaultProjectsHeader.title,
+    description: c?.projectsHeader?.description || defaultProjectsHeader.description,
+  };
   const projects = (c?.projects?.length ? c.projects : defaultProjects).filter((p) => p.visible !== false);
   const statistics = {
     apps: { ...defaultStatistics.apps, ...(c?.statistics?.apps || {}) },
+    downloads: { ...defaultStatistics.downloads, ...(c?.statistics?.downloads || {}) },
     clients: { ...defaultStatistics.clients, ...(c?.statistics?.clients || {}) },
     countries: { ...defaultStatistics.countries, ...(c?.statistics?.countries || {}) },
+    rating: { ...defaultStatistics.rating, ...(c?.statistics?.rating || {}) },
     satisfaction: { ...defaultStatistics.satisfaction, ...(c?.statistics?.satisfaction || {}) },
   };
+
+  const industriesHeader = {
+    eyebrow: c?.industriesHeader?.eyebrow || defaultIndustriesHeader.eyebrow,
+    title: c?.industriesHeader?.title || defaultIndustriesHeader.title,
+    description: c?.industriesHeader?.description || defaultIndustriesHeader.description,
+  };
+  const industries = c?.industries?.length ? c.industries : defaultIndustries;
+
+  const testimonialsHeader = {
+    eyebrow: c?.testimonialsHeader?.eyebrow || defaultTestimonialsHeader.eyebrow,
+    title: c?.testimonialsHeader?.title || defaultTestimonialsHeader.title,
+  };
   const testimonials = (c?.testimonials?.length ? c.testimonials : defaultTestimonials).filter((t) => t.visible !== false);
+  const faqHeader = {
+    eyebrow: c?.faqHeader?.eyebrow || defaultFaqHeader.eyebrow,
+    title: c?.faqHeader?.title || defaultFaqHeader.title,
+    description: c?.faqHeader?.description || defaultFaqHeader.description,
+  };
   const faqs = (c?.faq?.length ? c.faq : defaultFaq).filter((f) => f.visible !== false);
   const seo = { ...defaultSeo, ...(c?.seo || {}) };
 
@@ -265,31 +453,31 @@ export default function AndroidandIso() {
     <div ref={rootRef} className="overflow-x-hidden bg-white">
       {hero.visible !== false && <MobileHero hero={hero} />}
 
-      <PlatformsSection />
+      <PlatformsSection header={platformsHeader} platforms={platforms} />
 
-      <ServicesSection services={services} heading={servicesHeader.heading} subheading={servicesHeader.subheading} />
+      <ServicesSection services={services} eyebrow={servicesHeader.eyebrow} heading={servicesHeader.heading} subheading={servicesHeader.subheading} />
 
       <div id="mobile-process">
-        <DevelopmentProcess steps={processSteps} />
+        <DevelopmentProcess header={processHeader} steps={processSteps} />
       </div>
 
-      <TechStackSection technologies={technologies} />
+      <TechStackSection header={techHeader} technologies={technologies} />
 
-      <FeaturesBento />
+      <FeaturesBento header={bentoHeader} features={bentos} />
 
-      <WhyChooseSection />
+      <WhyChooseSection header={whyChooseHeader} reasons={whyChooses} />
 
       <StatsSection statistics={statistics} />
 
-      <IndustriesSection />
+      <IndustriesSection header={industriesHeader} industries={industries} />
 
       <div id="mobile-projects">
-        <ProjectsShowcase projects={projects} />
+        <ProjectsShowcase header={projectsHeader} projects={projects} />
       </div>
 
-      <MobileTestimonials testimonials={testimonials} />
+      <MobileTestimonials header={testimonialsHeader} testimonials={testimonials} />
 
-      <MobileFAQ faqs={faqs} />
+      <MobileFAQ header={faqHeader} faqs={faqs} />
 
 
       <style>{`

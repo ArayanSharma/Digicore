@@ -3,8 +3,11 @@ import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { resolveImage } from "../../hooks/usePageContent";
 import { SectionKicker } from "./shared";
 
-export default function MobileTestimonials({ testimonials }) {
+export default function MobileTestimonials({ header, testimonials }) {
   const [active, setActive] = useState(0);
+
+  const eyebrow = header?.eyebrow || "Client Testimonials";
+  const title = header?.title || "What Our Clients Say";
 
   useEffect(() => {
     if (testimonials.length < 2) return;
@@ -21,7 +24,7 @@ export default function MobileTestimonials({ testimonials }) {
   return (
     <section className="relative py-24 md:py-28 bg-gradient-to-br from-[#e31e24]/3 via-white to-[#f4f4f5] overflow-hidden">
       <div className="container-custom">
-        <SectionKicker eyebrow="Client Testimonials" title="What Our Clients Say" />
+        <SectionKicker eyebrow={eyebrow} title={title} />
 
         <div className="mp-reveal relative max-w-2xl mx-auto">
           <button

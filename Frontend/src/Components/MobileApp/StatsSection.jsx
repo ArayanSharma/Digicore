@@ -42,10 +42,10 @@ function StatTile({ value, suffix = "", label, decimals = 0 }) {
 export default function StatsSection({ statistics }) {
   const tiles = [
     { value: statistics.apps.value, suffix: statistics.apps.suffix, label: statistics.apps.label },
-    { value: statistics.downloads?.value ?? 250, suffix: statistics.downloads?.suffix ?? "K+", label: statistics.downloads?.label ?? "Downloads Generated" },
+    { value: statistics.downloads.value, suffix: statistics.downloads.suffix, label: statistics.downloads.label },
     { value: statistics.countries.value, suffix: statistics.countries.suffix, label: statistics.countries.label },
     { value: statistics.clients.value, suffix: statistics.clients.suffix, label: statistics.clients.label },
-    { value: 4.9, suffix: "★", label: "Average App Rating", decimals: 1 },
+    { value: statistics.rating.value, suffix: statistics.rating.suffix, label: statistics.rating.label, decimals: 1 },
     { value: statistics.satisfaction.value, suffix: statistics.satisfaction.suffix, label: statistics.satisfaction.label },
   ];
 

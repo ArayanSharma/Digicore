@@ -2,14 +2,18 @@ import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { SectionKicker } from "./shared";
 
-export default function MobileFAQ({ faqs }) {
+export default function MobileFAQ({ header, faqs }) {
   const [open, setOpen] = useState(0);
 
   if (faqs.length === 0) return null;
 
+  const eyebrow = header?.eyebrow || "FAQ";
+  const title = header?.title || "Frequently Asked Questions";
+  const description = header?.description || "Straight answers to the questions we hear most often about mobile app development.";
+
   return (
     <section className="container-custom py-24 md:py-28">
-      <SectionKicker eyebrow="FAQ" title="Frequently Asked Questions" description="Straight answers to the questions we hear most often about mobile app development." />
+      <SectionKicker eyebrow={eyebrow} title={title} description={description} />
 
       <div className="max-w-2xl mx-auto space-y-4">
         {faqs.map((item, i) => {
