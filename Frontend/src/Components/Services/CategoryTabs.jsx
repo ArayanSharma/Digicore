@@ -7,14 +7,14 @@ const CategoryTabs = ({ categories, activeSlug, onSelect }) => {
   const handleClick = (slug) => {
     const el = document.getElementById(slug);
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 88;
+      const top = el.getBoundingClientRect().top + window.scrollY - 160;
       window.scrollTo({ top, behavior: "smooth" });
     }
     onSelect?.(slug);
   };
 
   return (
-    <div className="sticky top-[72px] z-30 bg-white/90 backdrop-blur-md border-b border-[#e5e7eb] shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
+    <div className="sticky top-[100px] max-[993px]:top-[85px] max-[769px]:top-[74px] max-[481px]:top-[70px] z-30 bg-white/90 backdrop-blur-md border-b border-[#e5e7eb] shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
       <div className="max-w-[1250px] mx-auto px-5">
         <div className="flex items-center gap-1 overflow-x-auto py-3" style={{ scrollbarWidth: "none" }}>
           {categories.map((cat) => {
