@@ -71,6 +71,10 @@ import Reseller from "./Pages/Reseller";
 
 // Admin - Auth
 import Login from "./Pages/admin/Login";
+import ForgotPassword from "./Pages/admin/ForgotPassword";
+import VerifyOtp from "./Pages/admin/VerifyOtp";
+import ResetPassword from "./Pages/admin/ResetPassword";
+import ResetPasswordSuccess from "./Pages/admin/ResetPasswordSuccess";
 
 // Admin Pages
 import Dashboard from "./Components/admin/Dashboard/Dashboard";
@@ -162,6 +166,12 @@ function App() {
 
       {/* ===== Login Route ===== */}
       <Route path="/login" element={<Login />} />
+
+      {/* ===== Forgot Password Flow ===== */}
+      <Route path="/admin/forgot-password" element={<ForgotPassword />} />
+      <Route path="/admin/verify-otp" element={<VerifyOtp />} />
+      <Route path="/admin/reset-password" element={<ResetPassword />} />
+      <Route path="/admin/reset-success" element={<ResetPasswordSuccess />} />
 
       {/* ===== Admin Routes ===== */}
       <Route path="/admin" element={<AdminLayout />}>

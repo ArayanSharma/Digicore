@@ -102,25 +102,27 @@ const Services = () => {
     <div className="bg-white">
       <Hero hero={hero} />
 
-      {!loading && categories.length > 0 && (
-        <CategoryTabs categories={categories} activeSlug={activeSlug} onSelect={setActiveSlug} />
-      )}
+      <div className="relative">
+        {!loading && categories.length > 0 && (
+          <CategoryTabs categories={categories} activeSlug={activeSlug} onSelect={setActiveSlug} />
+        )}
 
-      {!loading &&
-        categories.map((cat, index) => (
-          <ServiceSection
-            key={cat._id}
-            category={cat}
-            services={servicesByCategory[cat._id] || []}
-            index={index}
-          />
-        ))}
+        {!loading &&
+          categories.map((cat, index) => (
+            <ServiceSection
+              key={cat._id}
+              category={cat}
+              services={servicesByCategory[cat._id] || []}
+              index={index}
+            />
+          ))}
 
-      {!loading && categories.length === 0 && (
-        <div className="py-24 text-center text-[#6b7280]">
-          No service categories available yet. Add them from the admin panel.
-        </div>
-      )}
+        {!loading && categories.length === 0 && (
+          <div className="py-24 text-center text-[#6b7280]">
+            No service categories available yet. Add them from the admin panel.
+          </div>
+        )}
+      </div>
 
       <WhyChoose data={c?.whyChoose} />
       <ProcessTimeline data={c?.process} />

@@ -21,6 +21,7 @@ import page505Routes from "./routes/page505Routes.js";
 import footerRoutes from "./routes/footerRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import serviceRoutes from "./routes/serviceRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 connectDB();
 
@@ -49,6 +50,7 @@ app.use("/api/header", headerRoutes);
 app.use("/api/page505", page505Routes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/services", serviceRoutes);
+app.use("/api/auth", authRoutes);
 
 
 app.get("/", (req, res) => {

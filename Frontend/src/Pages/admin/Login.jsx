@@ -1,26 +1,34 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../Styles/Login.css";
+import { login } from "../../utils/authApi";
 
 export default function Login() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
 
     const normalizedEmail = email.trim().toLowerCase();
     const normalizedPassword = password.trim();
 
-    if (normalizedEmail === "admin@digicore.com" && normalizedPassword === "admin123") {
-      localStorage.setItem("token", "demo-admin-token");
+    setLoading(true);
+    try {
+      const data = await login(normalizedEmail, normalizedPassword);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("admin", JSON.stringify(data.admin));
       navigate("/admin");
-      return;
+    } catch (err) {
+      setError(err.message || "Invalid email or password.");
+    } finally {
+      setLoading(false);
     }
-
-    alert("Use admin@digicore.com / admin123 to sign in.");
   };
 
   return (
@@ -62,6 +70,12 @@ export default function Login() {
           </p>
 
           <form onSubmit={handleSubmit}>
+            {error && (
+              <p style={{ color: "#f87171", fontSize: "14px", marginBottom: "-6px" }}>
+                {error}
+              </p>
+            )}
+
             <input
               type="email"
               placeholder="Email Address"
@@ -80,8 +94,17 @@ export default function Login() {
               }
             />
 
-            <button type="submit">
-              Login to Dashboard
+            <div style={{ textAlign: "right" }}>
+              <Link
+                to="/admin/forgot-password"
+                style={{ color: "#c084fc", fontSize: "14px", textDecoration: "none" }}
+              >
+                Forgot Password?
+              </Link>
+            </div>
+
+            <button type="submit" disabled={loading}>
+              {loading ? "Signing in..." : "Login to Dashboard"}
             </button>
           </form>
         </div>
