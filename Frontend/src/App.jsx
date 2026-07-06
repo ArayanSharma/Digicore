@@ -64,6 +64,7 @@ import AllBlogs from "./Pages/AllBlogs";
 import BlogDetails from "./Pages/BlogDetails";
 import CaseStudies from "./Pages/CaseStudies";
 import CaseStudyDetails from "./Pages/CaseStudyDetails";
+import Services from "./Pages/Services";
 
 // User Pages - Misc
 import Reseller from "./Pages/Reseller";
@@ -83,7 +84,9 @@ import Ad505 from "./Pages/admin/Ad505";
 import Adheader from "./Pages/admin/Adheader";
 import Testimonial from "./Pages/admin/Testimonial";
 import CreateService from "./Pages/admin/CreateService";
+import AdminServices from "./Pages/admin/Services";
 import FooterAdmin from "./Pages/admin/Afooter";
+import RequireAdminAuth from "./Components/admin/RequireAdminAuth";
 
 // Admin Components
 import AdCasestudy from "./Components/admin/sections/AdCasestudy";
@@ -153,6 +156,8 @@ function App() {
 
         <Route path="industries" element={<Industries />} />
         <Route path="industries/:slug" element={<IndustryDetails />} />
+
+        <Route path="services" element={<Services />} />
       </Route>
 
       {/* ===== Login Route ===== */}
@@ -173,6 +178,14 @@ function App() {
         <Route path="505" element={<Ad505 />} />
         <Route path="testimonials" element={<Testimonial />} />
         <Route path="services/create" element={<CreateService />} />
+        <Route
+          path="services"
+          element={
+            <RequireAdminAuth>
+              <AdminServices />
+            </RequireAdminAuth>
+          }
+        />
         <Route path="footer" element={<FooterAdmin />} />
       </Route>
     </Routes>

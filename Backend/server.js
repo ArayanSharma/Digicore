@@ -19,6 +19,8 @@ import industryRoutes from "./routes/industryRoutes.js";
 import headerRoutes from "./routes/headerRoutes.js";
 import page505Routes from "./routes/page505Routes.js";
 import footerRoutes from "./routes/footerRoutes.js";
+import categoryRoutes from "./routes/categoryRoutes.js";
+import serviceRoutes from "./routes/serviceRoutes.js";
 
 connectDB();
 
@@ -45,6 +47,8 @@ app.use("/api/casestudies", caseStudyRoutes);
 app.use("/api/industries", industryRoutes);
 app.use("/api/header", headerRoutes);
 app.use("/api/page505", page505Routes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/services", serviceRoutes);
 
 
 app.get("/", (req, res) => {

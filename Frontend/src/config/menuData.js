@@ -16,6 +16,7 @@ import {
   FiShare2,
   FiTrendingUp,
   FiLayers,
+  FiList,
 } from "react-icons/fi";
 
 const menuData = [
@@ -51,6 +52,9 @@ const menuData = [
   },
 
   { type: "title", label: "Our Services" },
+
+  { type: "item", label: "Service Catalog", path: "/admin/services", icon: FiList },
+  { type: "item", label: "Services Page Content", path: "/admin/page-editor/services", icon: FiLayout },
 
   {
     type: "dropdown",

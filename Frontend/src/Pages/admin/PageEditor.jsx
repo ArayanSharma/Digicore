@@ -40,6 +40,7 @@ import AdWixDev from "../../Components/admin/sections/AdWixDev";
 import AdWebsitemain from "../../Components/admin/sections/AdWebsitemain";
 import AdFullStack from "../../Components/admin/sections/AdFullStack";
 import AdAndroidandIso from "../../Components/admin/sections/AdAndroidandIso";
+import AdServicesPage from "../../Components/admin/sections/AdServicesPage";
 
 export default function PageEditor() {
   const { pageId } = useParams();
@@ -128,6 +129,8 @@ export default function PageEditor() {
         <AdFullStack />
       ) : pageId === "android-ios-development" ? (
         <AdAndroidandIso />
+      ) : pageId === "services" ? (
+        <AdServicesPage />
       ) : (
         <div style={{ marginTop: "24px" }}>
           <p>This page editor is not yet configured for this page.</p>
