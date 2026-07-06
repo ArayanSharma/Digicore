@@ -174,7 +174,14 @@ function App() {
       <Route path="/admin/reset-success" element={<ResetPasswordSuccess />} />
 
       {/* ===== Admin Routes ===== */}
-      <Route path="/admin" element={<AdminLayout />}>
+      <Route
+        path="/admin"
+        element={
+          <RequireAdminAuth>
+            <AdminLayout />
+          </RequireAdminAuth>
+        }
+      >
         <Route index element={<Dashboard />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="page-editor/:pageId" element={<PageEditor />} />
@@ -188,14 +195,7 @@ function App() {
         <Route path="505" element={<Ad505 />} />
         <Route path="testimonials" element={<Testimonial />} />
         <Route path="services/create" element={<CreateService />} />
-        <Route
-          path="services"
-          element={
-            <RequireAdminAuth>
-              <AdminServices />
-            </RequireAdminAuth>
-          }
-        />
+        <Route path="services" element={<AdminServices />} />
         <Route path="footer" element={<FooterAdmin />} />
       </Route>
     </Routes>
