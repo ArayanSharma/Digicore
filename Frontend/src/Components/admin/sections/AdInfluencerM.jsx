@@ -42,7 +42,12 @@ const initialData = {
   },
   seoAgency: {
     heading: "Why do I need Google Display Ad management services?",
-    body: "At Digicore Inc., we prioritize improved visibility and clarity of advertising. With our 360-degrees’ Google Display ad management services, we engage your targeted audience and captivate them right where they browse the most. Whether it is any specific application, website, search engine, YouTube, multiple platforms are covered in addressing the display advertising goals. Our seasoned display ad specialists play a vital role in boosting brand awareness, attracting engagement, driving conversion and nurture prospects. Digicore Inc. utilizes data-driven optimization to ensure ads perform in an exceptional manner and complements your paid media strategy. Besides, our display advertising management services offer sustainable business growth and improved ROI.",
+    intro: "More than 80% of active internet users browsing online check multiple websites, apps and official profiles before making purchase decision. Apart from display of target-oriented ads, display network optimization is a must. At Digicore Inc., we use responsive display campaign strategies to boost impressions and drive leads. Our Google display advertising practices are scalable and custom-built to deliver conversions within the estimated budget.",
+    problemTitle: "The Problem",
+    problemBody: "Most brands design and run banner ads without analyzing user intent, target demographics, and screen sizes. While SMM or paid ad campaigns may be active, they often fail to capture relevant leads. Inefficient bid management and poor creative layout also drive up the cost per click.",
+    solutionTitle: "The Solution",
+    solutionBody: "It is ideal to hire display advertising experts who understand the nuances of Google Display Network (GDN). Digicore Inc. builds responsive banner ads, utilizes demographics targeting, and optimizes placements to match interests. This improves relevance and maximizes conversions.",
+    rightBody: "Behavioral SMM and search algorithm updates have transformed consumer preferences. Our display campaign specialists harness audience demographics, device data, and placement insights to refine display bids. Backed by A/B test methodologies, we target quality prospects and ensure long-term SMM campaign efficiency."
   },
   discover: {
     heading: "Google Display Ad Management Services",
@@ -306,8 +311,23 @@ export default function AdInfluencerM() {
           <Field label="Heading">
             <TextInput value={pageData.seoAgency.heading} onChange={(e) => updateSection("seoAgency", "heading", e.target.value)} placeholder="Section heading" />
           </Field>
-          <Field label="Body">
-            <TextArea value={pageData.seoAgency.body} onChange={(e) => updateSection("seoAgency", "body", e.target.value)} rows={10} placeholder="Section body" />
+          <Field label="Intro Text">
+            <TextArea value={pageData.seoAgency.intro} onChange={(e) => updateSection("seoAgency", "intro", e.target.value)} rows={6} placeholder="Intro text" />
+          </Field>
+          <Field label="Problem Title">
+            <TextInput value={pageData.seoAgency.problemTitle} onChange={(e) => updateSection("seoAgency", "problemTitle", e.target.value)} placeholder="Problem title" />
+          </Field>
+          <Field label="Problem Body">
+            <TextArea value={pageData.seoAgency.problemBody} onChange={(e) => updateSection("seoAgency", "problemBody", e.target.value)} rows={6} placeholder="Problem body" />
+          </Field>
+          <Field label="Solution Title">
+            <TextInput value={pageData.seoAgency.solutionTitle} onChange={(e) => updateSection("seoAgency", "solutionTitle", e.target.value)} placeholder="Solution title" />
+          </Field>
+          <Field label="Solution Body">
+            <TextArea value={pageData.seoAgency.solutionBody} onChange={(e) => updateSection("seoAgency", "solutionBody", e.target.value)} rows={6} placeholder="Solution body" />
+          </Field>
+          <Field label="Right Paragraph Body">
+            <TextArea value={pageData.seoAgency.rightBody} onChange={(e) => updateSection("seoAgency", "rightBody", e.target.value)} rows={6} placeholder="Right paragraph body" />
           </Field>
         </Section>
 

@@ -1,49 +1,17 @@
-import React, { useEffect, useState ,useRef} from "react";
-
-
+import React, { useState } from "react";
 import Banner from "../Components/Cards/Seohero";
-
 import ServiceCard from "../Components/Cards/ServiceCard";
-
-import impact from "../assets/impact.webp";
- import i1 from "../assets/i1.png";
- import i2 from "../assets/i2.png";
- import i3 from "../assets/i3.png";
- import Industry from "../Components/Sections/Industry";
+import Industry from "../Components/Sections/Industry";
 import Casestudy from "../Components/Sections/Casestudy";
-
-import seoRimg from "../assets/real-seo-result.webp";
-import heroImg from "../assets/a.png";
-import graphImg from "../assets/graph-l.webp";
- import eimage from "../assets/BannerImg/LinkedInAds.png";
-import seoIcon from "../assets/seo-o.webp";
-import socialIcon from "../assets/social-o.webp";
-import ppcIcon from "../assets/finger-up-o.webp";
-import webIcon from "../assets/ad-o.webp";
-import contentIcon from "../assets/pen-tab-o.webp";
-import ormIcon from "../assets/head-s-0.webp";
-import listenIcon from "../assets/head-pc-o.webp";
-import croIcon from "../assets/dolar-o.webp";
-import geoIcon from "../assets/aeo-o.webp";
-import seocase from "../assets/seo-case-study-rezaries.webp";
 import bgIcon from "../assets/bg-iconnew.webp";
 import TestimonialSection from "../Components/Sections/Testimonials";
 import Brands from "../Components/Sections/Brands";
 import Tools from "../Components/Sections/Tools";
 import Blogs from "../Components/Cards/BlogCard";
-import Faq from "../Components/Sections/FAQ";
 import Contacts from "../Components/Sections/Contact";
 import { Plus, Minus } from "lucide-react";
-import Icon1 from "../assets/h1.png";
-import Icon2 from "../assets/h2.png";
-import Icon3 from "../assets/h3.png";
-import Icon4 from "../assets/h4.png";
-import seocase1 from "../assets/case1.png";
-import seocase2 from "../assets/case2.png";
-import seocase3 from "../assets/case3.png";
+import eimage from "../assets/BannerImg/LinkedInAds.png";
 import { usePageContent, resolveImage } from "../hooks/usePageContent";
-
-
 
 const LinkedIn = () => {
   const { content: c } = usePageContent("linkedin-ads");
@@ -58,659 +26,356 @@ const LinkedIn = () => {
   const whyChooseDigicoreSection = c?.whyChooseDigicoreSection;
   const faqSection = c?.faqSection;
 
-  const [counts, setCounts] = useState({
-    count1: 0,
-    count2: 0,
-    count3: 0,
-    count4: 0,
-  });
-
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const [currentCase, setCurrentCase] = useState(0);
+  const displayServices = Array.isArray(servicesSection?.services)
+    ? servicesSection.services.map((s) => ({ ...s, icon: resolveImage(s.iconUrl) }))
+    : [];
 
-const nextCase = () => {
-  setCurrentCase((prev) =>
-    prev === caseStudies.length - 1 ? 0 : prev + 1
-  );
-};
-
-const prevCase = () => {
-  setCurrentCase((prev) =>
-    prev === 0 ? caseStudies.length - 1 : prev - 1
-  );
-};
-
-const caseStudies = [
-  {
-    title: "The Moto Men – High-Intent Google Ads Leads with 12.5% Conversion",
-    image: seocase1,
-    descriptions: [
-"For The Moto Men, we executed a Noida-focused PPC campaign to drive high-intent enquiries for premium car detailing services. Nearly 80% of the enquiries were highly relevant, aligned with both location and service intent. From these qualified enquiries, the campaign achieved a conversion rate of up to 12.5%, delivering consistent and measurable business impact. The strategy focused on precise location targeting, intent-driven keywords, and continuous optimisation to maintain lead quality while minimising wasted ad spend."
-    ]
-  },
-
-  {
-    title: "Trusted Hair Transplant Clinic – PPC Performance Case Study (14.52% Conversion)",
-    image: seocase2,
-    descriptions: [
-    "We executed a high-intent Google Search Ads campaign for a hair transplant clinic, targeting users actively searching for treatment-related queries. The campaign delivered a conversion rate of 14.52%, indicating strong intent alignment and effective ad optimisation. The strategy focused on quality enquiries and consistent performance rather than inflated traffic, helping the clinic generate relevant leads and measurable growth."
-    ]
-  },
-
-  {
-    title: "IOD Global – Display Campaign Case Study",
-    image: seocase3,
-    descriptions: [
-    "For IOD Global, we executed a Google Display Campaign focused on increasing brand visibility and recall among the right audience segments. The campaign was designed to build consistent exposure through targeted placements and audience-based targeting. The strategy prioritised relevant impressions, controlled reach, and brand presence. Continuous optimisation ensured stable performance and efficient delivery aligned with the brand’s objectives while avoiding irrelevant traffic."   ]
-  }
-];
-  const sliderRef = useRef(null);
-      const scrollLeft = () => {
-  const card = sliderRef.current.querySelector(".workindustry-card");
-
-  if (card) {
-    const cardWidth = card.offsetWidth + 40;
-    sliderRef.current.scrollBy({
-      left: -(cardWidth * 3),
-      behavior: "smooth",
-    });
-  }
-};
-
-const scrollRight = () => {
-  const card = sliderRef.current.querySelector(".workindustry-card");
-
-  if (card) {
-    const cardWidth = card.offsetWidth + 40; // 40 = gap
-    sliderRef.current.scrollBy({
-      left: cardWidth * 3,
-      behavior: "smooth",
-    });
-  }
-};
-
-
-
-
-
-    
-      useEffect(() => {
-    
-        let start = 0;
-    
-        const interval = setInterval(() => {
-    
-          start += 1;
-    
-          setCounts({
-            count1: start <= 50 ? start : 50,
-            count2: start <= 52 ? start : 52,
-            count3: start <= 61 ? start : 61,
-            count4: start <= 44 ? start : 44,
-          });
-    
-          if (start >= 61) {
-            clearInterval(interval);
-          }
-    
-        }, 30);
-    
-        return () => clearInterval(interval);
-    
-      }, []);
-
-
-      const services = [
-    
-        {
-          icon: seoIcon,
-          title: "LinkedIn Ad Campaign Management",
-          description:
-            "As a part of LinkedIn ad campaign management, planning, execution and optimization of targeted ads is focused on by our experts. We help businesses connect with the A-class decision maker, generate high-quality leads that attract measurable ROI and improve brand visibility through these services.",
-        },
-    
-        {
-          icon: socialIcon,
-          title: "Audience Targeting & Segmentation",
-          description:
-            "In this phase of LinkedIn marketing services, professionals based on their industry are identified and segmented by their seniority, job role and interests. This is further beneficial in execution of campaign to reach the high-intent prospects through personalized messaging. The objective of these services is to drive higher engagement and better conversion.",
-        },
-    
-        {
-          icon: ppcIcon,
-          title: "LinkedIn Copywriting",
-          description:
-            "With the help of LinkedIn copywriting, brand-specific posts, and engaging ad copies to boost visibility of business while connecting them with professionals. The idea behind these services is to strengthen audience connection, attract engagement, build trust and provide better conversion through thought-provoking and strategic messaging.",
-        },
-    
-        {
-          icon: webIcon,
-          title: "Company Page Optimization",
-          description:
-            "Our experienced marketers improve your LinkedIn profile by optimization of visuals, key details and strategic messaging. All these steps are aligned with the improved discoverability of your profile, strengthening brand identity and attract the right audience. Experience the improved credibility and greater engagement with Digicore Inc..",
-        },
-    
-        {
-          icon: contentIcon,
-          title: "LinkedIn Lead Generation",
-          description:
-            "With the help of LinkedIn lead generation services, we target B2B prospects by using compelling CTAs, optimized ads, forms and outreach to connect with top decision-makers. These services are beneficial in improving lead generation and boost sales of your business.",
-        },
-    
-        {
-          icon: ormIcon,
-          title: "Analytics & Performance Reporting",
-          description:
-            "This segment of our LinkedIn marketing services monitors campaign results, tracks key metrics and shares detailed insights. As a result, marketing strategy, improved engagement and maximized ROI are achieved through informed and data-driven decisions.",
-        }
-      ];
-
-      const displayServices = servicesSection?.services?.length
-        ? servicesSection.services.map((s, i) => ({ ...s, icon: resolveImage(s.iconUrl) || [seoIcon, socialIcon, ppcIcon, webIcon, contentIcon, ormIcon][i % 6] }))
-        : services;
-
-
-  const industries = [
-  {
-    image: i1,
-    title: "Healthcare",
-    desc: "We provide specialized digital marketing solutions to hospitals, clinics and other health institutions to help them build trust and grow their brand.",
-  },
-
-  {
-    image: i2,
-    title: "E-Commerce",
-    desc: "We help online retailers and marketplaces with robust strategies to elevate their online presence and turn casual browsers into loyal customers.",
-  },
-
-  {
-    image: i3,
-    title: "Travel",
-    desc: "We offer a complete suite of digital marketing solutions for travel brands, helping them showcase their offerings in a unique way and drive bookings.",
-  },
-  {
-    image: i1,
-    title: "Healthcare",
-    desc: "We provide specialized digital marketing solutions to hospitals, clinics and other health institutions to help them build trust and grow their brand.",
-  },
-
-  {
-    image: i2,
-    title: "E-Commerce",
-    desc: "We help online retailers and marketplaces with robust strategies to elevate their online presence and turn casual browsers into loyal customers.",
-  },
-
-  {
-    image: i3,
-    title: "Travel",
-    desc: "We offer a complete suite of digital marketing solutions for travel brands, helping them showcase their offerings in a unique way and drive bookings.",
-  },
-];
-
- const helpCards = [
-
-  {
-    icon: Icon1,
-    title: "Get More Leads",
-    desc: "We ensure your business get more and more leads through our expertly managed digital marketing services",
-  },
-
-  {
-    icon: Icon2 ,
-    title: "Make More Sales",
-    desc: "We help you convert maximum possible leads into sales and grow your business faster",
-  },
-
-  {
-    icon: Icon3 ,
-    title: "Build Brand Awareness",
-    desc: "We help your brand gain strong recognition across digital platforms globally",
-  },
-
-  {
-    icon: Icon4,
-    title: "Upskill Your Team",
-    desc: "Improve your team capabilities with advanced marketing strategies and guidance",
-  },
-
-];
-
-const faqData = [
-  {
-    question: "How long will it take for my website to start ranking on Google?",
-    answer:
-      "The time a website to rank on Google varies between 3 – 6 months. The major components that affect your website ranking and timeline include, your industry competition, SEO efforts and content quality.",
-  },
-  {
-    question:
-      "How many keywords will you work on as part of my SEO campaign?",
-    answer:
-      "The number of keywords will depend on the type of your business, industry, market trends and your competitors. We choose ROI-driven and high-intent and commercial keywords for your site to attract high-quality traffic and convert it into lead. In addition, we keep on testing our keywords and optimize them according to the market scenario and Google trends so as to ensure your rankings on online platforms and visibility on social media handles stays consistently high.",
-  },
-  {
-    question:
-      "Do you offer monthly, quarterly, or custom SEO payment plans?",
-    answer:
-      "Yes, we have all sort of SEO payment plans. However, to understand our plans, you are advised to connect with us via email or phone. Our experts will first understand your business, digital marketing goals and challenges that you are facing to curate an appropriate payment plan according to your business needs and budget.",
-  },
-  {
-    question:
-      "What is the size of your in-house SEO and digital marketing team?",
-    answer:
-      "Our in-house SEO and digital marketing team comprises experienced professionals across strategy, content, social media, PPC, analytics, development and design, working hand-in-hand to deliver comprehensive digital solutions and help you achieve unforgettable outcomes.",
-  },
-  {
-    question:
-      "Which industries and types of clients do you primarily work with?",
-    answer:
-      "We work with diverse range of clients across industries, including education, finance, e-commerce, travel, B2B, healthcare, and so on. We have a huge clientele across Pan India. We help both startups and already established brands elevate their online presence and achieve measurable results.",
-  },
-  {
-    question:
-      "Will my website be optimized to rank in AI-powered search platforms like ChatGPT and Google AI?",
-    answer:
-      "Yes, we utilize the most advanced tools and cutting-edge technology to ensure your website is optimized for AI-powered search platforms as well. Our team of experts will optimise your website for AI search like ChatGPT and Google AI by targeting high-intent customer queries and creating high-quality and high-authority content. Visit our site or connect with the AI First SEO team via email or phone for more details.",
-  },
-  {
-    question:
-      "Which is the best SEO agency in Delhi, and how do I choose the right one?",
-    answer:
-      "Digicore Inc. is a leading AI SEO agency in Delhi NCR with proven results. We offer comprehensive SEO marketing solutions to a diverse range of clients across industries. We utilize years of experience and cutting-edge tools and technology to help you achieve desired results. You can visit our site and go through our SEO case studies to know how we have helped our clients improve their digital presence and achieve ROI-driven results to make the right choice.",
-    },
-    {
-    question:
-      "Have you worked with clients from my industry before?",
-    answer:
-      "Yes, we have worked with clients from your industry and we are excited to serve you with our innovative digital marketing solutions to help you leave a lasting impression across all online platforms, including social media handles.",
-  },  
-  {
-    question:
-      "How do you share SEO performance reports and how frequently will I receive them?",
-    answer:
-      "We provide a bi-monthly SEO performance reports to help you track key metrics such as rankings, traffic, conversions and more. If you want, we can provide you report more frequently; however, we believe that a bi-monthly reporting system is more appropriate as you get enough insights to ponder on.",
-  }
-  ,{
-    question:
-      "Can you share real client case studies and past SEO results?",
-    answer:
-      "Yes, we can! Aside from that, you can also visit the SEO case studies section in our website to learn more about our existing and past clients’ experience with us.",
-  }
-    
-  ,{
-    question:
-      "Apart from SEO, what other digital marketing services do you provide?",
-    answer:
-      "We provide comprehensive digital marketing services, including SEO, SMM, PPC, Content Marketing, Performance Marketing, Website Design & Development, Online Reputation Marketing, Conversion Rate Optimisation, AEO+AIO+GEO, Display Advertising Services, Social Media Listing, Response Marketing and many more.",
-  }
-    
-  ,{
-    question:
-      "My website has a high spam score. How will you reduce and fix it?",
-    answer:
-      "Don’t worry about that. We will fix it! We will first conduct a thorough audit to identify the issues causing it, such as low-quality backlinks, thin content or technical SEO problems. After identifying the real cause, we will implement a comprehensive cleanup SEO strategy to eliminate the issue and restore your website’s credibility and improve its search engine trustworthiness.",
-  }
-    
-  ,{
-    question:
-      "I have been working with another SEO agency for over a year but my rankings haven’t improved. Can you fix this?",
-    answer:
-      "Well, we have no idea what strategies your previous SEO partner was using. But worry not! We will thoroughly audit your site and know what exactly is the reason for your site’s low ranking. After that, we would be in better position to tell you our exact course of action. But rest assured, Digicore Inc. is the best SEO company in Delhi. Our team of experts will help you achieve your digital marketing goals, including first page ranking & high-intent leads effortlessly. We will use the most advanced tools and technology to elevate your site’s ranking and drive measurable growth.",
-  }
-    
-  ,{
-    question:
-      "How much monthly traffic and how many leads can I realistically expect from SEO?",
-    answer:
-      "The monthly traffic and leads you can expect from SEO depend on various factors like your industry, competition, current website authority and the scope of SEO efforts. But you don’t need to worry. Our team of experts will craft specialized digital marketing strategies tailored to your brand to ensure increased targeted traffic and high-quality leads within 3-6 months.",
-  }
-    
-  ,{
-    question:
-      "If I stop SEO in the future, will my rankings remain stable?",
-    answer:
-      "Stopping in today’s scenario simply translates to falling behind fast. The moment you will stop implementing digital marketing strategies, your ranking will drop, let alone remaining stable. Digital marketing isn’t a one-time fix; it’s a continuous process of consistent effort and growth. With technological advancements and SEO evolution, your brand also evolves. If you will stop after a time being, you will lead to nowhere. Hence, you are advised to actively implement digital marketing effort to reap consistent outcomes. Partner with Digicore Inc. – the most reliable AI First SEO agency in Delhi to have stable ranking across platforms!",
-  }
-    
-  ,{
-    question:
-      "For how long will I need to continue SEO for my website to maintain results?",
-    answer:
-      "As said earlier, SEO is not a one-time fix; it is a continuous process. You need to keep implementing SEO strategies in order to maintain consisting results and stay ahead across online and social media platforms. With the best AI-first digital marketing company by your side you can ensure consistent online growth and robust outcomes!",
-  }
-
-];
-
-const displayFaq = faqSection?.faqItems?.length ? faqSection.faqItems : faqData;
-
+  const displayFaq = Array.isArray(faqSection?.faqItems)
+    ? faqSection.faqItems
+    : [];
 
   return (
     <>
+      {banner && (
+        <Banner
+          title={banner.title}
+          description={banner.description}
+          primaryBtnText={banner.primaryBtn?.text}
+          primaryBtnLink={banner.primaryBtn?.link || "#"}
+          secondaryBtnText={banner.secondaryBtn?.text}
+          secondaryBtnLink={banner.secondaryBtn?.link || "#"}
+          backgroundImage={banner.backgroundImageUrl ? resolveImage(banner.backgroundImageUrl) : eimage}
+        />
+      )}
 
-     <Banner
+      {/* About Section */}
+      {aboutSection && (aboutSection.title || aboutSection.description) && (
+        <section className="w-full py-[100px] px-5 max-[769px]:py-[60px] bg-white border-b border-[#e5e7eb]">
+          <div className="max-w-[1300px] mx-auto text-center pt-[60px] px-5 pb-20 max-[769px]:p-[50px_15px]">
+            {aboutSection.title && (
+              <h1 className="font-heading font-extrabold text-[44px] leading-[1.2] max-[993px]:text-[36px] max-[769px]:text-[28px] text-[#2b2b2e] mb-6">
+                {aboutSection.title}
+              </h1>
+            )}
 
-      title={banner?.title || "LinkedIn Marketing Agency in India"}
-      description={banner?.description || "At Digicore Inc., we provide comprehensively planned LinkedIn Marketing services to build brand awareness, drive website traffic and generate quality leads. Our seasoned professionals identify your target audience, and accordingly create LinkedIn campaigns and compelling posts to improve brand presence. We offer tailored LinkedIn marketing services all-sized businesses according to their long-term business goals."}
-      primaryBtnText={banner?.primaryBtn?.text || "Speak to an SEO Expert"}
-      secondaryBtnText={banner?.secondaryBtn?.text || "Our Services"}
-      backgroundImage={banner?.backgroundImageUrl ? resolveImage(banner.backgroundImageUrl) : eimage}
-    />
+            <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px] max-[769px]:w-[50px] max-[769px]:mb-[20px]"></div>
 
-
-
-
-      <section className="w-full py-[100px] px-5 max-[769px]:py-[60px] bg-white border-b border-[#e5e7eb]">
-        <div className="max-w-[1300px] mx-auto text-center pt-[60px] px-5 pb-20 max-[769px]:p-[50px_15px]">
-          <h1 className="font-heading font-extrabold text-[44px] leading-[1.2] max-[993px]:text-[36px] max-[769px]:text-[28px] text-[#2b2b2e] mb-6">
-            {aboutSection?.title || "LinkedIn Marketing Services in India"}
-          </h1>
-
-          <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px] max-[769px]:w-[50px] max-[769px]:mb-[20px]"></div>
-
-          <p className="font-normal text-[17px] leading-[1.8] text-[#4b5563]">
-            {aboutSection?.description || "The experienced LinkedIn marketing specialists at Digicore Inc. build trust and attract quality leads for diverse businesses based on their preferences. With our LinkedIn story-telling approach, we believe in engaging the targeted audience through meaningful stories aligning them with brand’s voice. Besides, our experts strategize to create reliable connections, drive business growth and strengthen credibility through experience-driven and impactful LinkedIn content. Our proven marketing strategies, consistent market presence and data-driven LinkedIn marketing services in India enable us to offer sustainable as well as value-adding results to our clients."}
-          </p>
-        </div>
-      </section>
-
-      <section className="w-full py-[100px] bg-white max-[993px]:py-[60px] max-[993px]:px-5 border-b border-[#e5e7eb]">
-        <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[60px] lg:gap-[40px] px-5">
-          <div className="flex-1">
-            <h2 className="w-full font-heading font-extrabold text-[36px] leading-[1.2] max-[993px]:text-[30px] max-[769px]:text-[26px] text-[#2b2b2e] m-0 pb-[20px]">
-              {visibilitySection?.title || "Why is LinkedIn Marketing agency beneficial for business growth?"}
-            </h2>
-
-            <p className="font-normal text-[16px] leading-[1.8] text-[#4b5563] m-0">
-              {visibilitySection?.description || "With the help of well-tailored LinkedIn marketing services, Digicore Inc. fuels business growth through professional connections, targeting decision-makers and strengthen brand authority. Our experienced marketers optimally utilize though-leadership content, data-driven campaigns, and LinkedIn’s precise targeting increase brand visibility. Besides, we also help businesses in generating qualified B2B leads and convert connections into ROI prospects through long-term trust."}
-            </p>
-
-            <div className="w-[100px] h-[4px] bg-[#e31e24] mt-[40px]"></div>
+            {aboutSection.description && (
+              <p className="font-normal text-[17px] leading-[1.8] text-[#4b5563]">
+                {aboutSection.description}
+              </p>
+            )}
           </div>
+        </section>
+      )}
 
-          <div className="flex-1 flex justify-center lg:justify-end">
-            <img src={visibilitySection?.imageUrl ? resolveImage(visibilitySection.imageUrl) : graphImg} alt="Graph" className="w-full max-w-[550px] h-auto object-cover rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-[#e5e7eb]" />
+      {/* Visibility Section */}
+      {visibilitySection && (visibilitySection.title || visibilitySection.description || visibilitySection.imageUrl) && (
+        <section className="w-full py-[100px] bg-white max-[993px]:py-[60px] max-[993px]:px-5 border-b border-[#e5e7eb]">
+          <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[60px] lg:gap-[40px] px-5">
+            <div className="flex-1">
+              {visibilitySection.title && (
+                <h2 className="w-full font-heading font-extrabold text-[36px] leading-[1.2] max-[993px]:text-[30px] max-[769px]:text-[26px] text-[#2b2b2e] m-0 pb-[20px]">
+                  {visibilitySection.title}
+                </h2>
+              )}
+
+              {visibilitySection.description && (
+                <p className="font-normal text-[16px] leading-[1.8] text-[#4b5563] m-0">
+                  {visibilitySection.description}
+                </p>
+              )}
+
+              <div className="w-[100px] h-[4px] bg-[#e31e24] mt-[40px]"></div>
+            </div>
+
+            {visibilitySection.imageUrl && (
+              <div className="flex-1 flex justify-center lg:justify-end">
+                <img src={resolveImage(visibilitySection.imageUrl)} alt="Graph" className="w-full max-w-[550px] h-auto object-cover rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-[#e5e7eb]" />
+              </div>
+            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="w-full p-0 m-0 bg-white">
-        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 w-full">
-          <div className="bg-gradient-to-br from-[#8b0000] to-[#1c1c1e] min-h-[350px] flex flex-col justify-center px-12 py-[80px] lg:pl-[120px]">
-            {[performanceSection?.items?.[0] || "TRACK", performanceSection?.items?.[1] || "ANALYZE", performanceSection?.items?.[2] || "SCALE", performanceSection?.items?.[3] || "REPEAT"].map((word, i) => (
-              <h2 key={i} className="m-0 font-heading font-extrabold text-[60px] leading-[75px] max-[992px]:text-[48px] max-[992px]:leading-[58px] max-[769px]:text-[36px] max-[769px]:leading-[46px] text-white uppercase tracking-tight">
-                {word}
+      {/* Performance Section */}
+      {performanceSection && (performanceSection.items?.length > 0 || performanceSection.imageUrl) && (
+        <section className="w-full p-0 m-0 bg-white">
+          <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 w-full">
+            <div className="bg-gradient-to-br from-[#8b0000] to-[#1c1c1e] min-h-[350px] flex flex-col justify-center px-12 py-[80px] lg:pl-[120px]">
+              {performanceSection.items.map((word, i) => word && (
+                <h2 key={i} className="m-0 font-heading font-extrabold text-[60px] leading-[75px] max-[992px]:text-[48px] max-[992px]:leading-[58px] max-[769px]:text-[36px] max-[769px]:leading-[46px] text-white uppercase tracking-tight">
+                  {word}
+                </h2>
+              ))}
+            </div>
+
+            {performanceSection.imageUrl && (
+              <div className="min-h-[390px] max-[992px]:min-h-[350px] max-[769px]:min-h-[250px] overflow-hidden">
+                <img src={resolveImage(performanceSection.imageUrl)} alt="SEO Performance" className="w-full h-full block object-cover" />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* SEO Agency Section */}
+      {seoAgencySection && (seoAgencySection.title || seoAgencySection.description) && (
+        <section className="w-full py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
+          <div className="max-w-[1200px] mx-auto text-center px-5">
+            <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px] max-[769px]:w-[50px] max-[769px]:mb-[20px]"></div>
+
+            {seoAgencySection.title && (
+              <h2 className="text-[42px] max-[993px]:text-[34px] max-[769px]:text-[26px] text-[#1c1c1e] font-heading font-extrabold mb-[30px] leading-[1.2]">
+                {seoAgencySection.title}
               </h2>
-            ))}
+            )}
+
+            {seoAgencySection.description && (
+              <p className="text-[17px] leading-[1.8] text-[#4b5563] text-center max-w-[1000px] mx-auto m-0">
+                {seoAgencySection.description}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Services Grid Section */}
+      {displayServices.length > 0 && (
+        <section className="w-full py-[100px] px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
+          <div className="max-w-[1200px] mx-auto px-5">
+            <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px] max-[769px]:w-[50px] max-[769px]:mb-[20px]"></div>
+
+            {servicesSection?.heading && (
+              <h2 className="text-[48px] max-[993px]:text-[38px] max-[769px]:text-[30px] leading-[1.1] text-[#1c1c1e] mb-[25px] font-heading font-extrabold">
+                {servicesSection.heading}
+              </h2>
+            )}
+
+            {servicesSection?.description && (
+              <p className="text-[17px] leading-[1.8] text-[#4b5563] max-w-[850px] mx-auto mb-[60px]">
+                {servicesSection.description}
+              </p>
+            )}
           </div>
 
-          <div className="min-h-[390px] max-[992px]:min-h-[350px] max-[769px]:min-h-[250px] overflow-hidden">
-            <img src={performanceSection?.imageUrl ? resolveImage(performanceSection.imageUrl) : seoRimg} alt="SEO Performance" className="w-full h-full block object-cover" />
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
-        <div className="max-w-[1200px] mx-auto text-center px-5">
-          <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px] max-[769px]:w-[50px] max-[769px]:mb-[20px]"></div>
-
-          <h2 className="text-[42px] max-[993px]:text-[34px] max-[769px]:text-[26px] text-[#1c1c1e] font-heading font-extrabold mb-[30px] leading-[1.2]">
-            {seoAgencySection?.title || "Why do I need LinkedIn marketing services?"}
-          </h2>
-
-          <p className="text-[17px] leading-[1.8] text-[#4b5563] text-center max-w-[1000px] mx-auto m-0">
-            {seoAgencySection?.description || "LinkedIn marketing services help businesses connect with the celebrities, influencers, decision-makers and the other high-intent users through top B2B leads. At Digicore Inc., we enable our clients to optimally utilize LinkedIn’s ecosystem through profile optimization, data-driven campaigns and targeted content. We ensure that our LinkedIn marketing services reach right target audience at the right time while positioning businesses ahead of their competitors. Whether it is through consistent value-driven messaging or engaging potential prospects through creative posts, our seasoned professionals focus on lead-generation and building long-term connections. Invest in the tailored services of Digicore Inc., the best LinkedIn marketing agency in India and experience the business growth, improved visibility, and achieve sustainable results."}
-          </p>
-        </div>
-      </section>
-
-
- <section className="w-full py-[100px] px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
-        <div className="max-w-[1200px] mx-auto px-5">
-          <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px] max-[769px]:w-[50px] max-[769px]:mb-[20px]"></div>
-
-          <h2 className="text-[48px] max-[993px]:text-[38px] max-[769px]:text-[30px] leading-[1.1] text-[#1c1c1e] mb-[25px] font-heading font-extrabold">
-            {servicesSection?.heading || "LinkedIn Marketing services"}
-          </h2>
-
-          <p className="text-[17px] leading-[1.8] text-[#4b5563] max-w-[850px] mx-auto mb-[60px]">
-            {servicesSection?.description || "Apart from being the social platform, LinkedIn is the resourceful network to connect with businesses that align with your future marketing goals. From connecting with the A-level decision makers to discussing business growth plans with founders, Digicore Inc. steps in with the top LinkedIn marketing services backed by real-time updates. With our tailored marketing strategies, we ensure campaigns are consistently monitored for lead generation and help businesses build brand authority. Our experts offer measurable LinkedIn marketing results and consistently improve strategies to address sustainable business growth objectives."}
-          </p>
-        </div>
-
-        <div className="max-w-[1200px] mx-auto px-5">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
-            {displayServices.map((service, index) => (
-              <ServiceCard
-                key={service.id || index}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="relative py-[100px] px-5 bg-[#1c1c1e] text-center min-h-[300px] flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(28, 28, 30, 0.9), rgba(28, 28, 30, 0.95)), url(${whyChooseSection?.backgroundImageUrl ? resolveImage(whyChooseSection.backgroundImageUrl) : bgIcon})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#8b0000]/10 to-transparent pointer-events-none"></div>
-        <div className="relative z-10 text-center max-w-[1000px] mx-auto">
-          <h1 className="text-white text-[42px] max-[769px]:text-[30px] font-heading font-extrabold leading-[1.2] mb-[40px] uppercase">
-            {whyChooseSection?.title || "Ready for More Traffic, Leads & Sales? Start SEO Now."}
-          </h1>
-
-          <div className="flex justify-center items-center gap-5 max-[769px]:flex-col">
-            <a
-              href={whyChooseSection?.buttons?.[0]?.link || "https://wa.me/919818888064"}
-              className="flex items-center justify-center gap-[10px] bg-white hover:bg-[#f0fdf4] hover:scale-[1.03] transition-all duration-300 text-[#22c55e] h-12 px-7 rounded-lg text-base font-bold no-underline shadow-[0_4px_15px_rgba(34,197,94,0.16)] border border-[#22c55e]/25"
-            >
-              <img
-                src="https://tataresearch.besthr.in/digital-marketar/assets/icon/whatsapp.png"
-                alt="whatsapp"
-                className="w-[20px] h-[20px] rounded-full bg-[#22c55e] p-[3px] object-contain"
-              />
-              {whyChooseSection?.buttons?.[0]?.text || "+91 98188 88064"}
-            </a>
-
-            <a
-              href={whyChooseSection?.buttons?.[1]?.link || "#"}
-              className="flex items-center justify-center gap-[10px] bg-transparent hover:bg-white/10 hover:scale-[1.03] transition-all duration-300 text-white h-12 px-7 rounded-lg text-base font-bold no-underline border border-white"
-            >
-              {whyChooseSection?.buttons?.[1]?.text || "REQUEST A CALLBACK"}
-            </a>
-          </div>
-        </div>
-      </section>
-      <section className="py-[100px] px-[7%] bg-white border-b border-[#e5e7eb]">
-        <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-[60px] lg:flex-row flex-col px-5">
-          <div className="w-full max-w-[500px] lg:max-w-[45%]">
-            <img
-              src={timelineSection?.imageUrl ? resolveImage(timelineSection.imageUrl) : impact}
-              alt="Impact"
-              className="w-full block rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] border border-[#e5e7eb]"
-            />
-          </div>
-
-          <div className="w-full lg:max-w-[50%] pt-10 lg:pt-0">
-            <div className="relative border-l border-[#e5e7eb] pl-6 ml-3">
-              {(timelineSection?.items?.length ? timelineSection.items : [
-                { title: "Contact Us", description: "Get in touch with us via email, phone or website." },
-                { title: "Share Your Goals", description: "Tell us about your business and marketing goals." },
-                { title: "Consultation", description: "Our expert will discuss strategies tailored to your business." },
-                { title: "Proposal & Plan", description: "We provide a customized strategy and roadmap." },
-                { title: "Partner & Grow", description: "Drive high-impact traffic and measurable growth." },
-              ]).map((step, i) => (
-                <div key={step.id || i} className="relative mb-[40px] last:mb-0">
-                  <div className="absolute left-[-31px] top-1 w-[14px] h-[14px] rounded-full border-2 border-[#e31e24] bg-white shadow-[0_0_8px_rgba(227,30,36,0.4)] z-[2]"></div>
-                  <div>
-                    <h3 className="mb-[8px] text-[22px] max-[769px]:text-[19px] font-heading font-bold text-[#2b2b2e] leading-tight">{step.title}</h3>
-                    <p className="text-[15px] leading-[1.6] text-[#4b5563]">{step.description}</p>
-                  </div>
-                </div>
+          <div className="max-w-[1200px] mx-auto px-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
+              {displayServices.map((service, index) => (
+                <ServiceCard
+                  key={service.id || index}
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                />
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-    
-  <Industry />
-    <Casestudy />
+      {/* CTA Section */}
+      {whyChooseSection && (
+        <section
+          className="relative py-[100px] px-5 bg-[#1c1c1e] text-center min-h-[300px] flex items-center justify-center overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(28, 28, 30, 0.9), rgba(28, 28, 30, 0.95)), url(${whyChooseSection.backgroundImageUrl ? resolveImage(whyChooseSection.backgroundImageUrl) : bgIcon})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-[#8b0000]/10 to-transparent pointer-events-none"></div>
+          <div className="relative z-10 text-center max-w-[1000px] mx-auto">
+            {whyChooseSection.title && (
+              <h1 className="text-white text-[42px] max-[769px]:text-[30px] font-heading font-extrabold leading-[1.2] mb-[40px] uppercase">
+                {whyChooseSection.title}
+              </h1>
+            )}
 
+            {whyChooseSection.buttons?.length > 0 && (
+              <div className="flex justify-center items-center gap-5 max-[769px]:flex-col">
+                {whyChooseSection.buttons.map((btn, index) => {
+                  const isFirst = index === 0;
+                  return (
+                    <a
+                      key={btn.id || index}
+                      href={btn.link || "#"}
+                      className={isFirst 
+                        ? "flex items-center justify-center gap-[10px] bg-white hover:bg-[#f0fdf4] hover:scale-[1.03] transition-all duration-300 text-[#22c55e] h-12 px-7 rounded-lg text-base font-bold no-underline shadow-[0_4px_15px_rgba(34,197,94,0.16)] border border-[#22c55e]/25"
+                        : "flex items-center justify-center gap-[10px] bg-transparent hover:bg-white/10 hover:scale-[1.03] transition-all duration-300 text-white h-12 px-7 rounded-lg text-base font-bold no-underline border border-white"
+                      }
+                    >
+                      {btn.iconUrl && (
+                        <img
+                          src={resolveImage(btn.iconUrl)}
+                          alt="btn-icon"
+                          className="w-[20px] h-[20px] rounded-full bg-[#22c55e] p-[3px] object-contain"
+                        />
+                      )}
+                      {!btn.iconUrl && isFirst && (
+                        <img
+                          src="https://tataresearch.besthr.in/digital-marketar/assets/icon/whatsapp.png"
+                          alt="whatsapp"
+                          className="w-[20px] h-[20px] rounded-full bg-[#22c55e] p-[3px] object-contain"
+                        />
+                      )}
+                      {btn.text}
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
- 
+      {/* Timeline Section */}
+      {timelineSection?.items?.length > 0 && (
+        <section className="py-[100px] px-[7%] bg-white border-b border-[#e5e7eb]">
+          <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-[60px] lg:flex-row flex-col px-5">
+            {timelineSection.imageUrl && (
+              <div className="w-full max-w-[500px] lg:max-w-[45%]">
+                <img
+                  src={resolveImage(timelineSection.imageUrl)}
+                  alt="Impact"
+                  className="w-full block rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] border border-[#e5e7eb]"
+                />
+              </div>
+            )}
 
+            <div className="w-full lg:max-w-[50%] pt-10 lg:pt-0">
+              <div className="relative border-l border-[#e5e7eb] pl-6 ml-3">
+                {timelineSection.items.map((item, index) => (
+                  <div key={item.id || index} className="relative mb-[40px] last:mb-0">
+                    <div className="absolute left-[-31px] top-1 w-[14px] h-[14px] rounded-full border-2 border-[#e31e24] bg-white shadow-[0_0_8px_rgba(227,30,36,0.4)] z-[2]"></div>
 
-<section className="bg-white py-16 sm:py-20">
-  <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-    <div className="max-w-3xl mx-auto text-center mb-12">
-      <div className="mx-auto mb-4 h-1.5 w-20 rounded-full bg-[#e31e24]"></div>
-      <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 leading-tight">
-        {whyChooseDigicoreSection?.title || (<>Why choose Digicore Inc. as your <br className="hidden sm:block" />LinkedIn Marketing agency in India?</>)}
-      </h2>
-      <p className="mt-5 text-base sm:text-lg text-slate-600 leading-8">
-        {whyChooseDigicoreSection?.description || "Experience the power of results-driven and focused approach of LinkedIn marketing services by choosing Digicore Inc.. Our highly qualified and experienced professionals help you in reaching the right audience, generate quality B2B and build credibility. Besides, we create compelling and meaningful content while optimizing LinkedIn company profile aligned with business growth objectives. From managing ad campaigns to tracking the performance and optimizing the content, we have turned out to be the best LinkedIn marketing agency in India known for simple yet strategic methodology."}
-      </p>
-    </div>
-
-    <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-start">
-      <div>
-        <ul className="space-y-4 text-base sm:text-lg text-slate-700">
-          {whyChooseDigicoreSection?.points?.length ? (
-            whyChooseDigicoreSection.points.map((point, i) => (
-              <li key={i} className="flex gap-3 items-start">
-                <span className="mt-1 text-[#e31e24]">✔</span>
-                <span>{point}</span>
-              </li>
-            ))
-          ) : (
-            <>
-              <li className="flex gap-3 items-start">
-                <span className="mt-1 text-[#e31e24]">✔</span>
-                <span>Our highly qualified and experienced professionals tailor and execute LinkedIn marketing campaigns.</span>
-              </li>
-              <li className="flex gap-3 items-start">
-                <span className="mt-1 text-[#e31e24]">✔</span>
-                <span>With our growth-first mindset, we cater to the advanced LinkedIn marketing goals of all-sized businesses.</span>
-              </li>
-              <li className="flex gap-3 items-start">
-                <span className="mt-1 text-[#e31e24]">✔</span>
-                <span>We present detailed and factual reports while maintaining transparency in the marketing plan to help businesses stay ahead in the market.</span>
-              </li>
-              <li className="flex gap-3 items-start">
-                <span className="mt-1 text-[#e31e24]">✔</span>
-                <span>Our result-driven and data-driven LinkedIn marketing strategies help them maximize ROI and boost sales.</span>
-              </li>
-              <li className="flex gap-3 items-start">
-                <span className="mt-1 text-[#e31e24]">✔</span>
-                <span>All our strategies are future-ready and address the sustainable business growth of clients.</span>
-              </li>
-              <li className="flex gap-3 items-start">
-                <span className="mt-1 text-[#e31e24]">✔</span>
-                <span>With more than a decade’s excellence, we incorporate modern tactics to achieve bespoke marketing objectives.</span>
-              </li>
-              <li className="flex gap-3 items-start">
-                <span className="mt-1 text-[#e31e24]">✔</span>
-                <span>We identify and target the right audience, generate quality leads and build awareness to address long-term business goals of clients.</span>
-              </li>
-            </>
-          )}
-        </ul>
-      </div>
-
-      <div className="rounded-[32px] bg-slate-50 p-5 shadow-sm">
-        <img
-          className="w-full rounded-[28px] object-cover"
-          src={whyChooseDigicoreSection?.imageUrl ? resolveImage(whyChooseDigicoreSection.imageUrl) : graphImg}
-          alt="Graph"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
- <div>
-
-
-  <TestimonialSection />
-
-
- </div>
-
- <div>
-  <Brands />
- </div>
-
- <div>
-  <Tools />
- </div>
-
-
-
-
- <div>
-    
-    <Blogs />
- </div>
-
-  
-
-   <section className="py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
-        <div className="text-center mb-[50px]">
-          <h2 className="text-[42px] font-heading font-extrabold text-[#1c1c1e] mb-[10px]">{faqSection?.heading || "FAQ"}</h2>
-          <div className="w-12 h-1 bg-[#e31e24] mx-auto rounded-[50px]"></div>
-        </div>
-
-        <div className="max-w-[950px] mx-auto flex flex-col gap-4">
-          {displayFaq.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-[#e5e7eb] rounded-xl bg-white overflow-hidden shadow-sm hover:border-[#e31e24]/20 transition-all duration-300"
-            >
-              <button
-                className="w-full bg-transparent border-0 flex justify-between items-center py-5 px-6 cursor-pointer text-left transition-colors duration-300"
-                onClick={() => toggleFAQ(index)}
-              >
-                <span className="text-[16px] font-heading font-bold text-[#2b2b2e] leading-[1.5] max-w-[90%] group-hover:text-[#e31e24]">{faq.question}</span>
-
-                {activeIndex === index ? (
-                  <Minus className="w-[20px] h-[20px] shrink-0 text-[#e31e24]" />
-                ) : (
-                  <Plus className="w-[20px] h-[20px] shrink-0 text-[#e31e24]" />
-                )}
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-300 ${activeIndex === index ? "max-h-[300px]" : "max-h-0"}`}
-              >
-                <p className="text-[15px] text-[#4b5563] leading-[1.7] pt-0 px-6 pb-6 border-t border-[#e5e7eb]/40">{faq.answer}</p>
+                    <div>
+                      {item.title && <h3 className="mb-[8px] text-[22px] max-[769px]:text-[19px] font-heading font-bold text-[#2b2b2e] leading-tight">{item.title}</h3>}
+                      {(item.description || item.desc) && <p className="text-[15px] leading-[1.6] text-[#4b5563]">{item.description || item.desc}</p>}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
- 
+      <Industry />
+      <Casestudy />
 
- <div>
-  <Contacts />
- </div>
+      {/* Why Choose Section with Checklists */}
+      {whyChooseDigicoreSection && (whyChooseDigicoreSection.title || whyChooseDigicoreSection.description || whyChooseDigicoreSection.points?.length > 0 || whyChooseDigicoreSection.imageUrl) && (
+        <section className="bg-white py-16 sm:py-20">
+          <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <div className="mx-auto mb-4 h-1.5 w-20 rounded-full bg-[#e31e24]"></div>
+              {whyChooseDigicoreSection.title && (
+                <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-900 leading-tight">
+                  {whyChooseDigicoreSection.title}
+                </h2>
+              )}
+              {whyChooseDigicoreSection.description && (
+                <p className="mt-5 text-base sm:text-lg text-slate-600 leading-8">
+                  {whyChooseDigicoreSection.description}
+                </p>
+              )}
+            </div>
 
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-start">
+              {whyChooseDigicoreSection.points?.length > 0 && (
+                <div>
+                  <ul className="space-y-4 text-base sm:text-lg text-slate-700">
+                    {whyChooseDigicoreSection.points.map((point, i) => (
+                      <li key={i} className="flex gap-3 items-start">
+                        <span className="mt-1 text-[#e31e24]">✔</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
+              {whyChooseDigicoreSection.imageUrl && (
+                <div className="rounded-[32px] bg-slate-50 p-5 shadow-sm">
+                  <img
+                    className="w-full rounded-[28px] object-cover"
+                    src={resolveImage(whyChooseDigicoreSection.imageUrl)}
+                    alt="Graph"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
 
+      <div>
+        <TestimonialSection />
+      </div>
+
+      <div>
+        <Brands />
+      </div>
+
+      <div>
+        <Tools />
+      </div>
+
+      <div>
+        <Blogs />
+      </div>
+
+      {/* Accordion FAQ Section */}
+      {displayFaq.length > 0 && (
+        <section className="py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
+          <div className="text-center mb-[50px]">
+            <h2 className="text-[42px] font-heading font-extrabold text-[#1c1c1e] mb-[10px]">{faqSection?.heading || "FAQ"}</h2>
+            <div className="w-12 h-1 bg-[#e31e24] mx-auto rounded-[50px]"></div>
+          </div>
+
+          <div className="max-w-[950px] mx-auto flex flex-col gap-4">
+            {displayFaq.map((faq, index) => (
+              <div
+                key={index}
+                className="border border-[#e5e7eb] rounded-xl bg-white overflow-hidden shadow-sm hover:border-[#e31e24]/20 transition-all duration-300"
+              >
+                <button
+                  className="w-full bg-transparent border-0 flex justify-between items-center py-5 px-6 cursor-pointer text-left transition-colors duration-300"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <span className="text-[16px] font-heading font-bold text-[#2b2b2e] leading-[1.5] max-w-[90%] group-hover:text-[#e31e24]">{faq.question}</span>
+
+                  {activeIndex === index ? (
+                    <Minus className="w-[20px] h-[20px] shrink-0 text-[#e31e24]" />
+                  ) : (
+                    <Plus className="w-[20px] h-[20px] shrink-0 text-[#e31e24]" />
+                  )}
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${activeIndex === index ? "max-h-[300px]" : "max-h-0"}`}
+                >
+                  <p className="text-[15px] text-[#4b5563] leading-[1.7] pt-0 px-6 pb-6 border-t border-[#e5e7eb]/40">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <div>
+        <Contacts />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default LinkedIn
+export default LinkedIn;
