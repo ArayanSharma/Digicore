@@ -35,7 +35,7 @@ export default function Contacts() {
   const [filteredContacts, setFilteredContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  
+
   // Modals
   const [editContact, setEditContact] = useState(null);
   const [isCreateOpen, setIsCreateOpen] = useState(false);
@@ -137,7 +137,7 @@ export default function Contacts() {
         body: JSON.stringify(newContact)
       });
       if (!res.ok) throw new Error("Creation failed");
-      
+
       const created = await res.json();
       setContacts((prev) => [created.contact, ...prev]);
       setNewContact({ name: "", email: "", phone: "", service: "", message: "" });
@@ -286,6 +286,7 @@ export default function Contacts() {
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Service</th>
+                  <th>Message</th>
                   <th>Date</th>
                   <th className="text-right">Actions</th>
                 </tr>
@@ -325,6 +326,9 @@ export default function Contacts() {
                       <span className={`inline-flex px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm ${getServiceBadgeClass(contact.service)}`}>
                         {contact.service || "General"}
                       </span>
+                    </td>
+                    <td className="max-w-[220px] truncate text-sm text-slate-500 font-medium" title={contact.message}>
+                      {contact.message}
                     </td>
                     <td>
                       <div className="flex items-center gap-2 text-sm text-slate-500 font-semibold">

@@ -120,7 +120,7 @@ const Reseller = () => {
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto">
             {resellerSection.heading && (
-              <h2 className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-[15px] leading-tight">
+              <h2 style={{ fontSize: "36px" }} className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-[15px] leading-tight">
                 {resellerSection.heading}
               </h2>
             )}
@@ -225,7 +225,7 @@ const Reseller = () => {
           <div className="max-w-[1200px] mx-auto">
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
             {seoTeam.heading && (
-              <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-6 leading-tight">
+              <h2 style={{ fontSize: "36px" }} className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-6 leading-tight">
                 {seoTeam.heading}
               </h2>
             )}
@@ -262,7 +262,7 @@ const Reseller = () => {
           <div className="max-w-[1200px] mx-auto">
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
             {solutionsSection?.heading && (
-              <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
+              <h2 style={{ fontSize: "36px" }}  className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
                 {solutionsSection.heading}
               </h2>
             )}
@@ -303,7 +303,7 @@ const Reseller = () => {
           <div className="max-w-[1200px] mx-auto">
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
             {seoCase?.heading && (
-              <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
+              <h2  style={{ fontSize: "36px" }} className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
                 {seoCase.heading}
               </h2>
             )}
@@ -376,7 +376,7 @@ const Reseller = () => {
           <div className="max-w-[1200px] mx-auto text-center">
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
             {outsourcing.heading && (
-              <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-10 leading-tight">
+              <h2  style={{ fontSize: "36px" }} className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-10 leading-tight">
                 {outsourcing.heading}
               </h2>
             )}
@@ -397,7 +397,7 @@ const Reseller = () => {
           <div className="max-w-[1200px] mx-auto">
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
             {otherServices.heading && (
-              <h2 className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4 leading-tight">
+              <h2  style={{ fontSize: "36px" }} className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4 leading-tight">
                 {otherServices.heading}
               </h2>
             )}
@@ -481,7 +481,7 @@ const Reseller = () => {
           <div className="max-w-[1200px] mx-auto">
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
             {benefitsProgram.heading && (
-              <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
+              <h2  style={{ fontSize: "36px" }} className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
                 {benefitsProgram.heading}
               </h2>
             )}
@@ -522,7 +522,7 @@ const Reseller = () => {
         <section className="w-full py-24 px-5 bg-[#f4f4f5]">
           <div className="max-w-[1200px] mx-auto">
             {testimonialsData?.title && (
-              <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
+              <h2  style={{ fontSize: "36px" }} className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
                 {testimonialsData.title}
               </h2>
             )}
@@ -599,13 +599,13 @@ const Reseller = () => {
         <section className="w-full py-16 px-5 bg-white border-b border-slate-100">
           <div className="max-w-[1200px] mx-auto">
             {brandsData?.heading && (
-              <h2 className="text-center text-[30px] font-heading font-extrabold text-[#1c1c1e] mb-12">
+              <h2  style={{ fontSize: "36px" }} className="text-center text-[30px] font-heading font-extrabold text-[#1c1c1e] mb-12">
                 {brandsData.heading}
               </h2>
             )}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60 hover:opacity-100 transition-opacity duration-300">
               {displayBrands.map((brand, index) => (
-                <div className="h-20 flex items-center justify-center" key={index}>
+                <div className="h-50 flex items-center justify-center" key={index}>
                   <img src={brand} alt={`brand-${index + 1}`} className="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300" />
                 </div>
               ))}

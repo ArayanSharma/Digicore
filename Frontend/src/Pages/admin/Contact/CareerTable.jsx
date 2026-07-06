@@ -1,4 +1,4 @@
-import { Briefcase, Edit, Mail, Trash2 } from "lucide-react";
+import { Briefcase, Edit, Mail, Phone, Trash2 } from "lucide-react";
 import { Card } from "../../../Components/ui/card";
 import { Badge } from "../../../Components/ui/badge";
 
@@ -62,6 +62,7 @@ export default function CareerTable({ careers, loading, onEdit, onDelete }) {
               <tr>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Phone</th>
                 <th>Position</th>
                 <th>Date</th>
                 <th>Resume</th>
@@ -88,6 +89,12 @@ export default function CareerTable({ careers, loading, onEdit, onDelete }) {
                     <div className="flex items-center gap-2 text-slate-500">
                       <Mail size={14} className="text-slate-400" />
                       <span>{item.email}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="flex items-center gap-2 text-slate-500">
+                      <Phone size={14} className="text-slate-400" />
+                      <span>{item.phone || "—"}</span>
                     </div>
                   </td>
                   <td>

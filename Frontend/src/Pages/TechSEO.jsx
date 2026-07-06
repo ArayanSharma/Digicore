@@ -240,7 +240,7 @@ const TechSeo = () => {
           <div className="max-w-[1200px] mx-auto">
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
             {dominate?.heading && (
-              <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
+              <h2  style={{ fontSize: "36px" }} className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
                 {dominate.heading}
               </h2>
             )}
@@ -277,7 +277,7 @@ const TechSeo = () => {
       {whyBusiness && (whyBusiness.heading || whyBusiness.description || whyBusiness.features?.length > 0 || whyBusiness.image) && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto">
-            <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
+            <div  style={{ fontSize: "36px" }} className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
             {whyBusiness.heading && (
               <h2 className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-6 uppercase">
                 {whyBusiness.heading}

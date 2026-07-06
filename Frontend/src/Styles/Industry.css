@@ -28,7 +28,7 @@
 /* WRAPPER */
 
 .workindustry-slider-wrapper {
-  width: 75%;
+  width: 100%;
   margin: auto;
   position: relative;
   overflow: visible;
@@ -37,30 +37,27 @@
 /* CARDS */
 
 .workindustry-cards {
-  display: flex;
-  gap: 30px;
-
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-
-  scrollbar-width: none;
+  display: block;
+  width: 100%;
 }
 
-.workindustry-cards::-webkit-scrollbar {
-  display: none;
+.workindustrySwiper .swiper-slide {
+  display: flex;
+  height: auto;
 }
 
 /* CARD */
 
 .workindustry-card {
-  flex: 0 0 calc((100% - 60px) / 3);
+  width: 100%;
+  height: 100%;
 
   background: #FFFFFF;
   border-radius: 28px;
 
   padding: 38px 34px;
 
-  min-height: 520px;
+  min-height: 480px;
 
   border-top: 5px solid #E31E24;
 
@@ -225,10 +222,6 @@
 /* TABLET */
 
 @media (max-width: 1200px) {
-  .workindustry-card {
-    flex: 0 0 calc((100% - 30px) / 2);
-  }
-
   .workindustry-heading h2 {
     font-size: 42px;
   }
@@ -246,7 +239,6 @@
   }
 
   .workindustry-card {
-    flex: 0 0 100%;
     min-height: auto;
     padding: 30px;
   }

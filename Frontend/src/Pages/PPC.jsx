@@ -178,7 +178,7 @@ const PPC = () => {
             <div className="w-[55px] h-1 bg-[#e31e24] mx-auto mb-[18px] rounded-[10px]"></div>
 
             {whyPPCSection.heading && (
-              <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-8 uppercase leading-tight">
+              <h2  style={{ fontSize: "36px" }} className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-8 uppercase leading-tight">
                 {whyPPCSection.heading}
               </h2>
             )}
@@ -406,7 +406,7 @@ const PPC = () => {
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
 
             {helpCardsSection.heading && (
-              <h2 className="text-center text-[48px] max-[993px]:text-[38px] max-[769px]:text-[30px] font-heading font-extrabold text-[#1c1c1e] mb-[15px] uppercase">
+              <h2  style={{ fontSize: "36px" }} className="text-center text-[48px] max-[993px]:text-[38px] max-[769px]:text-[30px] font-heading font-extrabold text-[#1c1c1e] mb-[15px] uppercase">
                 {helpCardsSection.heading}
               </h2>
             )}
@@ -442,7 +442,7 @@ const PPC = () => {
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
 
             {whyChooseDigicoreSection.title && (
-              <h2 className="text-center text-[48px] max-[993px]:text-[38px] max-[769px]:text-[30px] font-heading font-extrabold text-[#1c1c1e] mb-6 uppercase">
+              <h2 style={{ fontSize: "36px" }}  className="text-center text-[48px] max-[993px]:text-[38px] max-[769px]:text-[30px] font-heading font-extrabold text-[#1c1c1e] mb-6 uppercase">
                 {whyChooseDigicoreSection.title}
               </h2>
             )}

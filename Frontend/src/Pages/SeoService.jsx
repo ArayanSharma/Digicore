@@ -214,9 +214,12 @@ const SeoService = () => {
             <div className="w-[55px] h-1 bg-[#e31e24] mx-auto mb-[18px] rounded-[10px]"></div>
 
             {seoAgency.heading && (
-              <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-8 uppercase leading-tight">
-                {seoAgency.heading}
-              </h2>
+             <h2
+  className="text-center max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-8 uppercase leading-tight"
+  style={{ fontSize: "36px" }}
+>
+  {seoAgency.heading}
+</h2>
             )}
 
             {seoAgency.description && (
@@ -229,7 +232,7 @@ const SeoService = () => {
               <div className="space-y-8">
                 {seoAgency.problemTitle && (
                   <div>
-                    <h3 className="text-[26px] max-[769px]:text-[20px] text-[#e31e24] font-heading font-extrabold mb-3">
+                    <h3 className="text-[26px] max-[769px]:text-[20px] text-[#e31e24] font-heading font-extrabold mb-3"   style={{ fontSize: "26px" }}>
                       {seoAgency.problemTitle}
                     </h3>
                     {seoAgency.problemText && (
@@ -242,7 +245,7 @@ const SeoService = () => {
 
                 {seoAgency.solutionTitle && (
                   <div>
-                    <h3 className="text-[26px] max-[769px]:text-[20px] text-emerald-600 font-heading font-extrabold mb-3">
+                    <h3 className="text-[26px] max-[769px]:text-[20px] text-emerald-600 font-heading font-extrabold mb-3"   style={{ fontSize: "26px" }} >
                       {seoAgency.solutionTitle}
                     </h3>
                     {seoAgency.solutionText && (
@@ -419,7 +422,7 @@ const SeoService = () => {
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
 
             {whyBusiness.heading && (
-              <h2 className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-6 uppercase">
+              <h2 className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-6 uppercase"   style={{ fontSize: "36px" }}>
                 {whyBusiness.heading}
               </h2>
             )}

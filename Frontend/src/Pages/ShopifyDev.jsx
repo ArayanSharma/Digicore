@@ -399,7 +399,7 @@ const ShopifyDev = () => {
         <section className="built-section">
           <div className="built-container">
             <h2>
-              <span>{builtSection.title}</span>
+              <span  style={{ fontSize: "36px" }} >{builtSection.title}</span>
             </h2>
 
             <p>{builtSection.description}</p>
@@ -552,7 +552,7 @@ const ShopifyDev = () => {
         <section className="custom-faq-section">
           <div className="custom-faq-container">
             <div className="custom-faq-header">
-              <h2>{faqHeader.title}</h2>
+              <h2 style={{ fontSize: "36px" }} >{faqHeader.title}</h2>
               <p>{faqHeader.subtitle}</p>
             </div>
 

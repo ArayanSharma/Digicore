@@ -378,7 +378,7 @@ const GoogleAd = () => {
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
 
             {dominate.heading && (
-              <h2 className="text-center text-[48px] max-[993px]:text-[38px] max-[769px]:text-[30px] font-heading font-extrabold text-[#1c1c1e] mb-[15px] uppercase">
+              <h2 style={{ fontSize: "36px" }}  className="text-center text-[48px] max-[993px]:text-[38px] max-[769px]:text-[30px] font-heading font-extrabold text-[#1c1c1e] mb-[15px] uppercase">
                 {dominate.heading}
               </h2>
             )}

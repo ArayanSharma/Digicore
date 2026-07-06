@@ -375,7 +375,7 @@ const Home = () => {
               <h5 className="font-heading font-extrabold text-[64px] max-[769px]:text-[50px] max-[481px]:text-[42px] leading-none text-white m-0 flex items-center">
                 <span className="text-[#22c55e] text-3xl mr-2">▲</span>
                 <span>{c.value}</span>
-                <span className="text-[#e31e24] ml-1">%</span>
+                <span className="text-[#e31e24] ml-1">+</span>
               </h5>
               <p className="font-normal text-[15px] leading-[1.6] text-[#f4f4f5]/80 m-0">{c.label}</p>
             </div>

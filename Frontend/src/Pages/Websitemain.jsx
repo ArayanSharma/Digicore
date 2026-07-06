@@ -393,7 +393,7 @@ const [activeFAQ, setActiveFAQ] = useState(null);
       {builtSection && (
         <section className="built-section">
           <div className="built-container">
-            <h2>
+            <h2  style={{ fontSize: "36px" }} >
               {builtSection.h2 || builtSection.title} <span>{builtSection.span || builtSection.subtitle}</span>
             </h2>
 
@@ -547,8 +547,8 @@ const [activeFAQ, setActiveFAQ] = useState(null);
         <section className="custom-faq-section">
           <div className="custom-faq-container">
             <div className="custom-faq-header">
-              <h2>{faqSection.h2 || faqSection.title}</h2>
-              <p>{faqSection.p || faqSection.subtitle}</p>
+              <h2 style={{ fontSize: "36px" }} >{faqSection.h2 || faqSection.title}</h2>
+              <p style={{ fontSize: "26px" }} >{faqSection.p || faqSection.subtitle}</p>
             </div>
 
             <div className="custom-faq-wrapper">

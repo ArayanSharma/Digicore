@@ -376,7 +376,7 @@ const InfluencerM  = () => {
             <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
 
             {whyBusiness.heading && (
-              <h2 className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-6 uppercase">
+              <h2 style={{ fontSize: "36px" }}  className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-6 uppercase">
                 {whyBusiness.heading}
               </h2>
             )}

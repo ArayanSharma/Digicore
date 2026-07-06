@@ -467,7 +467,7 @@ const SocialMediaM = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[55px] h-1 bg-[#e31e24] mx-auto mb-[18px] rounded-[10px]"></div>
 
-          <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-8 uppercase leading-tight">
+          <h2  style={{ fontSize: "36px" }} className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-8 uppercase leading-tight">
             {seoAgency?.heading || "Why Do I Need an social Media Marketing Agency in Delhi?"}
           </h2>
 
@@ -604,7 +604,7 @@ const SocialMediaM = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
 
-          <h2 className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
+          <h2  style={{ fontSize: "36px" }} className="text-center text-[38px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">
             {c?.dominate?.heading || "How Can We Help You Grow"}
           </h2>
 
@@ -638,7 +638,7 @@ const SocialMediaM = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
 
-          <h2 className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-6 uppercase">
+          <h2  style={{ fontSize: "36px" }} className="text-center text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-6 uppercase">
             {whyBusiness?.heading || (<>Why Choose Digicore Inc. as YOUR<br />SOCIAL MEDIA MARKETING AGENCY IN DELHI</>)}
           </h2>
 

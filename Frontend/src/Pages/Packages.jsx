@@ -207,7 +207,7 @@ export default function Packages() {
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
 
-          <h2 className="text-center text-[64px] max-[769px]:text-[40px] font-heading font-extrabold text-[#1c1c1e] mb-12">
+          <h2 className="testimonials-heading-text text-center text-[80px] max-[769px]:text-[48px] font-heading font-extrabold text-[#1c1c1e] mb-12">
             {whyChoose?.heading}
           </h2>
 
@@ -253,8 +253,8 @@ export default function Packages() {
       {/* Testimonials Video reviews */}
       <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-center text-[36px] font-heading font-extrabold text-[#1c1c1e] mb-2">{testimonialsTitle}</h2>
-          <p className="text-center text-[48px] max-[769px]:text-[20px] font-heading font-extrabold text-slate-500 mb-12">
+          <h2 className=" testimonials-heading-text text-center text-[48px] max-[769px]:text-[32px] font-heading font-extrabold text-[#1c1c1e] mb-2">{testimonialsTitle}</h2>
+          <p className="text-center text-[100px] max-[769px]:text-[20px] font-heading font-extrabold text-slate-500 mb-12">
             {testimonialsHeading}
           </p>
 
