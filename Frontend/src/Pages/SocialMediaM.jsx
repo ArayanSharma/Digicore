@@ -369,7 +369,6 @@ const SocialMediaM = () => {
         backgroundImage={banner?.backgroundImage ? resolveImage(banner.backgroundImage) : eimage}
       />
 
-      {/* About Section */}
       <section className="w-full py-24 px-5 bg-white">
         <div className="max-w-[1200px] mx-auto text-center">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -384,7 +383,6 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* Visibility Section */}
       <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -413,7 +411,6 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* Video Block Section */}
       <section className="w-full py-20 px-5 bg-white text-center border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -434,7 +431,6 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* Performance Section */}
       <section className="w-full p-0 m-0 bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 w-full">
           <div className="bg-gradient-to-br from-[#8b0000] to-[#1c1c1e] min-h-[350px] flex flex-col justify-center px-12 py-[80px] lg:pl-[120px]">
@@ -462,7 +458,6 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* SEO Agency Section */}
       <section className="w-full py-24 px-5 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[55px] h-1 bg-[#e31e24] mx-auto mb-[18px] rounded-[10px]"></div>
@@ -505,7 +500,6 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* Services Grid Section */}
       <section className="w-full py-[100px] px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px] max-[769px]:w-[50px] max-[769px]:mb-[20px]"></div>
@@ -533,7 +527,6 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* CTA Why Choose Section */}
       <section className="relative overflow-hidden w-full py-20 px-5 bg-gradient-to-br from-[#1c1c1e] to-slate-900 text-center border-t border-b border-[#2b2b2e]">
         <div className="max-w-[1200px] mx-auto text-center space-y-8 relative z-10">
           <h2 className="text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-white max-w-3xl mx-auto leading-tight">
@@ -563,7 +556,6 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* Impact Section */}
       <section className="w-full py-24 px-5 bg-white border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative flex justify-center items-center">
@@ -599,7 +591,6 @@ const SocialMediaM = () => {
       <Industry />
       <Casestudy />
 
-      {/* Dominate Section */}
       <section className="w-full py-24 px-5 bg-[#f4f4f5] border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -633,7 +624,6 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* Why Choose Section with Checklists */}
       <section className="w-full py-24 px-5 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -678,12 +668,10 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <div>
         <TestimonialSection />
       </div>
 
-      {/* Brand Logos and Tools */}
       <div>
         <Brands />
       </div>
@@ -692,12 +680,10 @@ const SocialMediaM = () => {
         <Tools />
       </div>
 
-      {/* Blogs Showcase */}
       <div>
         <Blogs />
       </div>
 
-      {/* Accordion FAQ Section */}
       <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-b border-[#e5e7eb]">
         <div className="max-w-[850px] mx-auto">
           <div className="text-center mb-12">
@@ -741,7 +727,6 @@ const SocialMediaM = () => {
         </div>
       </section>
 
-      {/* Contacts Form footer */}
       <div>
         <Contacts />
       </div>

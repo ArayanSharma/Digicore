@@ -32,7 +32,7 @@ export default function MobileHero({ hero }) {
   const phoneBRef = useRef(null);
   const [screenIndex, setScreenIndex] = useState(0);
 
-  /* Mouse-move device parallax — two phone layers drift at different depths */
+  // two phone layers drift at different depths on mouse move
   useEffect(() => {
     const scene = sceneRef.current;
     if (!scene || !phoneARef.current || !phoneBRef.current) return;
@@ -55,7 +55,6 @@ export default function MobileHero({ hero }) {
     return () => scene.removeEventListener("mousemove", onMove);
   }, []);
 
-  /* App screen slider — cycles the iOS mock's screen content */
   useEffect(() => {
     if (hero?.heroImage) return;
     const id = setInterval(() => setScreenIndex((i) => (i + 1) % 3), 2800);
@@ -79,7 +78,6 @@ export default function MobileHero({ hero }) {
 
   return (
     <section className="relative overflow-hidden bg-[#f4f4f5] border-b border-[#e5e7eb] font-body text-[#4b5563]">
-      {/* grid + glow backdrop */}
       <div
         className="absolute inset-0 opacity-[0.07]"
         style={{ backgroundImage: "radial-gradient(rgba(227,30,36,0.3) 1px, transparent 1px)", backgroundSize: "30px 30px" }}
@@ -91,7 +89,6 @@ export default function MobileHero({ hero }) {
       )}
 
       <div ref={sceneRef} className="relative z-10 container-custom pt-28 pb-16 md:pt-36 md:pb-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Left: copy */}
         <div>
           <span className="mp-hero-fade inline-flex items-center gap-2 text-[#e31e24] text-xs md:text-sm font-semibold tracking-[0.15em] mb-6 px-4 py-1.5 rounded-full bg-[#e31e24]/8 border border-[#e31e24]/15 backdrop-blur-md">
             {hero.badge}
@@ -120,7 +117,6 @@ export default function MobileHero({ hero }) {
 
         </div>
 
-        {/* Right: device scene */}
         <div className="relative h-[440px] md:h-[500px] flex items-center justify-center">
           <div className="absolute w-72 h-72 rounded-full bg-[#e31e24]/10 blur-[90px]" />
 
@@ -167,7 +163,7 @@ export default function MobileHero({ hero }) {
         </div>
       </div>
 
-      {/* infinite marquee — trusted stack ticker */}
+      {/* tech stack ticker */}
       <div className="relative border-t border-[#e5e7eb] py-6 overflow-hidden bg-white">
         <div className="mp-marquee flex items-center gap-12 w-max">
           {[...MARQUEE_ICONS, ...MARQUEE_ICONS].map(({ Icon, color, name }, i) => (

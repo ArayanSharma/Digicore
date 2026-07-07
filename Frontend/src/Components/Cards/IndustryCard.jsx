@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-// Reusable card used by both the /industries grid and the
-// Related Industries section on the details page.
+// shared by the /industries grid and the Related Industries block on the details page
 const IndustryCard = ({ industry }) => {
   const navigate = useNavigate();
 

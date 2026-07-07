@@ -26,7 +26,6 @@ export default function AdContact() {
   const [openSection, setOpenSection] = useState("hero");
   const toggle = (key) => setOpenSection(openSection === key ? "" : key);
 
-  /* ---------- MODAL STATES ---------- */
   const [modals, setModals] = useState({
     addressLine: false,
     service: false,
@@ -39,7 +38,6 @@ export default function AdContact() {
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState("");
 
-  /* ---------- LEFT COLUMN (contact information) ---------- */
   const [left, setLeft] = useState({
     smallHeading: "READY FOR RESULTS?",
     title: "DROP US AN EMAIL:",
@@ -49,7 +47,6 @@ export default function AdContact() {
     iconName: "Send",
   });
 
-  /* ---------- FORM (right column) ---------- */
   const [form, setForm] = useState({
     smallHeading: "It's time",
     mainHeading: "LET'S TALK",
@@ -60,13 +57,10 @@ export default function AdContact() {
     resumeAccept: "",
   });
 
-  /* ---------- Services dropdown options ---------- */
   const [services, setServices] = useState(["SEO", "Web Development", "Social Media Marketing"]);
 
-  /* ---------- Hear About Us dropdown options ---------- */
   const [hearOptions, setHearOptions] = useState(["Google", "Facebook", "Instagram"]);
 
-  /* ---------- TOUCH / HOW TO GET IN TOUCH CARDS ---------- */
   const [touchHeading, setTouchHeading] = useState("How to get in touch");
   const [touchCards, setTouchCards] = useState([
     { id: uid(), title: "OPPORTUNITIES AT FOUND", text: "For information regarding open positions, check out the careers section." },
@@ -75,10 +69,8 @@ export default function AdContact() {
     { id: uid(), title: "CALL US", text: "Call us on +91 9818888064" },
   ]);
 
-  /* ---------- MAP / IFRAME ---------- */
   const [mapSrc, setMapSrc] = useState("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7009.334881986703!2d77.250079!3d28.549714000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3cf0fa997a5%3A0x9f960e33bba19672!2sDigital%20Markitors%20-%20Best%20Digital%20Marketing%20and%20SEO%20Company%20in%20Kanpur!5e0!3m2!1sen!2sin!4v1780405452796!5m2!1sen!2sin");
 
-  /* ---------- Load existing content ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -106,7 +98,6 @@ export default function AdContact() {
     })();
   }, [load]);
 
-  /* ---------- Modal Handlers ---------- */
   const openAddressModal = () => {
     setModalData({ edit: null, index: null });
     setModals({ ...modals, addressLine: true });
@@ -188,7 +179,6 @@ export default function AdContact() {
     setTouchCards(touchCards.filter((card) => card.id !== id));
   };
 
-  /* ---------- Save ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     setStatus("saving");
@@ -209,7 +199,6 @@ export default function AdContact() {
   return (
     <div className="min-h-screen py-6 px-4 md:px-8 lg:px-10 flex flex-col gap-6">
       
-        {/* Page Header */}
         <PageHeader
           icon={Mail}
           title="Contact Page Admin"
@@ -221,7 +210,6 @@ export default function AdContact() {
         <PageStatusBanner loading={loading} error={loadError} onRetry={load} />
 
         <FormCard>
-          {/* ========== LEFT COLUMN - CONTACT INFO ========== */}
           
         <div className="bg-white rounded-2xl border border-slate-200 shadow-[0_8px_24px_rgba(15,23,42,.06)] hover:shadow-[0_16px_36px_rgba(37,99,235,.10)] transition-all duration-300 p-8 space-y-8 mt-8">
           <Section 
@@ -272,7 +260,6 @@ export default function AdContact() {
                 </Field>
               </div>
 
-              {/* Address Lines */}
               <Field label="Address Lines">
                 <div className="space-y-2">
                   {left.addressLines.length > 0 ? (
@@ -306,7 +293,6 @@ export default function AdContact() {
             </div>
           </Section>
 
-          {/* ========== FORM - RIGHT COLUMN ========== */}
           <Section 
             icon={FileText} 
             title="Contact Form (Right Column)" 
@@ -394,7 +380,6 @@ export default function AdContact() {
             </div>
           </Section>
 
-          {/* ========== SERVICES ========== */}
           <Section 
             icon={List} 
             title="Services Dropdown" 
@@ -435,7 +420,6 @@ export default function AdContact() {
             </div>
           </Section>
 
-          {/* ========== HEAR ABOUT US ========== */}
           <Section 
             icon={Star} 
             title="How Did You Hear About Us? Dropdown" 
@@ -476,7 +460,6 @@ export default function AdContact() {
             </div>
           </Section>
 
-          {/* ========== TOUCH CARDS ========== */}
           <Section 
             icon={Mail} 
             title="How to Get in Touch" 
@@ -530,7 +513,6 @@ export default function AdContact() {
             </div>
           </Section>
 
-          {/* ========== MAP / EMBED ========== */}
           <Section 
             icon={MapPin} 
             title="Map / Location Embed" 
@@ -555,13 +537,10 @@ export default function AdContact() {
 
         </FormCard>
 
-        {/* Save Bar */}
         <SaveBar status={status} onSave={handleSave} />
       </form>
 
-      {/* ========== MODALS ========== */}
 
-      {/* Address Line Modal */}
       <ModalForm
         isOpen={modals.addressLine}
         title="Add Address Line"
@@ -572,7 +551,6 @@ export default function AdContact() {
         ]}
       />
 
-      {/* Service Modal */}
       <ModalForm
         isOpen={modals.service}
         title="Add Service"
@@ -583,7 +561,6 @@ export default function AdContact() {
         ]}
       />
 
-      {/* Touch Card Modal */}
       <ModalForm
         isOpen={modals.touchCard}
         title="Add Contact Option"
@@ -595,7 +572,6 @@ export default function AdContact() {
         ]}
       />
 
-      {/* Hear Option Modal */}
       <ModalForm
         isOpen={modals.hearOption}
         title="Add Dropdown Option"

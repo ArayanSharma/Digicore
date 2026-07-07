@@ -409,7 +409,6 @@ export default function FullStack() {
 
   return (
     <div ref={rootRef} className="overflow-x-hidden bg-white">
-      {/* ================= HERO ================= */}
       {hero.visible !== false && (
         <Banner
           subtitle={hero.subtitle}
@@ -423,7 +422,6 @@ export default function FullStack() {
         />
       )}
 
-      {/* ================= TECHNOLOGIES ================= */}
       <section className="container-custom py-24 md:py-28">
         <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
           <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">{technologiesHeader.eyebrow}</span>
@@ -470,7 +468,6 @@ export default function FullStack() {
         </div>
       </section>
 
-      {/* ================= OUR PROCESS ================= */}
       <section className="bg-bg-secondary py-24 md:py-28">
         <div className="container-custom">
           <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
@@ -496,7 +493,6 @@ export default function FullStack() {
         </div>
       </section>
 
-      {/* ================= FEATURES ================= */}
       <section className="container-custom py-24 md:py-28">
         <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
           <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">{featuresHeader.eyebrow}</span>
@@ -523,7 +519,6 @@ export default function FullStack() {
         </div>
       </section>
 
-      {/* ================= PROJECT SHOWCASE ================= */}
       <section className="bg-bg-secondary py-24 md:py-28">
         <div className="container-custom">
           <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
@@ -588,7 +583,6 @@ export default function FullStack() {
       <TestimonialSection />
 
 
-      {/* ================= WHY CHOOSE US ================= */}
       <section className="container-custom py-24 md:py-28">
         <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">
           <span className="text-brand-accent font-semibold tracking-[0.2em] text-xs uppercase">{whyChooseHeader.eyebrow}</span>
@@ -618,7 +612,6 @@ export default function FullStack() {
 
       <Brands />
 
-      {/* ================= FAQ ================= */}
       {faqs.length > 0 && (
         <section className="container-custom py-24 md:py-28 border-t border-slate-100">
           <div className="fs-reveal text-center max-w-2xl mx-auto mb-16">

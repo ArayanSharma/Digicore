@@ -138,7 +138,6 @@ export default function AdWordPress() {
   const removeOurWorkBullet = (index) =>
     setOurWork({ ...ourWork, bullets: ourWork.bullets.filter((_, i) => i !== index) });
 
-  /* ---------- cmsData ---------- */
   const updateCms = (id, field, value) =>
     setCmsData(cmsData.map((item) => (item.id === id ? { ...item, [field]: value } : item)));
   const addCms = () =>
@@ -169,7 +168,6 @@ export default function AdWordPress() {
       )
     );
 
-  /* ---------- faqData ---------- */
   const updateFaq = (id, field, value) =>
     setFaqData(faqData.map((item) => (item.id === id ? { ...item, [field]: value } : item)));
   const addFaq = () =>

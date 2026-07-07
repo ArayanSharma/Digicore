@@ -169,7 +169,6 @@ export default function Contacts() {
     }
   };
 
-  // Pagination helper
   const totalPages = Math.ceil(filteredContacts.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedContacts = filteredContacts.slice(startIndex, startIndex + itemsPerPage);
@@ -188,7 +187,6 @@ export default function Contacts() {
 
   return (
     <div className="space-y-6 px-4 md:px-8 text-slate-800 pb-16 adm-fade-in max-w-7xl mx-auto">
-      {/* Toast Notification */}
       {successMessage && (
         <div className="fixed top-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-xl shadow-xl border bg-emerald-50 border-emerald-200 text-emerald-700 adm-scale-in">
           <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center">
@@ -198,7 +196,6 @@ export default function Contacts() {
         </div>
       )}
 
-      {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-4">
         <div>
           <div className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
@@ -218,9 +215,7 @@ export default function Contacts() {
         </button>
       </div>
 
-      {/* Stats and Search grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-        {/* Statistics Card */}
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-[0_2px_8px_rgba(15,23,42,0.02)] flex items-center gap-4">
           <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
             <Mail size={20} />
@@ -231,7 +226,6 @@ export default function Contacts() {
           </div>
         </div>
 
-        {/* Modern Search Field */}
         <div className="md:col-span-2 relative flex items-center h-full">
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
             <Search size={18} />
@@ -254,14 +248,12 @@ export default function Contacts() {
         </div>
       </div>
 
-      {/* Main Table Wrapper */}
       <div className="adm-card overflow-hidden">
         {loading ? (
           <div className="text-center py-16 text-slate-400 font-semibold animate-pulse">
             Loading Contacts...
           </div>
         ) : paginatedContacts.length === 0 ? (
-          /* Premium Empty State */
           <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
             <div className="w-20 h-20 bg-blue-50/50 rounded-full flex items-center justify-center mb-4 text-blue-500">
               <Inbox size={32} />
@@ -363,7 +355,6 @@ export default function Contacts() {
           </div>
         )}
 
-        {/* Pagination footer */}
         {!loading && (
           <div className="bg-white border-t border-slate-100 px-6 py-4 flex items-center justify-end gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
             <span>Page</span>
@@ -378,7 +369,6 @@ export default function Contacts() {
         )}
       </div>
 
-      {/* Create Modal */}
       <Modal open={isCreateOpen} onClose={() => setIsCreateOpen(false)} title="Create New Enquiry">
         <form onSubmit={createContact} className="space-y-4 p-4">
           <div>
@@ -455,7 +445,6 @@ export default function Contacts() {
         </form>
       </Modal>
 
-      {/* Edit Modal */}
       <Modal open={!!editContact} onClose={cancelEdit} title="Edit Contact Info">
         {editContact && (
           <form onSubmit={saveContact} className="space-y-4 p-4">

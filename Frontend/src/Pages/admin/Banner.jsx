@@ -54,7 +54,6 @@ function Banner() {
 
   return (
     <div className="banner-page">
-      {/* Header */}
       <div className="bp__header">
         <div>
           <h1 className="bp__title">Banners</h1>
@@ -68,7 +67,6 @@ function Banner() {
         </button>
       </div>
 
-      {/* Add / Edit popup */}
       <Modal
         open={showForm}
         onClose={() => { setShowForm(false); setEditId(null); }}
@@ -107,11 +105,9 @@ function Banner() {
           </div>
       </Modal>
 
-      {/* Banner cards grid */}
       <div className="bp__grid">
         {banners.map((b, i) => (
           <div className="bp__card" key={b.id} style={{ "--i": i }}>
-            {/* Image preview */}
             <div className="bp__card-img-wrap" onClick={() => setPreview(b)}>
               {b.image ? (
                 <img src={b.image} alt={b.title} className="bp__card-img" />
@@ -130,18 +126,15 @@ function Banner() {
               </div>
             </div>
 
-            {/* Card body */}
             <div className="bp__card-body">
               <p className="bp__card-title">{b.title}</p>
               <p className="bp__card-sub">{b.subtitle}</p>
               <p className="bp__card-link">{b.link}</p>
             </div>
 
-            {/* Card footer */}
             <div className="bp__card-footer">
               <span className="bp__card-date">{b.created}</span>
               <div className="bp__card-actions">
-                {/* Toggle */}
                 <button
                   className={`bp__toggle ${b.status === "Active" ? "on" : "off"}`}
                   onClick={() => handleToggle(b.id)}
@@ -149,14 +142,12 @@ function Banner() {
                 >
                   <span className="bp__toggle-knob" />
                 </button>
-                {/* Edit */}
                 <button className="bp__icon-btn edit" onClick={() => handleEdit(b)} title="Edit">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                     <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                   </svg>
                 </button>
-                {/* Delete */}
                 <button className="bp__icon-btn del" onClick={() => handleDelete(b.id)} title="Delete">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="3 6 5 6 21 6" />
@@ -170,7 +161,6 @@ function Banner() {
         ))}
       </div>
 
-      {/* Lightbox preview */}
       {preview && (
         <div className="bp__lightbox" onClick={() => setPreview(null)}>
           <div className="bp__lightbox-inner" onClick={(e) => e.stopPropagation()}>

@@ -25,7 +25,7 @@ const BlogDetails = () => {
       );
       setBlog(current || null);
 
-      // Pick up to 4 recent blogs, excluding the current one
+      // exclude current blog, cap the rest at 4
       const others = allBlogs.filter(
         (b) => (b.slug || slugify(b.title)) !== slug
       );
@@ -36,7 +36,6 @@ const BlogDetails = () => {
     load();
   }, [slug]);
 
-  /* ── Loading state ── */
   if (loading) {
     return (
       <div className="blog-details-page">
@@ -48,7 +47,6 @@ const BlogDetails = () => {
     );
   }
 
-  /* ── Not found ── */
   if (!blog) {
     return (
       <div className="blog-details-page">
@@ -66,13 +64,11 @@ const BlogDetails = () => {
     );
   }
 
-  /* ── Blog detail ── */
   return (
     <>
       <section className="blog-details-page">
         <div className="blog-details-container">
 
-          {/* Back button */}
           <button className="blog-back-btn" onClick={() => navigate("/blogs")}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M19 12H5" /><path d="M12 19l-7-7 7-7" />
@@ -80,12 +76,10 @@ const BlogDetails = () => {
             Back to Blogs
           </button>
 
-          {/* Featured image */}
           <div className="blog-details-hero">
             <img src={blog.image} alt={blog.title} />
           </div>
 
-          {/* Meta row */}
           <div className="blog-details-meta">
             {blog.author && (
               <span className="blog-meta-author">{blog.author}</span>
@@ -99,10 +93,8 @@ const BlogDetails = () => {
             )}
           </div>
 
-          {/* Title */}
           <h1 className="blog-details-title">{blog.title}</h1>
 
-          {/* Full content */}
           <div className="blog-details-content">
             {blog.content || blog.desc}
           </div>
@@ -111,7 +103,6 @@ const BlogDetails = () => {
         </div>
       </section>
 
-      {/* ── Recent Blogs ── */}
       {recentBlogs.length > 0 && (
         <section className="blog-recent-section">
           <div className="blog-recent-header">

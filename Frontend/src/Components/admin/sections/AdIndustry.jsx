@@ -5,9 +5,8 @@ import "../../../Styles/AdminForm.css";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-// Maps an industry's title to the pageId used by /admin/page-editor/:pageId
-// (see Frontend/src/Pages/admin/PageEditor.jsx) for industries that have a
-// dedicated page with its own case studies section.
+// some industries have their own dedicated page (with case studies etc) - this maps
+// the industry title to the pageId used by /admin/page-editor/:pageId for those
 const INDUSTRY_PAGE_EDITOR_MAP = {
   healthcare: "Healthcare",
   "e-commerce": "E-Commerce",

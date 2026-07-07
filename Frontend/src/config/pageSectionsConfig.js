@@ -1,6 +1,5 @@
-// Maps each pageId to the ordered list of section TYPES it contains.
-// IMPORTANT: edit this to match what's actually inside each page's
-// "sections" array in MongoDB (the "type" or similar field per section).
+// pageId -> ordered list of section TYPES. Keep this in sync with the actual
+// "sections" array stored per page in MongoDB, or the editor will render wrong.
 
 const pageSectionsConfig = {
   home: ["hero", "seo-agency", "about", "visibility", "performance"],

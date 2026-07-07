@@ -241,7 +241,6 @@ export default function Afooter() {
         </div>
       </div>
 
-      {/* Brand & Logo */}
       <div className="af-card">
         <div className="af-card-head">
           <div className="af-card-icon">
@@ -288,7 +287,6 @@ export default function Afooter() {
         </div>
       </div>
 
-      {/* Address & Contact */}
       <div className="af-card">
         <div className="af-card-head">
           <div className="af-card-icon">
@@ -339,7 +337,6 @@ export default function Afooter() {
         </div>
       </div>
 
-      {/* Social Links */}
       <div className="af-card">
         <div className="af-card-head">
           <div className="af-card-icon">
@@ -367,7 +364,6 @@ export default function Afooter() {
         </div>
       </div>
 
-      {/* Link Columns */}
       <div className="af-card">
         <div className="af-card-head">
           <div className="af-card-icon">
@@ -432,7 +428,6 @@ export default function Afooter() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="af-card">
         <div className="af-card-head">
           <div className="af-card-icon">
@@ -457,7 +452,6 @@ export default function Afooter() {
         </div>
       </div>
 
-      {/* Live Preview */}
       <div className="af-card">
         <div className="af-card-head">
           <div className="af-card-icon">

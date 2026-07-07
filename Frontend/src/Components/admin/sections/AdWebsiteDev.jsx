@@ -104,7 +104,6 @@ export default function AdWebsiteDev() {
 
   const toggle = (key) => setOpenSection(openSection === key ? "" : key);
 
-  /* ---------- cmsData ---------- */
   const updateCms = (id, field, value) =>
     setCmsData(cmsData.map((item) => (item.id === id ? { ...item, [field]: value } : item)));
   const addCms = () =>
@@ -135,7 +134,6 @@ export default function AdWebsiteDev() {
       )
     );
 
-  /* ---------- ourWork bullets ---------- */
   const updateOurWorkBullet = (index, value) => {
     const bullets = [...(ourWork.bullets || [])];
     bullets[index] = value;
@@ -146,7 +144,6 @@ export default function AdWebsiteDev() {
   const removeOurWorkBullet = (index) =>
     setOurWork({ ...ourWork, bullets: (ourWork.bullets || []).filter((_, i) => i !== index) });
 
-  /* ---------- faqData ---------- */
   const updateFaq = (id, field, value) =>
     setFaqData(faqData.map((item) => (item.id === id ? { ...item, [field]: value } : item)));
   const addFaq = () =>

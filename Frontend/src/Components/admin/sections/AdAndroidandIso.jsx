@@ -125,8 +125,7 @@ const TABS = [
   { value: "seo", label: "SEO", icon: SearchIcon },
 ];
 
-/* Premium card header — same visual language as the footer admin's section
-   headers (icon badge + title + subtitle), reused here inside each tab. */
+// same visual language as the footer admin's section headers (icon badge + title + subtitle), just reused per-tab
 const TabSectionHeader = ({ icon: Icon, title, description }) => (
   <div className="md:col-span-2 flex items-center gap-4 pb-5 mb-1 border-b border-slate-100">
     <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20">
@@ -276,7 +275,6 @@ export default function AdAndroidandIso() {
 
   const [seo, setSeo] = useState({ metaTitle: "", metaDescription: "", keywords: "", ogImage: "" });
 
-  /* ---------- Platforms ---------- */
   const addPlatform = () => setPlatforms([...platforms, { id: uid(), icon: PLATFORM_ICON_OPTIONS[0], color: "#3B82F6", title: "", description: "", chips: "", benefits: "" }]);
   const updatePlatform = (id, field, value) => setPlatforms(platforms.map((p) => (p.id === id ? { ...p, [field]: value } : p)));
   const removePlatform = (id, title) => {
@@ -285,7 +283,6 @@ export default function AdAndroidandIso() {
     showToast("Platform removed");
   };
 
-  /* ---------- Services ---------- */
   const addService = () =>
     setServices([...services, { id: uid(), icon: SERVICE_ICON_OPTIONS[0], iconImage: "", title: "", description: "", featured: false, visible: true }]);
   const updateService = (id, field, value) => setServices(services.map((s) => (s.id === id ? { ...s, [field]: value } : s)));
@@ -308,7 +305,6 @@ export default function AdAndroidandIso() {
   );
   const servicePagination = usePagination(filteredServices, 6);
 
-  /* ---------- Technologies ---------- */
   const addTechnology = () => setTechnologies([...technologies, { id: uid(), name: "", description: "", logo: "", visible: true }]);
   const updateTechnology = (id, field, value) => setTechnologies(technologies.map((t) => (t.id === id ? { ...t, [field]: value } : t)));
   const removeTechnology = (id, name) => {
@@ -330,7 +326,6 @@ export default function AdAndroidandIso() {
   );
   const techPagination = usePagination(filteredTechnologies, 6);
 
-  /* ---------- Process ---------- */
   const addProcessStep = () => setProcess([...process, { id: uid(), title: "", desc: "" }]);
   const updateProcessStep = (id, field, value) => setProcess(process.map((p) => (p.id === id ? { ...p, [field]: value } : p)));
   const removeProcessStep = (id) => {
@@ -339,7 +334,6 @@ export default function AdAndroidandIso() {
     showToast("Process step removed");
   };
 
-  /* ---------- Bento Features ---------- */
   const addBento = () => setBentos([...bentos, { id: uid(), icon: BENTO_ICON_OPTIONS[0], title: "", desc: "", span: "" }]);
   const updateBento = (id, field, value) => setBentos(bentos.map((b) => (b.id === id ? { ...b, [field]: value } : b)));
   const removeBento = (id, title) => {
@@ -348,7 +342,6 @@ export default function AdAndroidandIso() {
     showToast("Bento feature removed");
   };
 
-  /* ---------- Why Choose Us ---------- */
   const addWhyChoose = () => setWhyChooses([...whyChooses, { id: uid(), icon: WHY_CHOOSE_ICON_OPTIONS[0], title: "", desc: "" }]);
   const updateWhyChoose = (id, field, value) => setWhyChooses(whyChooses.map((w) => (w.id === id ? { ...w, [field]: value } : w)));
   const removeWhyChoose = (id, title) => {
@@ -357,7 +350,6 @@ export default function AdAndroidandIso() {
     showToast("Reason removed");
   };
 
-  /* ---------- Projects ---------- */
   const addProject = () =>
     setProjects([
       ...projects,
@@ -372,7 +364,6 @@ export default function AdAndroidandIso() {
   const filteredProjects = useMemo(() => projects.filter((p) => p.name?.toLowerCase().includes(projectSearch.toLowerCase())), [projects, projectSearch]);
   const projectPagination = usePagination(filteredProjects, 4);
 
-  /* ---------- Testimonials ---------- */
   const addTestimonial = () =>
     setTestimonials([...testimonials, { id: uid(), name: "", company: "", avatar: "", review: "", rating: 5, visible: true }]);
   const updateTestimonial = (id, field, value) => setTestimonials(testimonials.map((t) => (t.id === id ? { ...t, [field]: value } : t)));
@@ -382,7 +373,6 @@ export default function AdAndroidandIso() {
     showToast("Testimonial removed");
   };
 
-  /* ---------- FAQ ---------- */
   const addFaqItem = () => setFaq([...faq, { id: uid(), question: "", answer: "", visible: true }]);
   const updateFaqItem = (id, field, value) => setFaq(faq.map((f) => (f.id === id ? { ...f, [field]: value } : f)));
   const removeFaqItem = (id) => {
@@ -391,7 +381,6 @@ export default function AdAndroidandIso() {
     showToast("FAQ item removed");
   };
 
-  /* ---------- Industries ---------- */
   const addIndustry = () => setIndustries([...industries, { id: uid(), icon: INDUSTRY_ICON_OPTIONS[0], title: "", desc: "" }]);
   const updateIndustry = (id, field, value) => setIndustries(industries.map((ind) => (ind.id === id ? { ...ind, [field]: value } : ind)));
   const removeIndustry = (id, title) => {
@@ -400,7 +389,6 @@ export default function AdAndroidandIso() {
     showToast("Industry removed");
   };
 
-  /* ---------- Load / Save ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -509,7 +497,6 @@ export default function AdAndroidandIso() {
           <Skeleton variant="card" count={3} />
         ) : (
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            {/* ================= HERO ================= */}
             <TabsContent value="hero">
               <TabPanel>
                 <TabSectionHeader icon={Sparkles} title="Hero Section" description="The first thing visitors see — badge, headline, and call-to-action." />
@@ -533,7 +520,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= PLATFORMS ================= */}
             <TabsContent value="platforms">
               <TabPanel>
                 <TabSectionHeader icon={Layers} title="Platforms Section" description="Configure the platforms list (Native Android, iOS, Cross Platform)." />
@@ -588,7 +574,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= SERVICES ================= */}
             <TabsContent value="services">
               <TabPanel>
                 <TabSectionHeader icon={Boxes} title="Services" description="The mobile app services grid shown on the public page." />
@@ -669,7 +654,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= TECHNOLOGIES ================= */}
             <TabsContent value="technologies">
               <TabPanel>
                 <TabSectionHeader icon={Braces} title="Technologies" description="The floating technology stack strip shown on the public page." />
@@ -727,7 +711,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= BENTO FEATURES ================= */}
             <TabsContent value="bento">
               <TabPanel>
                 <TabSectionHeader icon={LayoutGrid} title="Bento Features Section" description="Configure the grid of app features." />
@@ -776,7 +759,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= PROCESS ================= */}
             <TabsContent value="process">
               <TabPanel>
                 <TabSectionHeader icon={Workflow} title="Development Process" description="The vertical step-by-step timeline shown on the public page." />
@@ -815,7 +797,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= WHY CHOOSE US ================= */}
             <TabsContent value="whyChoose">
               <TabPanel>
                 <TabSectionHeader icon={ShieldCheck} title="Why Choose Us Section" description="Configure the grid of reasons to choose DigiCore." />
@@ -861,7 +842,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= PROJECTS ================= */}
             <TabsContent value="projects">
               <TabPanel>
                 <TabSectionHeader icon={FolderKanban} title="App Showcase Projects" description="The phone-mockup portfolio shown on the public page." />
@@ -922,7 +902,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= STATISTICS ================= */}
             <TabsContent value="statistics">
               <TabPanel>
                 <TabSectionHeader icon={BarChart3} title="Statistics" description="The animated counters shown on the public page." />
@@ -952,7 +931,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= INDUSTRIES ================= */}
             <TabsContent value="industries">
               <TabPanel>
                 <TabSectionHeader icon={Building2} title="Industries Section" description="Configure the grid of industries served." />
@@ -998,7 +976,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= TESTIMONIALS ================= */}
             <TabsContent value="testimonials">
               <TabPanel>
                 <TabSectionHeader icon={MessageSquareText} title="Testimonials" description="The auto-sliding client review carousel shown on the public page." />
@@ -1044,7 +1021,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= FAQ ================= */}
             <TabsContent value="faq">
               <TabPanel>
                 <TabSectionHeader icon={HelpCircle} title="FAQ" description="The accordion of frequently asked questions shown on the public page." />
@@ -1084,7 +1060,6 @@ export default function AdAndroidandIso() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= SEO ================= */}
             <TabsContent value="seo">
               <TabPanel>
                 <TabSectionHeader icon={SearchIcon} title="SEO" description="Meta tags used for search engines and social sharing." />

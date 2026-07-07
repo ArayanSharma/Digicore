@@ -46,10 +46,8 @@ const Hero = ({ hero }) => {
         backgroundPosition: "center 60%",
       }}
     >
-      {/* background glow */}
       <div className="absolute top-1/3 left-2/3 -translate-y-1/2 w-[450px] h-[450px] bg-[#e31e24]/10 rounded-full blur-[120px] pointer-events-none z-0" />
 
-      {/* floating decorative shapes */}
       <div ref={shapesRef} className="absolute inset-0 pointer-events-none z-0">
         <div className="hero-float-shape absolute top-[18%] left-[8%] w-16 h-16 rounded-2xl border border-[#e31e24]/20 bg-white/40" />
         <div className="hero-float-shape absolute bottom-[22%] left-[18%] w-10 h-10 rounded-full bg-[#e31e24]/10" />

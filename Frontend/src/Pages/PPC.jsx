@@ -89,7 +89,6 @@ const PPC = () => {
         />
       )}
 
-      {/* About Section */}
       {aboutSection && (aboutSection.title || aboutSection.description) && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto text-center">
@@ -110,7 +109,6 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Visibility Section */}
       {visibilitySection && (visibilitySection.title || visibilitySection.description || visibilitySection.imageUrl) && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -143,7 +141,6 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Performance Section */}
       {performanceSection && (performanceLabels.length > 0 || performanceSection.imageUrl) && (
         <section className="w-full p-0 m-0 bg-white">
           <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 w-full">
@@ -171,7 +168,6 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Why PPC / Problem-Solution Section */}
       {whyPPCSection && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto">
@@ -228,7 +224,6 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Services Grid Section */}
       {displayServices.length > 0 && (
         <section className="w-full py-[100px] px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto px-5">
@@ -262,7 +257,6 @@ const PPC = () => {
         </section>
       )}
 
-      {/* CTA Why Choose Section */}
       {whyChooseSection && (
         <section
           className="relative py-[100px] px-5 bg-[#1c1c1e] text-center min-h-[300px] flex items-center justify-center"
@@ -314,7 +308,6 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Impact Timeline Section */}
       {timelineSection && (timelineSection.items?.length > 0 || timelineSection.imageUrl) && (
         <section className="py-[100px] px-[7%] bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-[60px] lg:flex-row flex-col px-5">
@@ -348,13 +341,10 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Industry Section */}
       <Industry />
 
-      {/* Case Study Section */}
       <Casestudy />
 
-      {/* PPC Management Checklist Section */}
       {ppcManagementSection && (ppcManagementSection.title || ppcManagementSection.description || displayLeftItems.length > 0 || displayRightItems.length > 0) && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto text-center">
@@ -399,7 +389,6 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Dominate Section */}
       {helpCardsSection && (helpCardsSection.heading || displayHelpCards.length > 0) && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-b border-[#e5e7eb] text-center">
           <div className="max-w-[1200px] mx-auto">
@@ -435,7 +424,6 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Why Choose Section with Checklists */}
       {whyChooseDigicoreSection && (whyChooseDigicoreSection.title || whyChooseDigicoreSection.description || whyChooseDigicoreSection.points?.length > 0 || whyChooseDigicoreSection.imageUrl) && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5]">
           <div className="max-w-[1200px] mx-auto">
@@ -483,12 +471,10 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Testimonials Section */}
       <div>
         <TestimonialSection />
       </div>
 
-      {/* Brand Logos and Tools */}
       <div>
         <Brands />
       </div>
@@ -497,12 +483,10 @@ const PPC = () => {
         <Tools />
       </div>
 
-      {/* Blogs Showcase */}
       <div>
         <Blogs />
       </div>
 
-      {/* Accordion FAQ Section */}
       {displayFaq.length > 0 && (
         <section className="w-full py-24 px-5 bg-white border-t border-b border-[#e5e7eb]">
           <div className="max-w-[850px] mx-auto">
@@ -548,7 +532,6 @@ const PPC = () => {
         </section>
       )}
 
-      {/* Contacts Form footer */}
       <div>
         <Contacts />
       </div>

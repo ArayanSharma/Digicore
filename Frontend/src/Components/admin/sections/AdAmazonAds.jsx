@@ -203,14 +203,13 @@ export default function AdAmazonAds() {
 
   const toggle = (key) => setOpenSection(openSection === key ? "" : key);
 
-  // performanceSection.items (fixed 4-slot string array)
+  // fixed 4-slot array
   const updatePerformanceItem = (index, value) =>
     setPerformanceSection({
       ...performanceSection,
       items: performanceSection.items.map((item, i) => (i === index ? value : item)),
     });
 
-  // whyChooseDigicoreSection.points (plain string array, index-keyed)
   const updatePoint = (index, value) =>
     setWhyChooseDigicoreSection({
       ...whyChooseDigicoreSection,
@@ -227,7 +226,6 @@ export default function AdAmazonAds() {
       points: whyChooseDigicoreSection.points.filter((_, i) => i !== index),
     });
 
-  // faqSection.faqItems
   const updateFaq = (id, field, value) =>
     setFaqSection({
       ...faqSection,

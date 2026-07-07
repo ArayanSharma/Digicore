@@ -58,7 +58,6 @@ const Industries = () => {
     <section className="bg-[#f4f4f5] py-[100px] px-5 font-body min-h-[70vh]">
       <div className="max-w-[1250px] mx-auto">
 
-        {/* Page header */}
         <div className="text-center mb-12">
           <h1 className="text-[44px] max-[769px]:text-[32px] font-heading font-extrabold text-[#2b2b2e] mb-4 uppercase">
             Industries We Work With
@@ -72,7 +71,6 @@ const Industries = () => {
 
         {error && <div className="bg-red-50 text-red-500 border border-red-200 rounded-xl p-4 text-center max-w-[600px] mx-auto mb-8">{error}</div>}
 
-        {/* Search */}
         <div className="flex justify-center mb-12">
           <input
             type="text"
@@ -83,7 +81,6 @@ const Industries = () => {
           />
         </div>
 
-        {/* Industry grid */}
         {filteredIndustries.length === 0 ? (
           <div className="text-center py-12 text-[#6b7280]">
             <p>

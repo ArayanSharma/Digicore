@@ -32,8 +32,7 @@ const CaseStudyDetails = () => {
         const current = data.caseStudy || null;
         setCaseStudy(current);
 
-        // Recent Case Studies: automatically pulled from all other active
-        // case studies (already sorted by sortOrder from the API).
+        // recent = just the other active case studies, API already sorts them
         const allRes = await fetch(`${API}/api/casestudies?active=true`);
         const allData = await allRes.json();
         const all = Array.isArray(allData.caseStudies) ? allData.caseStudies : [];
@@ -50,7 +49,6 @@ const CaseStudyDetails = () => {
     load();
   }, [slug]);
 
-  /* ── Loading state ── */
   if (loading) {
     return (
       <div className="cs-details-page">
@@ -62,7 +60,6 @@ const CaseStudyDetails = () => {
     );
   }
 
-  /* ── Not found ── */
   if (notFound || !caseStudy) {
     return (
       <div className="cs-details-page">
@@ -80,13 +77,11 @@ const CaseStudyDetails = () => {
     );
   }
 
-  /* ── Case study detail ── */
   return (
     <>
       <section className="cs-details-page">
         <div className="cs-details-container">
 
-          {/* Back button */}
           <button className="cs-back-btn" onClick={() => navigate("/case-studies")}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M19 12H5" /><path d="M12 19l-7-7 7-7" />
@@ -94,12 +89,10 @@ const CaseStudyDetails = () => {
             Back to Case Studies
           </button>
 
-          {/* Featured image */}
           <div className="cs-details-hero">
             <img src={caseStudy.coverImage} alt={caseStudy.title} />
           </div>
 
-          {/* Meta row */}
           <div className="cs-details-meta">
             {caseStudy.clientName && (
               <span className="cs-meta-client">{caseStudy.clientName}</span>
@@ -112,20 +105,16 @@ const CaseStudyDetails = () => {
             )}
           </div>
 
-          {/* Title */}
           <h1 className="cs-details-title">{caseStudy.title}</h1>
 
-          {/* Short summary */}
           {caseStudy.shortDescription && (
             <p className="cs-details-lead">{caseStudy.shortDescription}</p>
           )}
 
-          {/* Full content */}
           {caseStudy.fullDescription && (
             <div className="cs-details-content">{caseStudy.fullDescription}</div>
           )}
 
-          {/* Technologies */}
           {caseStudy.technologies?.length > 0 && (
             <div className="cs-tech-list">
               {caseStudy.technologies.map((tech, index) => (
@@ -134,7 +123,6 @@ const CaseStudyDetails = () => {
             </div>
           )}
 
-          {/* Challenge / Solution / Result */}
           {(caseStudy.challenge || caseStudy.solution || caseStudy.result) && (
             <div className="cs-details-grid">
               {caseStudy.challenge && (
@@ -164,7 +152,6 @@ const CaseStudyDetails = () => {
         </div>
       </section>
 
-      {/* ── Recent Case Studies ── */}
       {recentCaseStudies.length > 0 && (
         <section className="cs-recent-section">
           <div className="cs-recent-header">

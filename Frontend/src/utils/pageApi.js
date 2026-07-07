@@ -39,7 +39,6 @@ export async function uploadFile(file) {
     body: fd,
   });
 
-  // Debugging info to help identify upload problems
   console.debug("uploadFile: status", res.status, "url", `${API}/api/upload`);
 
   let data;
@@ -49,7 +48,7 @@ export async function uploadFile(file) {
       data = await res.json();
     } else {
       const text = await res.text();
-      // attempt to parse JSON-like text
+      // content-type header isn't always set right, so try parsing it as JSON anyway
       try {
         data = JSON.parse(text);
       } catch (e) {

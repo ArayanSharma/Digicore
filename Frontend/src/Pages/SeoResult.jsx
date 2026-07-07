@@ -36,7 +36,6 @@ const SeoResult = () => {
         <div className="bg-white">
             <Hero2 hero={c?.hero || {}} />
 
-            {/* Overview Section */}
             <section className="w-full py-24 px-5 bg-white">
                 <div className="max-w-[1200px] mx-auto">
                     <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -68,7 +67,6 @@ const SeoResult = () => {
                 </div>
             </section>
 
-            {/* Stats / Better Section */}
             <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-b border-[#e5e7eb]">
                 <div className="max-w-[1200px] mx-auto">
                     <h2
@@ -104,7 +102,6 @@ const SeoResult = () => {
                 </div>
             </section>
 
-            {/* Contact Banner */}
             <section className="w-full bg-[#1c1c1e] py-12 px-5 border-t border-b border-[#2b2b2e]">
                 <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
                     <a
@@ -135,7 +132,6 @@ const SeoResult = () => {
                 </div>
             </section>
 
-            {/* Industries Section */}
             <section className="w-full py-24 px-5 bg-white">
                 <div className="max-w-[1200px] mx-auto">
                     <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -170,7 +166,6 @@ const SeoResult = () => {
                 </div>
             </section>
 
-            {/* Mission & Vision Section */}
             <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
                 <div className="max-w-[1200px] mx-auto space-y-24">
                     <MissionVision

@@ -444,7 +444,6 @@ export default function AdCasestudy() {
                 />
               </div>
 
-              {/* Blog Image Section */}
               <div className="form-group border border-slate-200 rounded-2xl p-4 bg-slate-50/30">
                 <ImageInput
                   label="Blog Image"

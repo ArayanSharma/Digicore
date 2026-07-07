@@ -40,7 +40,6 @@ export default function AdWebsitemain() {
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState("");
 
-  // BANNER SECTION STATE
   const [bannerData, setBannerData] = useState({
     subtitle: "",
     title: "",
@@ -52,13 +51,11 @@ export default function AdWebsitemain() {
     backgroundImage: "",
   });
 
-  // TOP CONTENT STATE
   const [topContent, setTopContent] = useState({
     h1: "",
     p: "",
   });
 
-  // HELP CARDS STATE
   const [helpCards, setHelpCards] = useState([
     { id: uid(), icon: "", title: "", desc: "" },
     { id: uid(), icon: "", title: "", desc: "" },
@@ -66,7 +63,6 @@ export default function AdWebsitemain() {
     { id: uid(), icon: "", title: "", desc: "" },
   ]);
 
-  // WEB DESIGN SECTION STATE
   const [webDesignSection, setWebDesignSection] = useState({
     h1: "",
     span: "",
@@ -76,7 +72,6 @@ export default function AdWebsitemain() {
     h2: "",
   });
 
-  // CMS SECTION STATE
   const [cmsSection, setCmsSection] = useState({
     h2: "",
     span: "",
@@ -89,7 +84,6 @@ export default function AdWebsitemain() {
     ],
   });
 
-  // OUR WORK SECTION STATE
   const [ourWorkSection, setOurWorkSection] = useState({
     h2: "",
     span: "",
@@ -102,7 +96,6 @@ export default function AdWebsitemain() {
     },
   });
 
-  // BUILT SECTION STATE
   const [builtSection, setBuiltSection] = useState({
     h2: "",
     span: "",
@@ -121,7 +114,6 @@ export default function AdWebsitemain() {
 
 
 
-  // PROCESS SECTION STATE
   const [processSection, setProcessSection] = useState({
     h2: "",
     span: "",
@@ -144,7 +136,6 @@ export default function AdWebsitemain() {
     { id: uid(), title: "LAUNCH", desc: "" },
   ]);
 
-  // TESTIMONIALS SECTION STATE
   const [testimonialsSection, setTestimonialsSection] = useState({
     title: "",
     subtitle: "",
@@ -158,14 +149,12 @@ export default function AdWebsitemain() {
     ],
   });
 
-  // CONTACT BANNER STATE
   const [contactBanner, setContactBanner] = useState({
     phone: "",
     email: "",
     logo: "",
   });
 
-  // FAQ SECTION STATE
   const [faqSection, setFaqSection] = useState({
     h2: "",
     p: "",
@@ -181,7 +170,6 @@ export default function AdWebsitemain() {
 
   const toggle = (key) => setOpenSection(openSection === key ? "" : key);
 
-  // CMS DATA HELPERS
   const updateCmsItem = (id, field, value) =>
     setCmsSection({
       ...cmsSection,
@@ -221,7 +209,6 @@ export default function AdWebsitemain() {
       ),
     });
 
-  // OUR WORK LIST HELPERS
   const updateOurWorkBullet = (index, value) => {
     const list = [...(ourWorkSection.workDetails.list || [])];
     list[index] = value;
@@ -255,7 +242,7 @@ export default function AdWebsitemain() {
 
 
 
-  // FAQ HELPERS
+  // faq helpers
   const updateFaq = (id, field, value) =>
     setFaqSection({
       ...faqSection,

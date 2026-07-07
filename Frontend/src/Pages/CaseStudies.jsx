@@ -45,7 +45,6 @@ const CaseStudies = () => {
     <section className="all-cs-page">
       <div className="all-cs-container">
 
-        {/* Page header */}
         <div className="all-cs-header">
           <h1>Our Case Studies</h1>
           <div className="all-cs-header-line" />
@@ -55,7 +54,6 @@ const CaseStudies = () => {
           </p>
         </div>
 
-        {/* Case study grid */}
         {caseStudies.length === 0 ? (
           <div className="all-cs-empty">
             <p>No case studies available at the moment. Check back soon!</p>

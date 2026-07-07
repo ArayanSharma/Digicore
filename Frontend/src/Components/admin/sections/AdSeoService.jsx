@@ -73,7 +73,7 @@ const initialData = {
     image: "",
     timeline: [],
   },
-  // industries and caseStudies removed per admin simplification
+  // industries and caseStudies got dropped as part of the admin simplification
   dominate: {
     heading: "How Can We Help You Grow",
     description: "Digicore Inc. is a leading SEO agency in Delhi. We help businesses evolve by providing them with the best SEO strategies and solutions designed specifically to improve visibility.",
@@ -115,7 +115,6 @@ export default function AdSeoService() {
   const removeArrayItem = (arrKey, id) =>
     setPageData((current) => ({ ...current, [arrKey]: current[arrKey].filter((item) => item.id !== id) }));
 
-  /* ---------- Load existing content ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -125,8 +124,7 @@ export default function AdSeoService() {
     } catch (err) {
       setLoadError(err.message);
     }
-    
-    // Initialize empty arrays with defaults
+
     const ensureArrays = (data) => {
       if (!data.counters || !Array.isArray(data.counters) || data.counters.length === 0) {
         data.counters = [
@@ -188,7 +186,6 @@ export default function AdSeoService() {
       d = ensureArrays(d);
       setPageData((current) => ({ ...current, ...d }));
     } else {
-      // Use initial data with defaults ensured
       const defaultData = ensureArrays({ ...initialData });
       setPageData(defaultData);
     }
@@ -201,7 +198,6 @@ export default function AdSeoService() {
     })();
   }, [load]);
 
-  /* ---------- Save ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     setStatus("saving");
@@ -228,7 +224,6 @@ export default function AdSeoService() {
 
         <PageStatusBanner loading={loading} error={loadError} onRetry={load} />
 
-        {/* BANNER */}
         
         <div className="bg-white rounded-2xl border border-slate-200 shadow-[0_8px_24px_rgba(15,23,42,.06)] hover:shadow-[0_16px_36px_rgba(37,99,235,.10)] transition-all duration-300 p-8 space-y-8 mt-8">
           <Section title="1. Banner Section" open={openSection === "banner"} onToggle={() => toggle("banner")}>
@@ -243,7 +238,6 @@ export default function AdSeoService() {
           <ButtonFields label="Secondary Button" value={pageData.banner.secondaryBtn} onChange={(v) => updateSection("banner", "secondaryBtn", v)} />
         </Section>
 
-        {/* ABOUT */}
         <Section title="2. About Section" open={openSection === "about"} onToggle={() => toggle("about")}>
           <Field label="Heading">
             <TextInput value={pageData.about.heading} onChange={(e) => updateSection("about", "heading", e.target.value)} />
@@ -253,7 +247,6 @@ export default function AdSeoService() {
           </Field>
         </Section>
 
-        {/* VISIBILITY */}
         <Section title="3. Visibility Section" open={openSection === "visibility"} onToggle={() => toggle("visibility")}>
           <Field label="Heading">
             <TextInput value={pageData.visibility.heading} onChange={(e) => updateSection("visibility", "heading", e.target.value)} />
@@ -264,7 +257,6 @@ export default function AdSeoService() {
           <ImageInput label="Visibility Image" value={pageData.visibility.image} onChange={(e) => updateSection("visibility", "image", e.target.value)} />
         </Section>
 
-        {/* COUNTERS */}
         <Section title="4. Counters Section" open={openSection === "counters"} onToggle={() => toggle("counters")}>
           <LeadForm
             title="Counter"
@@ -280,7 +272,6 @@ export default function AdSeoService() {
           />
         </Section>
 
-        {/* VIDEO */}
         <Section title="5. Video Section" open={openSection === "video"} onToggle={() => toggle("video")}>
           <Field label="Video Title">
             <TextInput value={pageData.video.title} onChange={(e) => updateSection("video", "title", e.target.value)} placeholder="Optional video title" />
@@ -290,7 +281,6 @@ export default function AdSeoService() {
           </Field>
         </Section>
 
-        {/* PERFORMANCE */}
         <Section title="6. Performance Section (Track/Analyze/Scale/Repeat)" open={openSection === "performance"} onToggle={() => toggle("performance")}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Field label="Label 1">
@@ -309,7 +299,6 @@ export default function AdSeoService() {
           <ImageInput label="Performance Image" value={pageData.performance.image} onChange={(e) => updateSection("performance", "image", e.target.value)} />
         </Section>
 
-        {/* SEO AGENCY */}
         <Section title="7. SEO Agency Section" open={openSection === "seoAgency"} onToggle={() => toggle("seoAgency")}>
           <Field label="Heading">
             <TextInput value={pageData.seoAgency.heading} onChange={(e) => updateSection("seoAgency", "heading", e.target.value)} />
@@ -337,7 +326,6 @@ export default function AdSeoService() {
           </Field>
         </Section>
 
-        {/* DISCOVER */}
         <Section title="8. Discover Services Section" open={openSection === "discover"} onToggle={() => toggle("discover")}>
           <Field label="Heading">
             <TextInput value={pageData.discover.heading} onChange={(e) => updateSection("discover", "heading", e.target.value)} />
@@ -347,7 +335,6 @@ export default function AdSeoService() {
           </Field>
         </Section>
 
-        {/* SERVICES */}
         <Section title="9. Service Cards" open={openSection === "services"} onToggle={() => toggle("services")}>
           <LeadForm
             title="Service"
@@ -362,7 +349,6 @@ export default function AdSeoService() {
           />
         </Section>
 
-        {/* WHY CHOOSE */}
         <Section title="10. Why Choose Section" open={openSection === "whyChoose"} onToggle={() => toggle("whyChoose")}>
           <Field label="Heading">
             <TextInput value={pageData.whyChoose.heading} onChange={(e) => updateSection("whyChoose", "heading", e.target.value)} />
@@ -372,7 +358,6 @@ export default function AdSeoService() {
           <ButtonFields label="Button 2" value={pageData.whyChoose.button2} onChange={(v) => updateSection("whyChoose", "button2", v)} />
         </Section>
 
-        {/* IMPACT / TIMELINE */}
         <Section title="11. Impact Timeline Section" open={openSection === "impact"} onToggle={() => toggle("impact")}>
           <ImageInput label="Impact Section Image" value={pageData.impact.image} onChange={(e) => updateSection("impact", "image", e.target.value)} />
           <LeadForm
@@ -391,7 +376,6 @@ export default function AdSeoService() {
 
         {/* CASE STUDIES removed per request */}
 
-        {/* HOW CAN WE HELP YOU GROW */}
         <Section title="14. How Can We Help You Grow Section" open={openSection === "dominate"} onToggle={() => toggle("dominate")}>
           <Field label="Heading">
             <TextInput value={pageData.dominate.heading} onChange={(e) => updateSection("dominate", "heading", e.target.value)} />
@@ -412,7 +396,6 @@ export default function AdSeoService() {
           />
         </Section>
 
-        {/* WHY BUSINESS */}
         <Section title="15. Why Business Section" open={openSection === "whyBusiness"} onToggle={() => toggle("whyBusiness")}>
           <Field label="Heading">
             <TextInput value={pageData.whyBusiness.heading} onChange={(e) => updateSection("whyBusiness", "heading", e.target.value)} />
@@ -430,7 +413,6 @@ export default function AdSeoService() {
           />
         </Section>
 
-        {/* FAQ */}
         <Section title="16. FAQ Section" open={openSection === "faq"} onToggle={() => toggle("faq")}>
           <Field label="FAQ Heading">
             <TextInput value={pageData.faqHeading} onChange={(e) => setPageData((current) => ({ ...current, faqHeading: e.target.value }))} />

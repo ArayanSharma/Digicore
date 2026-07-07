@@ -42,7 +42,6 @@ const CMS_ICON_MAP = {
   BigCommerce: <SiBigcommerce />,
 };
 
-// CMS DATA
 const cmsData = [
   {
     icon: <FaWordpress />,
@@ -82,7 +81,6 @@ const cmsData = [
   },
 ];
 
-// HELP CARDS
  const helpCards = [
 
   {
@@ -284,7 +282,6 @@ const [activeFAQ, setActiveFAQ] = useState(null);
   </div>
 </section>
 
-      {/* WEB DESIGN SECTION */}
       {webDesign && (
         <section className="web-design">
           <div className="container">
@@ -318,7 +315,6 @@ const [activeFAQ, setActiveFAQ] = useState(null);
         </section>
       )}
 
-      {/* CMS SECTION */}
       {cmsSection && (
         <section className="cms-section">
           <div className="container">

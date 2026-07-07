@@ -113,7 +113,6 @@ const InfluencerM  = () => {
         />
       )}
 
-      {/* About Section */}
       {about && (about.heading || about.body) && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto text-center">
@@ -134,7 +133,6 @@ const InfluencerM  = () => {
         </section>
       )}
 
-      {/* Visibility Section */}
       {visibility && (visibility.heading || visibility.body || visibility.image) && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -167,7 +165,6 @@ const InfluencerM  = () => {
         </section>
       )}
 
-      {/* Performance Section */}
       {performance && (performance.label1 || performance.label2 || performance.label3 || performance.label4 || performance.image) && (
         <section className="w-full p-0 m-0 bg-white">
           <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 w-full">
@@ -207,7 +204,6 @@ const InfluencerM  = () => {
         </section>
       )}
 
-      {/* SEO Agency Section */}
       {seoAgency && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto">
@@ -264,7 +260,6 @@ const InfluencerM  = () => {
         </section>
       )}
 
-      {/* Services Grid Section */}
       {displayServices.length > 0 && (
         <section className="w-full py-[100px] px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto px-5">
@@ -298,7 +293,6 @@ const InfluencerM  = () => {
         </section>
       )}
 
-      {/* CTA Why Choose Section */}
       {whyChoose && (whyChoose.heading || whyChoose.button1?.text || whyChoose.button2?.text) && (
         <section className="relative overflow-hidden w-full py-20 px-5 bg-gradient-to-br from-[#1c1c1e] to-slate-900 text-center border-t border-b border-[#2b2b2e]">
           <div className="max-w-[1200px] mx-auto text-center space-y-8 relative z-10">
@@ -336,7 +330,6 @@ const InfluencerM  = () => {
         </section>
       )}
 
-      {/* Impact Section */}
       {impactData?.items?.length > 0 && (
         <section className="w-full py-24 px-5 bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -369,7 +362,6 @@ const InfluencerM  = () => {
       <Industry />
       <Casestudy />
 
-      {/* Why Choose Section with Checklists */}
       {whyBusiness && (whyBusiness.heading || whyBusiness.description || whyBusiness.features?.length > 0 || whyBusiness.image) && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto">
@@ -415,12 +407,10 @@ const InfluencerM  = () => {
         </section>
       )}
 
-      {/* Testimonials Section */}
       <div>
         <TestimonialSection />
       </div>
 
-      {/* Brand Logos and Tools */}
       <div>
         <Brands />
       </div>
@@ -429,12 +419,10 @@ const InfluencerM  = () => {
         <Tools />
       </div>
 
-      {/* Blogs Showcase */}
       <div>
         <Blogs />
       </div>
 
-      {/* Accordion FAQ Section */}
       {displayFaq.length > 0 && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-b border-[#e5e7eb]">
           <div className="max-w-[850px] mx-auto">
@@ -480,7 +468,6 @@ const InfluencerM  = () => {
         </section>
       )}
 
-      {/* Contacts Form footer */}
       <div>
         <Contacts />
       </div>

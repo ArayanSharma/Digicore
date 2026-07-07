@@ -121,7 +121,6 @@ const GoogleAd = () => {
 
 
 
-      {/* About Section */}
       {about && (about.heading || about.paragraph) && (
         <section className="w-full py-[100px] px-5 max-[769px]:py-[60px] bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1300px] mx-auto text-center pt-[60px] px-5 pb-20 max-[769px]:p-[50px_15px]">
@@ -142,7 +141,6 @@ const GoogleAd = () => {
         </section>
       )}
 
-      {/* Visibility Section */}
       {visibility && (visibility.heading || visibility.paragraph || visibility.image) && (
         <section className="w-full py-[100px] bg-white max-[993px]:py-[60px] max-[993px]:px-5 border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[60px] lg:gap-[40px] px-5">
@@ -171,7 +169,6 @@ const GoogleAd = () => {
         </section>
       )}
 
-      {/* Performance Section */}
       {performance && (performance.label1 || performance.label2 || performance.label3 || performance.label4 || performance.image) && (
         <section className="w-full p-0 m-0 bg-white">
           <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 w-full">
@@ -192,7 +189,6 @@ const GoogleAd = () => {
         </section>
       )}
 
-      {/* SEO Agency Section */}
       {seoAgency && (seoAgency.heading || seoAgency.paragraph) && (
         <section className="w-full py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto text-center px-5">
@@ -213,7 +209,6 @@ const GoogleAd = () => {
         </section>
       )}
 
-      {/* Services Grid Section */}
       {displayServices.length > 0 && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto px-5">
@@ -247,7 +242,6 @@ const GoogleAd = () => {
         </section>
       )}
 
-      {/* CTA Strip */}
       {ctaSection && (
         <section
           className="relative py-[100px] px-5 bg-[#1c1c1e] text-center min-h-[300px] flex items-center justify-center overflow-hidden"
@@ -294,7 +288,6 @@ const GoogleAd = () => {
         </section>
       )}
 
-      {/* Impact Section */}
       {impactSection?.timeline?.length > 0 && (
         <section className="py-[100px] px-[7%] bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-[60px] lg:flex-row flex-col px-5">
@@ -325,7 +318,6 @@ const GoogleAd = () => {
       <Industry />
       <Casestudy />
 
-      {/* Why Choose Section with Checklists */}
       {whyChooseDigicore && (whyChooseDigicore.heading || whyChooseDigicore.paragraph || whyChooseDigicore.points?.length > 0 || whyChooseDigicore.image) && (
         <section className="bg-white py-16 sm:py-20">
           <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -371,7 +363,6 @@ const GoogleAd = () => {
         </section>
       )}
 
-      {/* Dominate Section */}
       {dominate && (dominate.heading || dominate.paragraph || displayHelpCards.length > 0) && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-b border-[#e5e7eb] text-center">
           <div className="max-w-[1200px] mx-auto">
@@ -427,7 +418,6 @@ const GoogleAd = () => {
         <Blogs />
       </div>
 
-      {/* Accordion FAQ Section */}
       {displayFaq.length > 0 && (
         <section className="py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
           <div className="text-center mb-[50px]">

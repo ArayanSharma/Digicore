@@ -124,7 +124,7 @@ export default function AdWixDev() {
 
   const toggle = (key) => setOpenSection(openSection === key ? "" : key);
 
-  /* ---------- CMS Data (with nested "points" list) ---------- */
+  // cms cards each have a nested points list, hence the extra update/add/remove pair below
   const updateCmsData = (id, field, value) =>
     setCmsData(cmsData.map((item) => (item.id === id ? { ...item, [field]: value } : item)));
   const addCmsData = () =>
@@ -155,7 +155,6 @@ export default function AdWixDev() {
       )
     );
 
-  /* ---------- Our Work Bullets ---------- */
   const updateOurWorkBullet = (index, value) =>
     setOurWork({
       ...ourWork,
@@ -166,7 +165,6 @@ export default function AdWixDev() {
   const removeOurWorkBullet = (index) =>
     setOurWork({ ...ourWork, bullets: ourWork.bullets.filter((_, i) => i !== index) });
 
-  /* ---------- FAQ Data (with nested "answerList" list) ---------- */
   const updateFaq = (id, field, value) =>
     setFaqData(faqData.map((item) => (item.id === id ? { ...item, [field]: value } : item)));
   const addFaq = () =>

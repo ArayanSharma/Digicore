@@ -150,7 +150,6 @@ export default function AdTechSEO() {
     setPageData((current) => ({ ...current, [key]: next }));
   };
 
-  /* ---------- LOAD existing content on mount ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -172,7 +171,6 @@ export default function AdTechSEO() {
     })();
   }, [load]);
 
-  /* ---------- SAVE ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     setStatus("saving");

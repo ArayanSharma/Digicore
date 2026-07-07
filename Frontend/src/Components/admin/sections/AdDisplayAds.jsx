@@ -194,7 +194,7 @@ export default function AdDisplayAds() {
 
   const toggle = (key) => setOpenSection(openSection === key ? "" : key);
 
-  // performanceSection.items (fixed 4-item array)
+  // fixed 4-item array, no add/remove needed here
   const updatePerformanceItem = (index, value) => {
     const next = [...performanceSection.items];
     next[index] = value;
@@ -203,7 +203,7 @@ export default function AdDisplayAds() {
 
 
 
-  // whyChooseDigicoreSection.points (plain string array)
+  // points is just an array of strings, not objects
   const updatePoint = (index, value) => {
     const next = [...whyChooseDigicoreSection.points];
     next[index] = value;
@@ -220,7 +220,6 @@ export default function AdDisplayAds() {
       points: whyChooseDigicoreSection.points.filter((_, i) => i !== index),
     });
 
-  // faqSection.faqItems
   const updateFaqItem = (id, field, value) =>
     setFaqSection({
       ...faqSection,

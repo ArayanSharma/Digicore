@@ -54,7 +54,6 @@ export default function Packages() {
 
   return (
     <div className="bg-white">
-      {/* Hero Banner Section */}
       <section className="relative w-full min-h-[480px] bg-gradient-to-br from-[#1c1c1e] to-slate-900 overflow-hidden flex items-center px-5 py-20">
         {hero?.image && (
           <img
@@ -86,7 +85,6 @@ export default function Packages() {
         </div>
       </section>
 
-      {/* SEO Packages Header Description */}
       <section className="w-full py-16 px-5 bg-white text-center border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -101,10 +99,8 @@ export default function Packages() {
         </div>
       </section>
 
-      {/* Pricing Comparison Container */}
       <div className="max-w-[1200px] mx-auto px-5 py-20 flex flex-col lg:flex-row gap-8">
 
-        {/* Left Sidebar Features */}
         <aside className="w-full lg:w-[320px] shrink-0 bg-slate-900 rounded-3xl p-8 text-white flex flex-col justify-between shadow-[0_15px_30px_rgba(0,0,0,0.08)]">
           <div>
             <h3 className="text-[22px] font-heading font-extrabold text-white mb-5 leading-snug">
@@ -148,7 +144,6 @@ export default function Packages() {
           </div>
         </aside>
 
-        {/* Pricing Cards Grid */}
         <section className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {displayPlans.map((plan, index) => (
             <div
@@ -202,7 +197,6 @@ export default function Packages() {
         </section>
       </div>
 
-      {/* Why Choose us ranking banner */}
       <section className="w-full py-24 px-5 bg-white border-t border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -219,7 +213,6 @@ export default function Packages() {
         </div>
       </section>
 
-      {/* Contact Banner */}
       <section className="w-full bg-[#1c1c1e] py-12 px-5 border-t border-b border-[#2b2b2e]">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <a
@@ -250,7 +243,6 @@ export default function Packages() {
         </div>
       </section>
 
-      {/* Testimonials Video reviews */}
       <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto">
           <h2 className=" testimonials-heading-text text-center text-[48px] max-[769px]:text-[32px] font-heading font-extrabold text-[#1c1c1e] mb-2">{testimonialsTitle}</h2>

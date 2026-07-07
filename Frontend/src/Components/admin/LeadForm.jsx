@@ -14,22 +14,8 @@ const emptyValueForField = (f) => {
 const emptyFromFields = (fields) =>
   fields.reduce((acc, f) => ({ ...acc, [f.name]: emptyValueForField(f) }), {});
 
-/**
- * Reusable "repeatable card" editor for admin page sections (stats, industries,
- * FAQs, plans, case studies, etc). Renders existing cards in a grid, and
- * adds/edits a card through a modal instead of an inline always-expanded form.
- *
- * Field types: "text" (default), "textarea", "image", "multiline" (array of
- * strings edited as one newline-separated textarea), "button" (a {text, link}
- * pair via FormKit's ButtonFields).
- *
- * Editing is tracked by array index, not by item.id, so it works whether or
- * not the underlying array items carry a stable id. New cards are always
- * assigned one via uid().
- *
- * Singleton fields (hero title, single images, etc.) stay on FormKit's
- * Section/Field/TextInput directly — LeadForm only owns the repeating-card part.
- */
+// Repeatable card editor used across admin sections (stats, industries, FAQs, etc).
+// Note: editing is keyed by array index, not item.id, since not every array has stable ids.
 export default function LeadForm({
   title,
   items,

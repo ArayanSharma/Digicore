@@ -29,7 +29,6 @@ const normalizeMediaUrl = (url) => {
   return url;
 };
 
-/* Map platform names to icon components for social links */
 const socialIconMap = {
   facebook: FaFacebookF,
   twitter: FaTwitter,
@@ -192,7 +191,6 @@ const Header = () => {
 
   const resolvedHeaderData = normalizeHeaderData(headerData);
 
-  // --- Derive values from DB or fall back to defaults ---
   const phone = resolvedHeaderData.phone || "+91 9818888064";
   const email = resolvedHeaderData.email || "hello@digitalmarkitors.com";
   const ctaLabel = resolvedHeaderData.ctaButton?.label || "Free Consultation";
@@ -204,7 +202,6 @@ const Header = () => {
   const rootTabs = Array.isArray(resolvedHeaderData.rootTabs) ? resolvedHeaderData.rootTabs : defaultHeaderData.rootTabs;
   const findTab = (tabId) => rootTabs.find((t) => t.id === tabId);
 
-  // Company tab
   const companyTab = findTab("company");
   const companyItems = (companyTab?.items || defaultHeaderData.rootTabs.find((tab) => tab.id === "company")?.items || []).map((item) => ({
     ...item,
@@ -214,7 +211,6 @@ const Header = () => {
   const companyImage = normalizeMediaUrl(companyTab?.promoImage?.url || menuImg);
   const companyActive = companyTab?.isActive !== false;
 
-  // Industry tab
   const industryTab = findTab("industry");
   const industryItems = (industryTab?.items || defaultHeaderData.rootTabs.find((tab) => tab.id === "industry")?.items || []).map((item) => ({
     ...item,
@@ -224,13 +220,11 @@ const Header = () => {
   const industryImage = normalizeMediaUrl(industryTab?.promoImage?.url || menuImg);
   const industryActive = industryTab?.isActive !== false;
 
-  // Services tab (categorized)
   const servicesTab = findTab("our-services");
   const servicesLabel = servicesTab?.label || "Our Services";
   const servicesActive = servicesTab?.isActive !== false;
   const servicesCategories = (servicesTab?.categories || defaultHeaderData.rootTabs.find((tab) => tab.id === "our-services")?.categories || []);
 
-  // Direct link tabs
   const blogTab = findTab("blog");
   const blogLabel = blogTab?.label || "Blog";
   const blogLink = getResolvedDirectLink(blogTab);
@@ -245,7 +239,6 @@ const Header = () => {
   const categoryTabKeys = ["seo", "smo", "performance", "web", "orm"];
   const getCategoryTabKey = (cat, idx) => cat?.id || categoryTabKeys[idx] || `cat-${idx}`;
 
-  // Default service images per category index
   const defaultServiceImages = [menuImg2, menuImg, menuImg2, menuImg2, menuImg2];
 
   // Shared Tailwind class strings (ex-Header.css selectors) reused across the mega menus

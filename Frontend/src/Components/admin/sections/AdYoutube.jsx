@@ -26,7 +26,6 @@ export default function AdYoutube() {
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState("");
 
-  /* ---------- BANNER ---------- */
   const [banner, setBanner] = useState({
     title: "Google Display Ads Management Agency",
     description:
@@ -38,14 +37,12 @@ export default function AdYoutube() {
 
 
 
-  /* ---------- ABOUT SECTION ---------- */
   const [aboutSection, setAboutSection] = useState({
     title: "Best Google Display Ads Management Agency",
     description:
       "Digicore Inc is the best PPC company in Delhi-NCR, that delivers performance-driven Pay-Per-Click campaigns customized to attain measurable business growth. Our PPC strategy includes strong groundwork—competitor analysis, audience assessment, and clarity of conversion objectives. Our expertly designed PPC campaigns are aimed at attracting high-intent users, that eventually turn clicks into leads and sales. With consistent performance throughout the past few years, our PPC specialists focus on the optimal use of data-driven Google and Meta ad campaigns for multiple industries ranging from Ecommerce, B2B, Travel, Healthcare, Hospitality, and Education. From keyword strategy and finalizing ad copy to optimization of landing page and conversion tracking,  Digicore Inc plays a vital role in helping businesses benefit from ROI-focused PPC advertising.",
   });
 
-  /* ---------- VISIBILITY SECTION ---------- */
   const [visibilitySection, setVisibilitySection] = useState({
     title: "Why PPC Is More Than Just Running Ads",
     description:
@@ -53,20 +50,17 @@ export default function AdYoutube() {
     videoUrl: "",
   });
 
-  /* ---------- PERFORMANCE SECTION ---------- */
   const [performanceSection, setPerformanceSection] = useState({
     items: ["TRACK", "ANALYZE", "SCALE", "REPEAT"],
     imageUrl: "",
   });
 
-  /* ---------- SEO AGENCY SECTION ---------- */
   const [seoAgencySection, setSeoAgencySection] = useState({
     title: "Why Do I Need Google Shopping Ads Management Services?",
     description:
       "It is quite tough for businesses to generate quality leads at present due to the increased competition. PPC is one of the efficient ways to target potential customers, only if the campaign has been executed in a strategic way. Keeping in mind the increased competition, constantly upgrading algorithms, higher bid costs,  Digicore Inc, the top PPC agency in Delhi NCR employs well-planned strategy for ongoing campaign optimization. Besides, we ensure the data-driven insights, expertise in generating quality leads, driving sales, and improving the brand awareness through campaigns are aligned according to business goals of clients.",
   });
 
-  /* ---------- SERVICES SECTION ---------- */
   const [servicesSection, setServicesSection] = useState({
     heading: "Google Display Ad Management Services",
     description:
@@ -84,7 +78,6 @@ export default function AdYoutube() {
     { id: uid(), iconUrl: "", title: "AEO + AIO + GEO", description: "TIMING MATTERS! Our AEO+AIO+GEO services are designed to optimize search engines for the right responses based on user intent and location to provide your audience with timely responses and build trust." },
   ]);
 
-  /* ---------- WHY CHOOSE (CTA) SECTION ---------- */
   const [whyChooseSection, setWhyChooseSection] = useState({
     title: "Ready for More Traffic, Leads & Sales? Start SEO Now.",
     backgroundImageUrl: "",
@@ -94,7 +87,6 @@ export default function AdYoutube() {
     { id: uid(), text: "REQUEST A CALLBACK", link: "/contact", iconUrl: "" },
   ]);
 
-  /* ---------- TIMELINE SECTION ---------- */
   const [timelineSection, setTimelineSection] = useState({ imageUrl: "" });
   const [timelineItems, setTimelineItems] = useState([
     { id: uid(), title: "Contact Us", description: "Get in touch with us via email, phone or website." },
@@ -105,7 +97,6 @@ export default function AdYoutube() {
   ]);
 
 
-  /* ---------- WHY CHOOSE DIGICORE SECTION ---------- */
   const [whyChooseDigicoreSection, setWhyChooseDigicoreSection] = useState({
     title: "Why Choose  Digicore Inc as YOUR PPC AGENCY IN DELHI",
     description:
@@ -121,7 +112,6 @@ export default function AdYoutube() {
     "We deliver results you can trust and clearly measure.",
   ]);
 
-  /* ---------- FAQ SECTION ---------- */
   const [faqSection, setFaqSection] = useState({ heading: "FAQ" });
   const [faqItems, setFaqItems] = useState([
     { id: uid(), question: "In how much time can I expect Google display ads?", answer: "The initial results in terms of brand visibility reflect in a short span. However, the meaningful conversions and engagement take up to few weeks to improve through consistent optimization." },
@@ -132,7 +122,6 @@ export default function AdYoutube() {
 
   const toggle = (key) => setOpenSection(openSection === key ? "" : key);
 
-  /* ---------- list helpers ---------- */
   const updatePoint = (index, value) =>
     setPoints(points.map((item, i) => (i === index ? value : item)));
   const addPoint = () => setPoints([...points, ""]);

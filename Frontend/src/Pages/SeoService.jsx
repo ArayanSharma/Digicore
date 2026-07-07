@@ -68,7 +68,6 @@ const SeoService = () => {
         />
       )}
 
-      {/* About Section */}
       {about && (about.heading || about.body) && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto text-center">
@@ -87,7 +86,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Visibility Section */}
       {visibility && (visibility.heading || visibility.body || visibility.image) && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -120,7 +118,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Counters Grid Section */}
       {counterItems.length > 0 && (
         <section className="w-full py-20 px-5 bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -142,7 +139,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Video Section */}
       {video && video.title && (
         <section className="w-full py-20 px-5 bg-white text-center">
           <div className="max-w-[1200px] mx-auto">
@@ -167,7 +163,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Performance Section */}
       {performance && (performance.labelTrack || performance.labelAnalyze || performance.labelScale || performance.labelRepeat || performance.image) && (
         <section className="w-full p-0 m-0 bg-white">
           <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 w-full">
@@ -207,7 +202,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* SEO Agency Info Section */}
       {seoAgency && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto">
@@ -270,7 +264,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Services Grid Section */}
       {displayServices.length > 0 && (
         <section className="w-full py-[100px] px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto px-5">
@@ -304,7 +297,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* CTA Why Choose Section */}
       {whyChoose && (whyChoose.heading || whyChoose.button1?.text || whyChoose.button2?.text) && (
         <section className="relative overflow-hidden w-full py-20 px-5 bg-gradient-to-br from-[#1c1c1e] to-slate-900 text-center border-t border-b border-[#2b2b2e]">
           <div className="max-w-[1200px] mx-auto text-center space-y-8 relative z-10">
@@ -342,7 +334,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Impact / Timeline Section */}
       {impactData?.timeline?.length > 0 && (
         <section className="py-[100px] px-[7%] bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-[60px] lg:flex-row flex-col px-5">
@@ -374,7 +365,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Dominate / Help Section */}
       {displayDominateCards.length > 0 && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto">
@@ -416,7 +406,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Why Choose Section with Checklists */}
       {whyBusiness && (whyBusiness.heading || whyBusiness.description || whyBusiness.features?.length > 0 || whyBusiness.image) && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto">
@@ -462,12 +451,10 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Testimonials section */}
       <div>
         <TestimonialSection />
       </div>
 
-      {/* Brand Logos and Tools */}
       <div>
         <Brands />
       </div>
@@ -476,12 +463,10 @@ const SeoService = () => {
         <Tools />
       </div>
 
-      {/* Blogs Showcase */}
       <div>
         <Blogs />
       </div>
 
-      {/* Accordion FAQ Section */}
       {displayFaq.length > 0 && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-b border-[#e5e7eb]">
           <div className="max-w-[850px] mx-auto">
@@ -525,7 +510,6 @@ const SeoService = () => {
         </section>
       )}
 
-      {/* Contacts Form footer */}
       <div>
         <Contacts />
       </div>

@@ -198,7 +198,6 @@ export default function AdFullStack() {
     ogImage: "",
   });
 
-  /* ---------- Technologies ---------- */
   const addTechnology = () =>
     setTechnologies([
       ...technologies,
@@ -229,7 +228,6 @@ export default function AdFullStack() {
   );
   const techPagination = usePagination(filteredTechnologies, 6);
 
-  /* ---------- Process ---------- */
   const addProcessStep = () => setProcess([...process, { id: uid(), title: "", desc: "" }]);
   const updateProcessStep = (id, field, value) =>
     setProcess(process.map((p) => (p.id === id ? { ...p, [field]: value } : p)));
@@ -239,7 +237,6 @@ export default function AdFullStack() {
     showToast("Process step removed");
   };
 
-  /* ---------- Features ---------- */
   const addFeature = () =>
     setFeatures([...features, { id: uid(), icon: FEATURE_ICON_OPTIONS[0], title: "", desc: "" }]);
   const updateFeature = (id, field, value) =>
@@ -250,7 +247,6 @@ export default function AdFullStack() {
     showToast("Feature removed");
   };
 
-  /* ---------- Why Choose Us ---------- */
   const addWhyChoose = () => setWhyChooses([...whyChooses, { id: uid(), icon: WHY_CHOOSE_ICON_OPTIONS[0], title: "", desc: "" }]);
   const updateWhyChoose = (id, field, value) => setWhyChooses(whyChooses.map((wc) => (wc.id === id ? { ...wc, [field]: value } : wc)));
   const removeWhyChoose = (id, title) => {
@@ -259,7 +255,6 @@ export default function AdFullStack() {
     showToast("Reason removed");
   };
 
-  /* ---------- Projects ---------- */
   const addProject = () =>
     setProjects([
       ...projects,
@@ -279,7 +274,6 @@ export default function AdFullStack() {
   );
   const projectPagination = usePagination(filteredProjects, 4);
 
-  /* ---------- FAQ ---------- */
   const addFaqItem = () => setFaq([...faq, { id: uid(), question: "", answer: "", visible: true }]);
   const updateFaqItem = (id, field, value) =>
     setFaq(faq.map((item) => (item.id === id ? { ...item, [field]: value } : item)));
@@ -289,7 +283,6 @@ export default function AdFullStack() {
     showToast("FAQ item removed");
   };
 
-  /* ---------- Load / Save ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -383,7 +376,6 @@ export default function AdFullStack() {
           <Skeleton variant="card" count={3} />
         ) : (
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            {/* ================= HERO ================= */}
             <TabsContent value="hero">
               <TabPanel>
                 <Field label="Hero Visibility" full>
@@ -408,7 +400,6 @@ export default function AdFullStack() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= TECHNOLOGIES ================= */}
             <TabsContent value="technologies">
               <TabPanel>
                 <Field label="Section Eyebrow">
@@ -499,7 +490,6 @@ export default function AdFullStack() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= PROCESS ================= */}
             <TabsContent value="process">
               <TabPanel>
                 <Field label="Section Eyebrow">
@@ -540,7 +530,6 @@ export default function AdFullStack() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= FEATURES ================= */}
             <TabsContent value="features">
               <TabPanel>
                 <Field label="Section Eyebrow">
@@ -586,7 +575,6 @@ export default function AdFullStack() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= PROJECTS ================= */}
             <TabsContent value="projects">
               <TabPanel>
                 <Field label="Section Eyebrow">
@@ -657,7 +645,6 @@ export default function AdFullStack() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= STATISTICS ================= */}
             <TabsContent value="statistics">
               <TabPanel>
                 {[
@@ -686,7 +673,6 @@ export default function AdFullStack() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= WHY CHOOSE US ================= */}
             <TabsContent value="whyChoose">
               <TabPanel>
                 <div className="md:col-span-2 flex items-center gap-4 pb-5 mb-1 border-b border-slate-100">
@@ -737,7 +723,6 @@ export default function AdFullStack() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= FAQ ================= */}
             <TabsContent value="faq">
               <TabPanel>
                 <div className="md:col-span-2 flex items-center gap-4 pb-5 mb-1 border-b border-slate-100">
@@ -786,7 +771,6 @@ export default function AdFullStack() {
               </TabPanel>
             </TabsContent>
 
-            {/* ================= SEO ================= */}
             <TabsContent value="seo">
               <TabPanel>
                 <Field label="Meta Title" full>

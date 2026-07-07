@@ -89,7 +89,6 @@ const Reseller = () => {
         />
       )}
 
-      {/* SEO Reseller Section */}
       {seoResellerIntro && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto text-center">
@@ -115,7 +114,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* Reseller Section */}
       {resellerSection && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto">
@@ -155,7 +153,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* Services Grid Section */}
       {displayServices.length > 0 && (
         <section className="w-full py-[100px] px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto px-5">
@@ -186,7 +183,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* CTA Banner Section */}
       {dmBanner && (
         <section className="relative overflow-hidden w-full py-20 px-5 bg-gradient-to-br from-[#1c1c1e] to-slate-900 border-t border-b border-[#2b2b2e]">
           <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
@@ -219,7 +215,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* SEO Team Section */}
       {seoTeam && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto">
@@ -256,7 +251,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* SEO Solutions Section */}
       {displaySolutions.length > 0 && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto">
@@ -297,7 +291,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* SEO Case Section */}
       {displayCaseStudies.length > 0 && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto">
@@ -370,7 +363,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* SEO Outsourcing Section */}
       {outsourcing && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto text-center">
@@ -391,7 +383,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* Other Reseller Services Section */}
       {otherServices && (
         <section className="w-full py-24 px-5 bg-white">
           <div className="max-w-[1200px] mx-auto">
@@ -447,7 +438,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* Additional CTA Banner Section */}
       {additionalBanner && (
         <section className="relative overflow-hidden w-full py-20 px-5 bg-gradient-to-br from-[#1c1c1e] to-slate-900 border-t border-b border-[#2b2b2e]">
           <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
@@ -475,7 +465,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* Benefits Program Section */}
       {benefitsProgram && (
         <section className="w-full py-24 px-5 bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto">
@@ -517,7 +506,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* Testimonials Section */}
       {displayTestimonials.length > 0 && (
         <section className="w-full py-24 px-5 bg-[#f4f4f5]">
           <div className="max-w-[1200px] mx-auto">
@@ -594,7 +582,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* Brands Section */}
       {displayBrands.length > 0 && (
         <section className="w-full py-16 px-5 bg-white border-b border-slate-100">
           <div className="max-w-[1200px] mx-auto">
@@ -614,7 +601,6 @@ const Reseller = () => {
         </section>
       )}
 
-      {/* Map Section */}
       {mapData?.embedUrl && (
         <div className="w-full h-[450px] relative border-t border-slate-200">
           <iframe

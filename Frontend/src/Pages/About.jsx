@@ -47,7 +47,6 @@ const About = () => {
         backgroundImage={hero?.image ? resolveImage(hero.image) : undefined}
       />
 
-      {/* Overview Section */}
       <section className="w-full py-24 px-5 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -83,7 +82,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats / Better Section */}
       <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto">
           <h2
@@ -119,7 +117,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Contact Banner */}
       <section className="w-full bg-[#1c1c1e] py-12 px-5 border-t border-b border-[#2b2b2e]">
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <a
@@ -150,7 +147,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Industries Section */}
       <section className="w-full py-24 px-5 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px]"></div>
@@ -185,11 +181,9 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
       <section className="w-full py-24 px-5 bg-[#f4f4f5] border-t border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto space-y-24">
 
-          {/* Mission Box */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative rounded-3xl overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.05)] border border-slate-200">
               <img
@@ -213,7 +207,6 @@ const About = () => {
             </div>
           </div>
 
-          {/* Vision Box */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-[36px] max-[769px]:text-[28px] font-heading font-extrabold text-[#1c1c1e] mb-4">

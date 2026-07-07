@@ -19,10 +19,7 @@ import {
 
 const PAGE_SLUG = "google-shopping-ads";
 
-/* ------------------------------------------------------------------ */
-/*  Initial data (mirrors current GoogleAd.jsx hardcoded content)      */
-/* ------------------------------------------------------------------ */
-
+// mirrors what's currently hardcoded in GoogleAd.jsx
 const initialData = {
   hero: {
     title: "Google Shopping Ads Management Services",
@@ -170,10 +167,6 @@ const initialData = {
   },
 };
 
-/* ------------------------------------------------------------------ */
-/*  Main Admin Form                                                     */
-/* ------------------------------------------------------------------ */
-
 export default function AdminGoogleAdForm() {
   const showToast = useToast();
   const [openSection, setOpenSection] = useState("hero");
@@ -239,7 +232,6 @@ export default function AdminGoogleAdForm() {
     }));
   };
 
-  /* Why Choose Digicore bullet points (plain string array) */
   const updatePoint = (i, value) =>
     setData((prev) => ({
       ...prev,
@@ -264,7 +256,6 @@ export default function AdminGoogleAdForm() {
       },
     }));
 
-  /* ---------- Load existing content on mount ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -285,7 +276,6 @@ export default function AdminGoogleAdForm() {
     })();
   }, [load]);
 
-  /* ---------- Save ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     setStatus("saving");
@@ -309,7 +299,6 @@ export default function AdminGoogleAdForm() {
 
         <PageStatusBanner loading={loading} error={loadError} onRetry={load} />
 
-        {/* HERO */}
 
         <div className="bg-white rounded-2xl border border-slate-200 shadow-[0_8px_24px_rgba(15,23,42,.06)] hover:shadow-[0_16px_36px_rgba(37,99,235,.10)] transition-all duration-300 p-8 space-y-8 mt-8">
           <Section title="1. Hero / Banner" open={openSection === "hero"} onToggle={() => toggle("hero")}>
@@ -332,7 +321,6 @@ export default function AdminGoogleAdForm() {
             <ImageInput label="Background Image" value={data.hero.backgroundImage} onChange={(e) => updateField("hero", "backgroundImage", e.target.value)} />
           </Section>
 
-          {/* ABOUT */}
           <Section title="2. About / Intro Section" open={openSection === "about"} onToggle={() => toggle("about")}>
             <Field label="Heading">
               <TextInput value={data.about.heading} onChange={(e) => updateField("about", "heading", e.target.value)} />
@@ -342,7 +330,6 @@ export default function AdminGoogleAdForm() {
             </Field>
           </Section>
 
-          {/* VISIBILITY */}
           <Section title="3. Why It's Important Section" open={openSection === "visibility"} onToggle={() => toggle("visibility")}>
             <Field label="Heading">
               <TextInput value={data.visibility.heading} onChange={(e) => updateField("visibility", "heading", e.target.value)} />
@@ -353,7 +340,6 @@ export default function AdminGoogleAdForm() {
             <ImageInput label="Side Image" value={data.visibility.image} onChange={(e) => updateField("visibility", "image", e.target.value)} />
           </Section>
 
-          {/* PERFORMANCE */}
           <Section title="4. Performance Banner" open={openSection === "performance"} onToggle={() => toggle("performance")}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <Field label="Label 1">
@@ -372,7 +358,6 @@ export default function AdminGoogleAdForm() {
             <ImageInput label="Image" value={data.performance.image} onChange={(e) => updateField("performance", "image", e.target.value)} />
           </Section>
 
-          {/* SEO AGENCY */}
           <Section title="5. Why Do I Need These Services? Section" open={openSection === "seoAgency"} onToggle={() => toggle("seoAgency")}>
             <Field label="Heading">
               <TextInput value={data.seoAgency.heading} onChange={(e) => updateField("seoAgency", "heading", e.target.value)} />
@@ -382,7 +367,6 @@ export default function AdminGoogleAdForm() {
             </Field>
           </Section>
 
-          {/* DISCOVER SERVICES */}
           <Section title="6. Google Shopping Ads Services" open={openSection === "discoverServices"} onToggle={() => toggle("discoverServices")}>
             <Field label="Heading">
               <TextInput value={data.discoverServices.heading} onChange={(e) => updateField("discoverServices", "heading", e.target.value)} />
@@ -403,7 +387,6 @@ export default function AdminGoogleAdForm() {
             />
           </Section>
 
-          {/* CTA STRIP */}
           <Section title="7. Call-To-Action Strip" open={openSection === "ctaSection"} onToggle={() => toggle("ctaSection")}>
             <Field label="Heading">
               <TextInput value={data.ctaSection.heading} onChange={(e) => updateField("ctaSection", "heading", e.target.value)} />
@@ -422,7 +405,6 @@ export default function AdminGoogleAdForm() {
             />
           </Section>
 
-          {/* IMPACT / TIMELINE */}
           <Section title="8. Impact / Process Timeline" open={openSection === "impact"} onToggle={() => toggle("impact")}>
             <ImageInput label="Image" value={data.impact.image} onChange={(e) => updateField("impact", "image", e.target.value)} />
             <LeadForm
@@ -437,7 +419,6 @@ export default function AdminGoogleAdForm() {
             />
           </Section>
 
-          {/* INDUSTRIES */}
           <Section title="9. Industries We Work With" open={openSection === "industries"} onToggle={() => toggle("industries")}>
             <Field label="Heading">
               <TextInput value={data.industries.heading} onChange={(e) => updateField("industries", "heading", e.target.value)} />
@@ -455,7 +436,6 @@ export default function AdminGoogleAdForm() {
             />
           </Section>
 
-          {/* HOW WE HELP YOU GROW */}
           <Section title="10. How Can We Help You Grow" open={openSection === "dominate"} onToggle={() => toggle("dominate")}>
             <Field label="Heading">
               <TextInput value={data.dominate?.heading || ""} onChange={(e) => updateField("dominate", "heading", e.target.value)} />
@@ -477,7 +457,6 @@ export default function AdminGoogleAdForm() {
           </Section>
 
 
-          {/* WHY CHOOSE DIGICORE */}
           <Section title="11. Why Choose Digicore Inc. Section" open={openSection === "whyChooseDigicore"} onToggle={() => toggle("whyChooseDigicore")}>
             <Field label="Heading">
               <TextInput value={data.whyChooseDigicore.heading} onChange={(e) => updateField("whyChooseDigicore", "heading", e.target.value)} />
@@ -497,7 +476,6 @@ export default function AdminGoogleAdForm() {
             </div>
           </Section>
 
-          {/* FAQ */}
           <Section title="12. FAQ Section" open={openSection === "faq"} onToggle={() => toggle("faq")}>
             <Field label="Heading">
               <TextInput value={data.faq.heading} onChange={(e) => updateField("faq", "heading", e.target.value)} />

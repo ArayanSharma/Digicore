@@ -235,7 +235,7 @@ export default function AdSocialListening() {
     setPageData((current) => ({ ...current, [section]: next }));
   };
 
-  /* ---- helpers for top-level list sections (services, industries) ---- */
+  // for top-level list sections like services/industries
   const updateTopItem = (section, id, field, val) =>
     updateArray(section, pageData[section].map((it) => (it.id === id ? { ...it, [field]: val } : it)));
   const addTopItem = (section, empty) =>
@@ -243,7 +243,7 @@ export default function AdSocialListening() {
   const removeTopItem = (section, id) =>
     updateArray(section, pageData[section].filter((it) => it.id !== id));
 
-  /* ---- helpers for arrays nested inside an object section (impact.items, caseStudies.items, whyBusiness.features, faqSection.items) ---- */
+  // and these for arrays nested inside a section, e.g. impact.items or whyBusiness.features
   const updateNestedItem = (section, arrayKey, id, field, val) =>
     updateSection(
       section,
@@ -255,7 +255,6 @@ export default function AdSocialListening() {
   const removeNestedItem = (section, arrayKey, id) =>
     updateSection(section, arrayKey, pageData[section][arrayKey].filter((it) => it.id !== id));
 
-  /* ---------- Load existing content on mount ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -276,7 +275,6 @@ export default function AdSocialListening() {
     })();
   }, [load]);
 
-  /* ---------- Save ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     setStatus("saving");
@@ -304,7 +302,6 @@ export default function AdSocialListening() {
 
         <PageStatusBanner loading={loading} error={loadError} onRetry={load} />
 
-        {/* BANNER */}
         
         <div className="bg-white rounded-2xl border border-slate-200 shadow-[0_8px_24px_rgba(15,23,42,.06)] hover:shadow-[0_16px_36px_rgba(37,99,235,.10)] transition-all duration-300 p-8 space-y-8 mt-8">
           <Section title="1. Banner Section" open={openSection === "banner"} onToggle={() => toggle("banner")}>
@@ -319,7 +316,6 @@ export default function AdSocialListening() {
           <ImageInput label="Background Image" value={pageData.banner.backgroundImage} onChange={(e) => updateSection("banner", "backgroundImage", e.target.value)} />
         </Section>
 
-        {/* ABOUT */}
         <Section title="2. About Section" open={openSection === "about"} onToggle={() => toggle("about")}>
           <Field label="Heading">
             <TextInput value={pageData.about.heading} onChange={(e) => updateSection("about", "heading", e.target.value)} />
@@ -329,7 +325,6 @@ export default function AdSocialListening() {
           </Field>
         </Section>
 
-        {/* VISIBILITY */}
         <Section title="3. Visibility Section" open={openSection === "visibility"} onToggle={() => toggle("visibility")}>
           <Field label="Heading">
             <TextInput value={pageData.visibility.heading} onChange={(e) => updateSection("visibility", "heading", e.target.value)} />
@@ -340,7 +335,6 @@ export default function AdSocialListening() {
           <ImageInput label="Visibility Image" value={pageData.visibility.image} onChange={(e) => updateSection("visibility", "image", e.target.value)} />
         </Section>
 
-        {/* PERFORMANCE */}
         <Section title="4. Performance Section" open={openSection === "performance"} onToggle={() => toggle("performance")}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Field label="Label 1">
@@ -359,7 +353,6 @@ export default function AdSocialListening() {
           <ImageInput label="Performance Image" value={pageData.performance.image} onChange={(e) => updateSection("performance", "image", e.target.value)} />
         </Section>
 
-        {/* SEO AGENCY */}
         <Section title="5. Agency Section" open={openSection === "seoAgency"} onToggle={() => toggle("seoAgency")}>
           <Field label="Heading">
             <TextInput value={pageData.seoAgency.heading} onChange={(e) => updateSection("seoAgency", "heading", e.target.value)} />
@@ -387,7 +380,6 @@ export default function AdSocialListening() {
           </Field>
         </Section>
 
-        {/* DISCOVER SERVICES */}
         <Section title="6. Discover Services Section" open={openSection === "discover"} onToggle={() => toggle("discover")}>
           <Field label="Heading">
             <TextInput value={pageData.discover.heading} onChange={(e) => updateSection("discover", "heading", e.target.value)} />
@@ -397,7 +389,6 @@ export default function AdSocialListening() {
           </Field>
         </Section>
 
-        {/* SERVICES CARDS */}
         <Section title="7. Services Cards" open={openSection === "services"} onToggle={() => toggle("services")}>
           <LeadForm
             title="Service"
@@ -412,7 +403,6 @@ export default function AdSocialListening() {
           />
         </Section>
 
-        {/* WHY CHOOSE */}
         <Section title="8. Why Choose Section" open={openSection === "whyChoose"} onToggle={() => toggle("whyChoose")}>
           <Field label="Heading">
             <TextInput value={pageData.whyChoose.heading} onChange={(e) => updateSection("whyChoose", "heading", e.target.value)} />
@@ -422,7 +412,6 @@ export default function AdSocialListening() {
           <ButtonFields label="Button 2" value={pageData.whyChoose.button2} onChange={(v) => updateSection("whyChoose", "button2", v)} />
         </Section>
 
-        {/* IMPACT TIMELINE */}
         <Section title="9. Impact Timeline Section" open={openSection === "impact"} onToggle={() => toggle("impact")}>
           <ImageInput label="Impact Image" value={pageData.impact.image} onChange={(e) => updateSection("impact", "image", e.target.value)} />
           <LeadForm
@@ -439,7 +428,6 @@ export default function AdSocialListening() {
 
 
 
-        {/* WHY BUSINESS */}
         <Section title="12. Why Business Section" open={openSection === "whyBusiness"} onToggle={() => toggle("whyBusiness")}>
           <Field label="Heading">
             <TextInput value={pageData.whyBusiness.heading} onChange={(e) => updateSection("whyBusiness", "heading", e.target.value)} />
@@ -457,7 +445,6 @@ export default function AdSocialListening() {
           />
         </Section>
 
-        {/* FAQ */}
         <Section title="13. FAQ Section" open={openSection === "faqSection"} onToggle={() => toggle("faqSection")}>
           <Field label="FAQ Heading">
             <TextInput value={pageData.faqSection.heading} onChange={(e) => updateSection("faqSection", "heading", e.target.value)} />

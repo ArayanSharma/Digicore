@@ -23,7 +23,6 @@ const AllBlogs = () => {
     load();
   }, []);
 
-  /* ── Loading ── */
   if (loading) {
     return (
       <div className="all-blogs-page">
@@ -39,7 +38,6 @@ const AllBlogs = () => {
     <section className="all-blogs-page">
       <div className="all-blogs-container">
 
-        {/* Page header */}
         <div className="all-blogs-header">
           <h1>Our Blog</h1>
           <div className="all-blogs-header-line" />
@@ -50,7 +48,6 @@ const AllBlogs = () => {
           </p>
         </div>
 
-        {/* Blog grid */}
         {blogs.length === 0 ? (
           <div className="all-blogs-empty">
             <p>No blog posts available at the moment. Check back soon!</p>

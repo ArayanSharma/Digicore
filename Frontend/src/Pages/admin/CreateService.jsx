@@ -401,7 +401,6 @@ export default function CreateService() {
                   </button>
                 </div>
                 
-                {/* Editable Area */}
                 <textarea
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
@@ -454,7 +453,6 @@ export default function CreateService() {
                   <p className="text-xs text-slate-400 mt-1">PNG, JPG, JPEG, SVG up to 5MB</p>
                 </div>
               ) : (
-                /* Uploaded card preview */
                 <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center gap-4 group transition-all duration-200 hover:shadow-sm">
                   <div className="w-20 h-20 bg-white border border-slate-100 rounded-xl overflow-hidden shadow-inner flex items-center justify-center shrink-0">
                     <img src={images.featured.url} alt="Featured preview" className="w-full h-full object-cover" />
@@ -629,7 +627,6 @@ export default function CreateService() {
               </div>
 
               <div className="space-y-6">
-                {/* Radio status options */}
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-3">Publish Status</label>
                   <div className="space-y-2">
@@ -660,7 +657,6 @@ export default function CreateService() {
                   </div>
                 </div>
 
-                {/* Date Picker */}
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Publish Date</label>
                   <div className="relative">
@@ -678,7 +674,6 @@ export default function CreateService() {
 
                 {/* Toggles */}
                 <div className="space-y-4">
-                  {/* Toggle 1: Featured */}
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="block text-sm font-semibold text-slate-700">Featured Service</span>
@@ -697,7 +692,6 @@ export default function CreateService() {
                     </button>
                   </div>
 
-                  {/* Toggle 2: Allow Reviews */}
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="block text-sm font-semibold text-slate-700">Customer Feedback</span>
@@ -719,7 +713,6 @@ export default function CreateService() {
 
                 <div className="h-px bg-slate-100 my-4" />
 
-                {/* Checkbox item */}
                 <label className="flex items-start gap-3 cursor-pointer group">
                   <input
                     type="checkbox"

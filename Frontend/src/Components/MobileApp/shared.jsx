@@ -1,12 +1,9 @@
 import { resolveImage } from "../../hooks/usePageContent";
 
-/* ------------------------------------------------------------------ */
-/* RippleButton — shared CTA button with a material-style ripple burst */
-/* ------------------------------------------------------------------ */
-
 export function RippleButton({ as = "a", className = "", children, onClick, ...rest }) {
   const Tag = as;
 
+  // spawns a ripple span positioned at the click point, sized to cover the button
   const handleClick = (e) => {
     const el = e.currentTarget;
     const rect = el.getBoundingClientRect();
@@ -27,10 +24,6 @@ export function RippleButton({ as = "a", className = "", children, onClick, ...r
     </Tag>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/* PhoneMockup — glass-framed device shell used across hero/showcase   */
-/* ------------------------------------------------------------------ */
 
 export function PhoneMockup({ os = "ios", image, className = "", children }) {
   const isIOS = os === "ios";
@@ -71,10 +64,6 @@ export function AppScreenSkeleton({ tone = "blue" }) {
     </div>
   );
 }
-
-/* ------------------------------------------------------------------ */
-/* SectionKicker — the small eyebrow label + heading used every section */
-/* ------------------------------------------------------------------ */
 
 export function SectionKicker({ eyebrow, title, description, align = "center", className = "" }) {
   const alignCls = align === "left" ? "text-left mx-0" : "text-center mx-auto";

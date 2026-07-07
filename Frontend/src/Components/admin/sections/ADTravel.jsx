@@ -147,7 +147,6 @@ export default function ADTravel() {
   const removeArrayItem = (arrKey, id) =>
     setPageData((current) => ({ ...current, [arrKey]: current[arrKey].filter((item) => item.id !== id) }));
 
-  /* ---------- Load existing content ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -169,7 +168,6 @@ export default function ADTravel() {
     })();
   }, [load]);
 
-  /* ---------- Save ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     setStatus("saving");
@@ -194,7 +192,6 @@ export default function ADTravel() {
 
         <PageStatusBanner loading={loading} error={loadError} onRetry={load} />
 
-        {/* HERO */}
         
         <div className="bg-white rounded-2xl border border-slate-200 shadow-[0_8px_24px_rgba(15,23,42,.06)] hover:shadow-[0_16px_36px_rgba(37,99,235,.10)] transition-all duration-300 p-8 space-y-8 mt-8">
           <Section title="1. Hero / Banner" open={openSection === "hero"} onToggle={() => toggle("hero")}>
@@ -209,7 +206,6 @@ export default function ADTravel() {
           <ButtonFields label="Secondary Button" value={pageData.hero.secondaryBtn} onChange={(v) => updateSection("hero", "secondaryBtn", v)} />
         </Section>
 
-        {/* ABOUT */}
         <Section title="2. About Section" open={openSection === "about"} onToggle={() => toggle("about")}>
           <Field label="Heading">
             <TextInput value={pageData.about.heading} onChange={(e) => updateSection("about", "heading", e.target.value)} />
@@ -219,7 +215,6 @@ export default function ADTravel() {
           </Field>
         </Section>
 
-        {/* VISIBILITY */}
         <Section title="3. Visibility Section" open={openSection === "visibility"} onToggle={() => toggle("visibility")}>
           <Field label="Heading">
             <TextInput value={pageData.visibility.heading} onChange={(e) => updateSection("visibility", "heading", e.target.value)} />
@@ -233,7 +228,6 @@ export default function ADTravel() {
           <ImageInput label="Right-side Image" value={pageData.visibility.image} onChange={(e) => updateSection("visibility", "image", e.target.value)} />
         </Section>
 
-        {/* PERFORMANCE */}
         <Section title="4. Performance Section (Track/Analyze/Scale/Repeat)" open={openSection === "performance"} onToggle={() => toggle("performance")}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Field label="Label 1">
@@ -252,7 +246,6 @@ export default function ADTravel() {
           <ImageInput label="Performance Image" value={pageData.performance.image} onChange={(e) => updateSection("performance", "image", e.target.value)} />
         </Section>
 
-        {/* SEO AGENCY */}
         <Section title="5. SEO Agency Section" open={openSection === "seoAgency"} onToggle={() => toggle("seoAgency")}>
           <Field label="Heading">
             <TextInput value={pageData.seoAgency.heading} onChange={(e) => updateSection("seoAgency", "heading", e.target.value)} />
@@ -280,7 +273,6 @@ export default function ADTravel() {
           </Field>
         </Section>
 
-        {/* DISCOVER */}
         <Section title="6. Discover Services Section" open={openSection === "discover"} onToggle={() => toggle("discover")}>
           <Field label="Heading">
             <TextInput value={pageData.discover.heading} onChange={(e) => updateSection("discover", "heading", e.target.value)} />
@@ -290,7 +282,6 @@ export default function ADTravel() {
           </Field>
         </Section>
 
-        {/* SERVICES */}
         <Section title="7. Services Cards" open={openSection === "services"} onToggle={() => toggle("services")}>
           <LeadForm
             title="Service Cards"
@@ -305,7 +296,6 @@ export default function ADTravel() {
           />
         </Section>
 
-        {/* WHY CHOOSE */}
         <Section title="8. Why Choose Section" open={openSection === "whyChoose"} onToggle={() => toggle("whyChoose")}>
           <Field label="Heading">
             <TextInput value={pageData.whyChoose.heading} onChange={(e) => updateSection("whyChoose", "heading", e.target.value)} />
@@ -315,7 +305,6 @@ export default function ADTravel() {
           <ButtonFields label="Second Button" value={pageData.whyChoose.button2} onChange={(v) => updateSection("whyChoose", "button2", v)} />
         </Section>
 
-        {/* IMPACT / TIMELINE */}
         <Section title="9. Impact / Timeline Section" open={openSection === "impact"} onToggle={() => toggle("impact")}>
           <ImageInput label="Impact Image" value={pageData.impact.image} onChange={(e) => updateSection("impact", "image", e.target.value)} />
           <LeadForm
@@ -330,7 +319,6 @@ export default function ADTravel() {
           />
         </Section>
 
-        {/* VIDEO */}
         <Section title="12. Video Section" open={openSection === "video"} onToggle={() => toggle("video")}>
           <Field label="Video Title">
             <TextInput value={pageData.video.title || ""} onChange={(e) => updateSection("video", "title", e.target.value)} placeholder="Video heading / title" />
@@ -340,7 +328,6 @@ export default function ADTravel() {
           </Field>
         </Section>
 
-        {/* DOMINATE / HOW WE GROW */}
         <Section title="13. How We Grow Section" open={openSection === "dominate"} onToggle={() => toggle("dominate")}>
           <Field label="Heading">
             <TextInput value={pageData.dominate.heading} onChange={(e) => updateSection("dominate", "heading", e.target.value)} />
@@ -361,7 +348,6 @@ export default function ADTravel() {
           />
         </Section>
 
-        {/* WHY BUSINESS */}
         <Section title="14. Why Business Section" open={openSection === "whyBusiness"} onToggle={() => toggle("whyBusiness")}>
           <Field label="Heading">
             <TextInput value={pageData.whyBusiness.heading} onChange={(e) => updateSection("whyBusiness", "heading", e.target.value)} />
@@ -379,7 +365,6 @@ export default function ADTravel() {
           />
         </Section>
 
-        {/* FAQ */}
         <Section title="15. FAQ Section" open={openSection === "faq"} onToggle={() => toggle("faq")}>
           <Field label="FAQ Heading">
             <TextInput value={pageData.faqHeading} onChange={(e) => setPageData((current) => ({ ...current, faqHeading: e.target.value }))} />

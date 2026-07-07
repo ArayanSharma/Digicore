@@ -33,8 +33,7 @@ const IndustryDetails = () => {
         const current = data.industry || null;
         setIndustry(current);
 
-        // Related Industries: automatically pulled from all other active
-        // industries (already sorted by sortOrder from the API).
+        // related = other active industries, API already sorts by sortOrder
         const allRes = await fetch(`${API}/api/industries?active=true`);
         const allData = await allRes.json();
         const all = Array.isArray(allData.industries) ? allData.industries : [];
@@ -61,7 +60,6 @@ const IndustryDetails = () => {
     }
   };
 
-  /* ── Loading state ── */
   if (loading) {
     return (
       <div className="bg-[#f4f4f5] min-h-[70vh] flex items-center justify-center font-body text-[#4b5563]">
@@ -73,7 +71,6 @@ const IndustryDetails = () => {
     );
   }
 
-  /* ── Not found ── */
   if (notFound || !industry) {
     return (
       <div className="bg-[#f4f4f5] min-h-[70vh] flex items-center justify-center font-body text-[#4b5563]">
@@ -91,13 +88,11 @@ const IndustryDetails = () => {
     );
   }
 
-  /* ── Industry detail ── */
   return (
     <>
       <section className="bg-[#f4f4f5] py-[80px] px-5 font-body">
         <div className="max-w-[850px] mx-auto">
 
-          {/* Back button */}
           <button className="flex items-center gap-2 bg-transparent text-[#e31e24] hover:text-[#c4151a] font-bold border-0 cursor-pointer mb-8 transition-colors duration-300" onClick={() => navigate("/industries")}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
               <path d="M19 12H5" /><path d="M12 19l-7-7 7-7" />
@@ -105,20 +100,16 @@ const IndustryDetails = () => {
             Back to Industries
           </button>
 
-          {/* Featured / banner image */}
           <div className="w-full h-auto max-h-[420px] rounded-2xl overflow-hidden border border-[#e5e7eb] mb-8 shadow-sm">
             <img src={industry.image} alt={industry.title} className="w-full h-full object-cover block" />
           </div>
 
-          {/* Title */}
           <h1 className="text-3xl md:text-4xl font-heading font-extrabold text-[#2b2b2e] mb-6 text-center uppercase">{industry.title}</h1>
 
-          {/* Full description/content */}
           {industry.description && (
             <div className="text-[#4b5563] text-[16px] leading-[1.8] mb-10 whitespace-pre-wrap bg-white p-8 rounded-2xl border border-[#e5e7eb]/60 shadow-sm">{industry.description}</div>
           )}
 
-          {/* Services offered (if available) */}
           {industry.services?.length > 0 && (
             <div className="mb-12">
               <h4 className="text-xl font-heading font-bold text-[#1c1c1e] mb-6 text-center">Services We Offer</h4>
@@ -135,7 +126,6 @@ const IndustryDetails = () => {
             </div>
           )}
 
-          {/* CTA */}
           {industry.buttonLink && (
             <div className="bg-[#1c1c1e] text-white p-8 rounded-2xl text-center relative overflow-hidden border border-[#e31e24]/10 shadow-md">
               <div className="absolute inset-0 bg-gradient-to-br from-[#8b0000]/10 to-transparent pointer-events-none"></div>
@@ -149,7 +139,6 @@ const IndustryDetails = () => {
         </div>
       </section>
 
-      {/* ── Related Industries ── */}
       {relatedIndustries.length > 0 && (
         <section className="bg-white py-[100px] px-5 border-t border-[#e5e7eb] font-body">
           <div className="text-center mb-12">

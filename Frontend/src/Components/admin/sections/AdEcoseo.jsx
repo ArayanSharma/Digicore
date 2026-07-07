@@ -252,7 +252,6 @@ export default function AdEcoseo() {
 
         <PageStatusBanner loading={loading} error={loadError} onRetry={load} />
 
-        {/* BANNER */}
         
         <div className="bg-white rounded-2xl border border-slate-200 shadow-[0_8px_24px_rgba(15,23,42,.06)] hover:shadow-[0_16px_36px_rgba(37,99,235,.10)] transition-all duration-300 p-8 space-y-8 mt-8">
           <Section title="1. Banner Section" open={openSection === "banner"} onToggle={() => toggle("banner")}>
@@ -267,7 +266,6 @@ export default function AdEcoseo() {
           <ImageInput label="Banner Background Image" value={pageData.banner.backgroundImage} onChange={(e) => updateSection("banner", "backgroundImage", e.target.value)} />
         </Section>
 
-        {/* ABOUT */}
         <Section title="2. About Section" open={openSection === "about"} onToggle={() => toggle("about")}>
           <Field label="Heading">
             <TextInput value={pageData.about.heading} onChange={(e) => updateSection("about", "heading", e.target.value)} placeholder="About heading" />
@@ -277,7 +275,6 @@ export default function AdEcoseo() {
           </Field>
         </Section>
 
-        {/* VISIBILITY */}
         <Section title="3. Visibility Section" open={openSection === "visibility"} onToggle={() => toggle("visibility")}>
           <Field label="Heading">
             <TextInput value={pageData.visibility.heading} onChange={(e) => updateSection("visibility", "heading", e.target.value)} placeholder="Section heading" />
@@ -288,7 +285,6 @@ export default function AdEcoseo() {
           <ImageInput label="Visibility Image" value={pageData.visibility.image} onChange={(e) => updateSection("visibility", "image", e.target.value)} />
         </Section>
 
-        {/* PERFORMANCE */}
         <Section title="4. Performance Section" open={openSection === "performance"} onToggle={() => toggle("performance")}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Field label="Label 1">
@@ -307,7 +303,6 @@ export default function AdEcoseo() {
           <ImageInput label="Performance Image" value={pageData.performance.image} onChange={(e) => updateSection("performance", "image", e.target.value)} />
         </Section>
 
-        {/* SEO AGENCY */}
         <Section title="5. SEO Agency Section" open={openSection === "seoAgency"} onToggle={() => toggle("seoAgency")}>
           <Field label="Heading">
             <TextInput value={pageData.seoAgency.heading} onChange={(e) => updateSection("seoAgency", "heading", e.target.value)} placeholder="Section heading" />
@@ -334,7 +329,6 @@ export default function AdEcoseo() {
           </Field>
         </Section>
 
-        {/* DISCOVER */}
         <Section title="6. Discover Services Section" open={openSection === "discover"} onToggle={() => toggle("discover")}>
           <Field label="Heading">
             <TextInput value={pageData.discover.heading} onChange={(e) => updateSection("discover", "heading", e.target.value)} placeholder="Section heading" />
@@ -344,7 +338,6 @@ export default function AdEcoseo() {
           </Field>
         </Section>
 
-        {/* SERVICE CARDS */}
         <Section title="7. Service Cards" open={openSection === "services"} onToggle={() => toggle("services")}>
           <LeadForm
             title="Service Cards"
@@ -359,7 +352,6 @@ export default function AdEcoseo() {
           />
         </Section>
 
-        {/* WHY CHOOSE */}
         <Section title="8. Why Choose Section" open={openSection === "whyChoose"} onToggle={() => toggle("whyChoose")}>
           <Field label="Heading">
             <TextInput value={pageData.whyChoose.heading} onChange={(e) => updateSection("whyChoose", "heading", e.target.value)} placeholder="Section heading" />
@@ -369,7 +361,6 @@ export default function AdEcoseo() {
           <ButtonFields label="Button 2" value={pageData.whyChoose.button2} onChange={(next) => updateSection("whyChoose", "button2", next)} />
         </Section>
 
-        {/* IMPACT TIMELINE */}
         <Section title="9. Impact Timeline Section" open={openSection === "impact"} onToggle={() => toggle("impact")}>
           <ImageInput label="Impact Image" value={pageData.impact.image} onChange={(e) => updateSection("impact", "image", e.target.value)} />
           <LeadForm
@@ -384,7 +375,6 @@ export default function AdEcoseo() {
           />
         </Section>
 
-        {/* VIDEO */}
         <Section title="11. Video Section" open={openSection === "video"} onToggle={() => toggle("video")}>
           <Field label="Video Title">
             <TextInput value={pageData.video.title || ""} onChange={(e) => updateSection("video", "title", e.target.value)} placeholder="Video heading / title" />
@@ -394,7 +384,6 @@ export default function AdEcoseo() {
           </Field>
         </Section>
 
-        {/* HOW WE GROW */}
         <Section title="13. How We Grow Section" open={openSection === "dominate"} onToggle={() => toggle("dominate")}>
           <Field label="Heading">
             <TextInput value={pageData.dominate.heading} onChange={(e) => updateSection("dominate", "heading", e.target.value)} placeholder="Section heading" />
@@ -415,7 +404,6 @@ export default function AdEcoseo() {
           />
         </Section>
 
-        {/* WHY BUSINESS */}
         <Section title="14. Why Business Section" open={openSection === "whyBusiness"} onToggle={() => toggle("whyBusiness")}>
           <Field label="Heading">
             <TextInput value={pageData.whyBusiness.heading} onChange={(e) => updateSection("whyBusiness", "heading", e.target.value)} placeholder="Section heading" />
@@ -433,7 +421,6 @@ export default function AdEcoseo() {
           />
         </Section>
 
-        {/* FAQ */}
         <Section title="15. FAQ Section" open={openSection === "faqSection"} onToggle={() => toggle("faqSection")}>
           <Field label="FAQ Heading">
             <TextInput value={pageData.faqSection.heading} onChange={(e) => updateSection("faqSection", "heading", e.target.value)} placeholder="FAQ heading" />

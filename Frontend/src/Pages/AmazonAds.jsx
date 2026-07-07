@@ -60,7 +60,6 @@ const AmazonAds = () => {
         />
       )}
 
-      {/* About Section */}
       {aboutSection && (aboutSection.title || aboutSection.description) && (
         <section className="w-full py-[100px] px-5 max-[769px]:py-[60px] bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1300px] mx-auto text-center pt-[60px] px-5 pb-20 max-[769px]:p-[50px_15px]">
@@ -81,7 +80,6 @@ const AmazonAds = () => {
         </section>
       )}
 
-      {/* Visibility Section */}
       {visibilitySection && (visibilitySection.title || visibilitySection.description || visibilitySection.imageUrl) && (
         <section className="w-full py-[100px] bg-white max-[993px]:py-[60px] max-[993px]:px-5 border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[60px] lg:gap-[40px] px-5">
@@ -110,7 +108,6 @@ const AmazonAds = () => {
         </section>
       )}
 
-      {/* Performance Section */}
       {performanceSection && (performanceSection.items?.length > 0 || performanceSection.imageUrl) && (
         <section className="w-full p-0 m-0 bg-white">
           <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 w-full">
@@ -131,7 +128,6 @@ const AmazonAds = () => {
         </section>
       )}
 
-      {/* SEO Agency Section */}
       {seoAgencySection && (seoAgencySection.heading || seoAgencySection.headingDescription) && (
         <section className="w-full py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto px-5">
@@ -182,7 +178,6 @@ const AmazonAds = () => {
         </section>
       )}
 
-      {/* Services Section */}
       {displayServices.length > 0 && (
         <section className="w-full py-[100px] px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto px-5">
@@ -216,7 +211,6 @@ const AmazonAds = () => {
         </section>
       )}
 
-      {/* Why Choose Section */}
       {whyChooseSection && (
         <section
           className="relative py-[100px] px-5 bg-[#1c1c1e] text-center min-h-[300px] flex items-center justify-center overflow-hidden"
@@ -272,7 +266,6 @@ const AmazonAds = () => {
         </section>
       )}
 
-      {/* Timeline Section */}
       {timelineSection?.items?.length > 0 && (
         <section className="py-[100px] px-[7%] bg-white border-b border-[#e5e7eb]">
           <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-[60px] lg:flex-row flex-col px-5">
@@ -304,7 +297,6 @@ const AmazonAds = () => {
         </section>
       )}
 
-      {/* Help Cards Section */}
       {displayHelpCards.length > 0 && (
         <section className="bg-slate-50 py-16 sm:py-20">
           <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -343,7 +335,6 @@ const AmazonAds = () => {
         </section>
       )}
 
-      {/* Why Choose Digicore Section */}
       {whyChooseDigicoreSection && (whyChooseDigicoreSection.title || whyChooseDigicoreSection.description || whyChooseDigicoreSection.points?.length > 0 || whyChooseDigicoreSection.imageUrl) && (
         <section className="bg-white py-16 sm:py-20">
           <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -408,7 +399,6 @@ const AmazonAds = () => {
         <Blogs />
       </div>
 
-      {/* Accordion FAQ Section */}
       {displayFaq.length > 0 && (
         <section className="py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
           <div className="text-center mb-[50px]">

@@ -193,14 +193,13 @@ export default function AdMetaF() {
 
   const toggle = (key) => setOpenSection(openSection === key ? "" : key);
 
-  // ---- performanceSection.items (fixed 4-item array) ----
+  // fixed 4-item array
   const updatePerformanceItem = (index, value) =>
     setPerformanceSection({
       ...performanceSection,
       items: performanceSection.items.map((item, i) => (i === index ? value : item)),
     });
 
-  // ---- whyChooseDigicoreSection.points (plain string array) ----
   const updatePoint = (index, value) =>
     setWhyChooseDigicoreSection({
       ...whyChooseDigicoreSection,

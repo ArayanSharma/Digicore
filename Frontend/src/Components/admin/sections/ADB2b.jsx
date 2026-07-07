@@ -247,7 +247,6 @@ export default function ADB2b() {
     setPageData((current) => ({ ...current, [key]: next }));
   };
 
-  /* ---------- Load existing content, merged over the defaults ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -275,7 +274,6 @@ export default function ADB2b() {
     })();
   }, [load]);
 
-  /* ---------- Save ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     setStatus("saving");

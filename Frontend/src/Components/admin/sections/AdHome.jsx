@@ -26,7 +26,6 @@ export default function HomeAdminForm() {
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState("");
 
-  /* ---------- HERO / BANNER ---------- */
   const [hero, setHero] = useState({
     heading: "",
     title: "B2B SEO Agency That Drives Traffic, Trust, and Conversions",
@@ -37,14 +36,12 @@ export default function HomeAdminForm() {
     secondaryBtn: { text: "Our Services", link: "/services" },
   });
 
-  /* ---------- ABOUT SECTION ---------- */
   const [about, setAbout] = useState({
     heading:
       "A Results-Driven Digital Marketing Company in Kanpur for Growing Brands",
     body: "Digicore Inc. is a leading digital marketing services company in Kanpur...",
   });
 
-  /* ---------- VISIBILITY SECTION ---------- */
   const [visibility, setVisibility] = useState({
     heading: "But what hasn't changed is the value of Visibility",
     paragraph1:
@@ -54,7 +51,6 @@ export default function HomeAdminForm() {
     image: "",
   });
 
-  /* ---------- COUNTER SECTION ---------- */
   const [counters, setCounters] = useState([
     { id: uid(), value: 55, label: "of Indian shoppers check online before making an actual purchase." },
     { id: uid(), value: 68, label: "of Indian shoppers now start their product searches on Instagram, YouTube, or Amazon." },
@@ -62,7 +58,6 @@ export default function HomeAdminForm() {
     { id: uid(), value: 76, label: "of young users turn to AI-generated overviews instead of scrolling through traditional search results." },
   ]);
 
-  /* ---------- PERFORMANCE SECTION (TRACK/ANALYZE/SCALE/REPEAT) ---------- */
   const [performance, setPerformance] = useState({
     words: ["TRACK", "ANALYZE", "SCALE", "REPEAT"],
     image: "",
@@ -74,7 +69,6 @@ export default function HomeAdminForm() {
     setPerformance({ ...performance, words });
   };
 
-  /* ---------- DISCOVER (loss) SECTION ---------- */
   const [discover, setDiscover] = useState({
     line1: "If your brand isn't discoverable,",
     line2: "you're already losing at search.",
@@ -82,7 +76,6 @@ export default function HomeAdminForm() {
       "Being present on every platform is the need of an hour...",
   });
 
-  /* ---------- SERVICES SECTION ---------- */
   const [servicesHeading, setServicesHeading] = useState({
     heading: "Discover Our Services in\nKanpur\nfor Faster Business Growth",
     paragraph:
@@ -95,7 +88,6 @@ export default function HomeAdminForm() {
     { id: uid(), icon: "", title: "PPC & Performance Marketing", description: "Partner with us to unlock the full potential of paid advertising..." },
   ]);
 
-  /* ---------- WHY CHOOSE US (CTA strip) ---------- */
   const [whyChoose, setWhyChoose] = useState({
     heading: "Stop Guessing. Start Growing. Book Your Strategy Call Now.",
     backgroundIcon: "",
@@ -103,7 +95,6 @@ export default function HomeAdminForm() {
     callbackBtn: { text: "REQUEST A CALLBACK", link: "/contact" },
   });
 
-  /* ---------- IMPACT / TIMELINE SECTION ---------- */
   const [impactImage, setImpactImage] = useState("");
   const [timeline, setTimeline] = useState([
     { id: uid(), title: "Contact Us", desc: "Get in touch with us via email, phone or website." },
@@ -113,14 +104,12 @@ export default function HomeAdminForm() {
     { id: uid(), title: "Partner & Grow", desc: "Drive high-impact traffic and measurable growth." },
   ]);
 
-  /* ---------- INDUSTRY SECTION ---------- */
   const [industries, setIndustries] = useState([
     { id: uid(), image: "", title: "Healthcare", desc: "We provide specialized digital marketing solutions to hospitals, clinics...", readMoreLink: "/industries/healthcare" },
     { id: uid(), image: "", title: "E-Commerce", desc: "We help online retailers and marketplaces with robust strategies...", readMoreLink: "/industries/ecommerce" },
     { id: uid(), image: "", title: "Travel", desc: "We offer a complete suite of digital marketing solutions for travel brands...", readMoreLink: "/industries/travel" },
   ]);
 
-  /* ---------- CASE STUDY SECTION ---------- */
   const [caseStudies, setCaseStudies] = useState([
     {
       id: uid(),
@@ -132,7 +121,6 @@ export default function HomeAdminForm() {
     },
   ]);
 
-  /* ---------- DOMINATE / HELP CARDS SECTION ---------- */
   const [dominate, setDominate] = useState({
     heading: "DOMINATE YOUR INDUSTRY WITH US",
     paragraph:
@@ -146,7 +134,6 @@ export default function HomeAdminForm() {
     { id: uid(), icon: "", title: "Upskill Your Team", desc: "Improve your team capabilities with advanced marketing strategies..." },
   ]);
 
-  /* ---------- WHY BUSINESSES CHOOSE US SECTION ---------- */
   const [whyBusiness, setWhyBusiness] = useState({
     heading: "Why Businesses Choose Digicore Inc.",
     paragraph:
@@ -165,12 +152,10 @@ export default function HomeAdminForm() {
     "Growth-focused strategies for startups & businesses",
   ].map((t) => ({ id: uid(), text: t })));
 
-  /* ---------- FAQ SECTION ---------- */
   const [faqs, setFaqs] = useState([
     { id: uid(), question: "Will I have a dedicated point of contact or account manager?", answer: "Of course, you will! At Digicore Inc., we assign a dedicated account manager..." },
   ]);
 
-  /* ---------- CONTACT SECTION ---------- */
   const [contact, setContact] = useState({
     heading: "",
     phone: "",
@@ -179,7 +164,6 @@ export default function HomeAdminForm() {
     submitBtn: { text: "Send Message", link: "" },
   });
 
-  /* ---------- LOAD existing content on mount ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -219,7 +203,6 @@ export default function HomeAdminForm() {
     })();
   }, [load]);
 
-  /* ---------- SAVE ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     const payload = {

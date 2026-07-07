@@ -12,7 +12,6 @@ export default function ServiceUnavailableForm() {
   const [saving, setSaving] = useState(false);
   const [saveMsg, setSaveMsg] = useState("");
 
-  // Fetch existing data on mount
   useEffect(() => {
     const fetchData = async () => {
       try {

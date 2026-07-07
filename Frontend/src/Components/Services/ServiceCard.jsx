@@ -14,10 +14,8 @@ const ServiceCard = ({ service }) => {
       whileHover={{ y: -8 }}
       className="group relative flex flex-col h-full overflow-hidden rounded-[22px] bg-white border border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(227,30,36,0.14)]"
     >
-      {/* animated gradient border glow on hover */}
       <div className="pointer-events-none absolute inset-0 rounded-[22px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 [background:linear-gradient(135deg,rgba(227,30,36,0.25),transparent_40%)] [mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] p-[1.5px]" />
 
-      {/* background pattern */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{ backgroundImage: "radial-gradient(rgba(227,30,36,0.9) 1px, transparent 1px)", backgroundSize: "16px 16px" }}

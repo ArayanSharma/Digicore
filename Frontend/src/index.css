@@ -111,7 +111,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Override Tailwind preflight for public header ────────────────────────
+/* Override Tailwind preflight for public header.
    Tailwind v4 preflight sets img { display: block } and applies dark-mode
    color-scheme rules that can cause the "black overlay" and "pink logo"
    issues on the public header.  These overrides ensure the header and
@@ -247,7 +247,7 @@ body {
   animation: fadeInUp 1s ease forwards;
 }
 
-/* ── Button shine sweep — used by the shared hero Banner (Seohero.jsx) ─────
+/* Button shine sweep, used by the shared hero Banner (Seohero.jsx).
    A diagonal light sweep on hover. Kept as hand-written CSS rather than
    Tailwind utilities: it needs a ::before pseudo-element whose `left`
    position transitions on hover, which isn't expressible as a utility class. */
@@ -271,7 +271,7 @@ body {
   left: 70%;
 }
 
-/* ── Hero2 dark overlay — Components/Sections/Hero2.jsx ───────────────────
+/* Hero2 dark overlay, Components/Sections/Hero2.jsx.
    Diagonal-fade dark scrim over the banner background. Kept as hand-written
    CSS: a ::before pseudo-element with a gradient background isn't expressible
    as a Tailwind utility class. */
@@ -287,7 +287,7 @@ body {
   z-index: 1;
 }
 
-/* ── Testimonials Swiper slide centering — Testimonials.jsx ───────────────
+/* Testimonials Swiper slide centering, Testimonials.jsx.
    Swiper renders its own `.swiper-slide` element internally; there's no way
    to attach a Tailwind className to it directly. Scoped under .testimonialSwiper
    so it wins over swiper/css's own .swiper-slide rule regardless of stylesheet
@@ -299,7 +299,7 @@ body {
   padding: 50px 0;
 }
 
-/* ── Scrollbar — scoped to admin shell only ───────────────────────────────
+/* Scrollbar, scoped to admin shell only.
    Moved the dark scrollbar to only apply inside .adm-shell so the public
    site keeps the default browser scrollbar appearance. */
 

@@ -32,7 +32,6 @@ export default function ModalForm({ isOpen, title, onClose, onSubmit, fields, in
       }}
     >
       <div className="bg-bg-card rounded-2xl shadow-2xl max-w-md w-full border border-brand-primary/15">
-        {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-brand-primary/10">
           <h2 className="text-lg font-semibold text-brand-primary">{title}</h2>
           <button
@@ -44,7 +43,6 @@ export default function ModalForm({ isOpen, title, onClose, onSubmit, fields, in
           </button>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="px-6 py-4 space-y-4  bg-amber-900 ">
           {fields.map((field) => (
             <div key={field.name}>
@@ -87,7 +85,6 @@ export default function ModalForm({ isOpen, title, onClose, onSubmit, fields, in
             </div>
           ))}
 
-          {/* Actions */}
           <div className="flex gap-2 pt-4 border-t border-brand-primary/10">
             <button
               type="button"

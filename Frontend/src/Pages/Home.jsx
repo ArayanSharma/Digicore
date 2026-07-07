@@ -312,7 +312,6 @@ const Home = () => {
 
   return (
     <div className="font-body text-[#4b5563]">
-      {/* HERO SECTION */}
       <Banner
         subtitle={pageData?.hero?.subtitle || pageData?.hero?.heading}
         title={pageData?.hero?.title || "B2B SEO Agency That Drives Traffic, Trust, and Conversions"}
@@ -324,7 +323,6 @@ const Home = () => {
         backgroundImage={pageData?.hero?.backgroundImage}
       />
 
-      {/* About Section */}
       <section className="w-full py-[100px] px-5 max-[769px]:py-[60px] bg-white border-b border-[#e5e7eb]">
         <div className="max-w-[1300px] mx-auto text-center pt-[60px] px-5 pb-20 max-[769px]:p-[50px_15px]">
           <h1 className="font-heading font-extrabold text-[44px] leading-[1.2] max-[993px]:text-[36px] max-[769px]:text-[28px] text-[#2b2b2e] mb-6">
@@ -340,7 +338,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Visibility Section */}
       <section className="w-full py-[100px] bg-white max-[993px]:py-[60px] max-[993px]:px-5 border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row justify-between items-center gap-[60px] lg:gap-[40px] px-5">
           <div className="flex-1">
@@ -367,7 +364,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats/Results Section */}
       <section className="w-full py-[80px] px-[60px] max-[769px]:px-[20px] bg-[#1c1c1e] text-white">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[40px] md:gap-[30px]">
           {displayCounters.map((c, i) => (
@@ -383,7 +379,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Brand values / Words Section */}
       <section className="w-full p-0 m-0 bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 w-full">
           <div className="bg-gradient-to-br from-[#8b0000] to-[#1c1c1e] min-h-[350px] flex flex-col justify-center px-12 py-[80px] lg:pl-[120px]">
@@ -400,7 +395,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Discover Callout Section */}
       <section className="w-full py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto text-center px-5">
           <h4 className="text-[28px] max-[769px]:text-[22px] text-[#4b5563] font-heading font-semibold m-0 mb-2">
@@ -418,7 +412,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Section */}
       <section className="w-full py-[100px] px-5 bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="w-[60px] h-[4px] bg-[#e31e24] mx-auto mb-[25px] rounded-[10px] max-[769px]:w-[50px] max-[769px]:mb-[20px]"></div>
@@ -454,7 +447,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
       <section
         className="relative py-[100px] px-5 bg-[#1c1c1e] text-center min-h-[300px] flex items-center justify-center"
         style={{
@@ -487,7 +479,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Impact timeline section */}
       <section className="py-[100px] px-[7%] bg-white border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto flex justify-between items-center gap-[60px] lg:flex-row flex-col px-5">
           <div className="w-full max-w-[500px] lg:max-w-[45%]">
@@ -512,13 +503,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Industry Section */}
       <Industry />
 
-      {/* Case Study Section */}
       <Casestudy />
 
-      {/* Dominate Section */}
       <section className="py-[100px] px-[6%] bg-[#f4f4f5] text-center border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto px-5">
           <h2 className="text-[42px] max-[769px]:text-[30px] text-[#1c1c1e] font-heading font-extrabold mb-[15px]">
@@ -551,7 +539,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Businesses Choose Us Section */}
       <section className="py-[100px] px-[6%] bg-white border-b border-[#e5e7eb]">
         <div className="max-w-[1200px] mx-auto px-5">
           <div className="text-center mb-[60px]">
@@ -594,7 +581,6 @@ const Home = () => {
 
       <Blogs />
 
-      {/* FAQ Section */}
       <section className="py-[100px] px-5 bg-white border-b border-[#e5e7eb]">
         <div className="text-center mb-[50px]">
           <h2 className="text-[42px] font-heading font-extrabold text-[#1c1c1e] mb-[10px]">FAQ</h2>

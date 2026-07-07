@@ -183,7 +183,6 @@ export default function EducationAdminForm() {
     setData((prev) => ({ ...prev, [section]: { ...prev[section], [key]: value } }));
   };
 
-  /* ---------- Load existing content, merged over the defaults ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -211,7 +210,6 @@ export default function EducationAdminForm() {
     })();
   }, [load]);
 
-  /* ---------- Save ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     setStatus("saving");
@@ -237,7 +235,6 @@ export default function EducationAdminForm() {
 
         <PageStatusBanner loading={loading} error={loadError} onRetry={load} />
 
-        {/* 1. HERO / BANNER */}
         
         <div className="bg-white rounded-2xl border border-slate-200 shadow-[0_8px_24px_rgba(15,23,42,.06)] hover:shadow-[0_16px_36px_rgba(37,99,235,.10)] transition-all duration-300 p-8 space-y-8 mt-8">
           <Section title="1. Hero / Banner" open={openSection === "hero"} onToggle={() => toggle("hero")}>
@@ -260,7 +257,6 @@ export default function EducationAdminForm() {
           />
         </Section>
 
-        {/* 2. ABOUT SECTION */}
         <Section title="2. About Section" open={openSection === "about"} onToggle={() => toggle("about")}>
           <Field label="Heading">
             <TextInput value={data.about.heading} onChange={(e) => updateField("about", "heading", e.target.value)} />
@@ -270,7 +266,6 @@ export default function EducationAdminForm() {
           </Field>
         </Section>
 
-        {/* 3. VISIBILITY SECTION */}
         <Section title="3. Visibility Section" open={openSection === "visibility"} onToggle={() => toggle("visibility")}>
           <Field label="Heading">
             <TextInput value={data.visibility.heading} onChange={(e) => updateField("visibility", "heading", e.target.value)} />
@@ -281,7 +276,6 @@ export default function EducationAdminForm() {
           <ImageInput label="Image" value={data.visibility.image} onChange={(e) => updateField("visibility", "image", e.target.value)} />
         </Section>
 
-        {/* 5. PERFORMANCE SECTION */}
         <Section title="5. Performance Section (Track/Analyze/Scale/Repeat)" open={openSection === "performance"} onToggle={() => toggle("performance")}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Field label="Label 1">
@@ -300,7 +294,6 @@ export default function EducationAdminForm() {
           <ImageInput label="Image" value={data.performance.image} onChange={(e) => updateField("performance", "image", e.target.value)} />
         </Section>
 
-        {/* 7. SERVICES SECTION */}
         <Section title="7. Services Section" open={openSection === "services"} onToggle={() => toggle("services")}>
           <LeadForm
             title="Service Cards"
@@ -315,7 +308,6 @@ export default function EducationAdminForm() {
           />
         </Section>
 
-        {/* 7. SEO AGENCY SECTION */}
         <Section title="7. SEO Agency Section" open={openSection === "seoAgencySection"} onToggle={() => toggle("seoAgencySection")}>
           <Field label="Heading">
             <TextInput value={data.seoAgencySection?.heading || ""} onChange={(e) => updateField("seoAgencySection", "heading", e.target.value)} />
@@ -343,7 +335,6 @@ export default function EducationAdminForm() {
           </Field>
         </Section>
 
-        {/* 8. STRATEGY CALL CTA STRIP */}
         <Section title="8. Strategy Call CTA Strip" open={openSection === "ctaStrip"} onToggle={() => toggle("ctaStrip")}>
           <Field label="Heading">
             <TextInput value={data.ctaStrip.heading} onChange={(e) => updateField("ctaStrip", "heading", e.target.value)} />
@@ -361,7 +352,6 @@ export default function EducationAdminForm() {
           />
         </Section>
 
-        {/* 9. IMPACT / PROCESS TIMELINE */}
         <Section title="9. Impact / Process Timeline" open={openSection === "impact"} onToggle={() => toggle("impact")}>
           <ImageInput label="Side Image" value={data.impact.image} onChange={(e) => updateField("impact", "image", e.target.value)} />
           <LeadForm
@@ -376,7 +366,6 @@ export default function EducationAdminForm() {
           />
         </Section>
 
-        {/* 12. VIDEO SECTION */}
         <Section title="12. Video Section" open={openSection === "video"} onToggle={() => toggle("video")}>
           <Field label="Video Title">
             <TextInput value={data.videoSection.title} onChange={(e) => updateField("videoSection", "title", e.target.value)} />
@@ -401,7 +390,6 @@ export default function EducationAdminForm() {
           )}
         </Section>
 
-        {/* 13. DOMINATE YOUR INDUSTRY */}
         <Section title="13. Dominate Your Industry" open={openSection === "dominate"} onToggle={() => toggle("dominate")}>
           <Field label="Heading">
             <TextInput value={data.dominate.heading} onChange={(e) => updateField("dominate", "heading", e.target.value)} />
@@ -422,7 +410,6 @@ export default function EducationAdminForm() {
           />
         </Section>
 
-        {/* 14. WHY BUSINESSES CHOOSE US */}
         <Section title="14. Why Businesses Choose Us" open={openSection === "whyChoose"} onToggle={() => toggle("whyChoose")}>
           <Field label="Heading">
             <TextInput value={data.whyChoose.heading} onChange={(e) => updateField("whyChoose", "heading", e.target.value)} />
@@ -440,7 +427,6 @@ export default function EducationAdminForm() {
           />
         </Section>
 
-        {/* 16. FAQ */}
         <Section title="16. FAQ Section" open={openSection === "faq"} onToggle={() => toggle("faq")}>
           <Field label="Heading">
             <TextInput value={data.faq.heading} onChange={(e) => updateField("faq", "heading", e.target.value)} />

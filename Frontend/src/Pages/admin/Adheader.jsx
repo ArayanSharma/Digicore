@@ -677,7 +677,6 @@ export default function HeaderNavEditor() {
   return (
     <div ref={containerRef} className="max-w-7xl mx-auto pb-16" style={{ display: "flex", flexDirection: "column", gap: "2rem", padding: "2rem" }}>
       
-      {/* Header Bar */}
       <div className="section-card-anim flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-4">
         <div>
           <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">Header Navigation</h1>
@@ -703,7 +702,6 @@ export default function HeaderNavEditor() {
         {/* Row 1: Logo configurations */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start" style={{ marginBottom: "1.5rem" }}>
           
-          {/* Logo Image Box */}
           <div className="flex flex-col gap-2" style={{ marginBottom: "1.5rem" }}>
             <span className="text-xs font-bold text-slate-700 tracking-wide">Logo Image</span>
             <div className="flex items-center gap-3">
@@ -812,7 +810,6 @@ export default function HeaderNavEditor() {
             subtitle="Redirects when CTA button is clicked."
           />
 
-          {/* Social Links Sub-Card */}
           <div className="md:col-span-2 flex flex-col gap-2">
             <span className="text-xs font-bold text-slate-700 tracking-wide">Social Links</span>
             
@@ -867,7 +864,6 @@ export default function HeaderNavEditor() {
         </div>
       </div>
 
-      {/* Navigation Card */}
       <div className="section-card-anim bg-white rounded-3xl border border-slate-200 shadow-[0_10px_35px_rgba(15,23,42,.05)] space-y-4" style={{ paddingLeft: "2rem", paddingRight: "2rem", paddingTop: "2rem", paddingBottom: "2rem" }}>
         <h2 className="text-lg font-bold text-slate-900 tracking-tight" style={{ marginBottom: "1.5rem" }}>Navigation Tabs</h2>
         

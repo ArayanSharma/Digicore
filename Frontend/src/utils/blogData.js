@@ -2,9 +2,6 @@ import blog1 from "../assets/blog-1.webp";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-/* ───────────────────────────────────────────
-   Helper — normalise image URLs from backend
-   ─────────────────────────────────────────── */
 export const normalizeMediaUrl = (url) => {
   if (!url || typeof url !== "string") return url;
   if (/^https?:\/\//.test(url)) return url;
@@ -15,18 +12,13 @@ export const normalizeMediaUrl = (url) => {
   return url;
 };
 
-/* ───────────────────────────────────────────
-   Helper — generate a URL-friendly slug
-   ─────────────────────────────────────────── */
 export const slugify = (text) =>
   text
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-/* ───────────────────────────────────────────
-   Default blog data (used when API is offline)
-   ─────────────────────────────────────────── */
+// used when the API is down/empty, so the blog page isn't just blank
 export const defaultBlogs = [
   {
     id: "1",
@@ -194,13 +186,6 @@ Investing in professional web design is not an expense — it's an investment th
   },
 ];
 
-/* ───────────────────────────────────────────
-   Fetch helpers (backend-ready)
-   ─────────────────────────────────────────── */
-
-/**
- * Fetch all blogs. Falls back to defaultBlogs when the API is unreachable.
- */
 export const fetchAllBlogs = async () => {
   try {
     const res = await fetch(`${API}/api/blogs`);
@@ -226,9 +211,6 @@ export const fetchAllBlogs = async () => {
   }
 };
 
-/**
- * Find a single blog by slug from the full list.
- */
 export const fetchBlogBySlug = async (slug) => {
   const blogs = await fetchAllBlogs();
   return blogs.find((b) => b.slug === slug) || null;

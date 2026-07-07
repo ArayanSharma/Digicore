@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { loadPageContent, getApiBase } from "../utils/pageApi";
 
-/**
- * Fetches admin-editable content for a public page and falls back silently
- * to null (callers should fall back to hardcoded defaults) on 404 or error.
- */
+// on 404/error this resolves to null — caller is expected to fall back to hardcoded defaults
 export function usePageContent(pageId) {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -34,7 +31,6 @@ export function usePageContent(pageId) {
   return { content, loading };
 }
 
-/** Resolves an image value that may be a relative /uploads path into a full URL. */
 export function resolveImage(url) {
   if (!url || typeof url !== "string") return url;
   if (/^https?:\/\//.test(url) || url.startsWith("data:")) return url;

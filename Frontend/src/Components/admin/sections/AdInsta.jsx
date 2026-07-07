@@ -193,14 +193,13 @@ export default function AdInsta() {
 
   const toggle = (key) => setOpenSection(openSection === key ? "" : key);
 
-  // performanceSection.items helpers (fixed 4-item array)
+  // fixed 4-item array
   const updatePerformanceItem = (index, value) =>
     setPerformanceSection({
       ...performanceSection,
       items: performanceSection.items.map((item, i) => (i === index ? value : item)),
     });
 
-  // whyChooseDigicoreSection.points helpers (plain string array, index-keyed)
   const updatePoint = (index, value) =>
     setWhyChooseDigicoreSection({
       ...whyChooseDigicoreSection,

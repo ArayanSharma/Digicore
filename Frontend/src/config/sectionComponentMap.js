@@ -10,8 +10,7 @@ import ContactFormSection from "../Components/admin/sections/ContactFormSection"
 import PricingForm from "../Components/admin/sections/PricingForm";
 import JobListingsForm from "../Components/admin/sections/JobListingsForm";
 
-// Maps a section "type" string to the React form component that edits it.
-// Add a new line here every time you build a new section form.
+// section "type" -> form component that edits it. Add an entry here for every new section form.
 
 const sectionComponentMap = {
   hero: HeroForm,

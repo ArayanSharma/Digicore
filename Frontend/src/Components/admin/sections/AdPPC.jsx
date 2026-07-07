@@ -18,11 +18,7 @@ import {
 
 const PAGE_SLUG = "PPC";
 
-/* ----------------------------------------------------------------
-   Generic list helpers built on the shared FormKit primitives
----------------------------------------------------------------- */
-
-// Array of plain strings (e.g. bullet-style text items)
+// generic list helper built on the shared FormKit primitives, for plain string arrays (bullets etc)
 const StringList = ({ title, items, onChange, rows = 3 }) => {
   const updateItem = (index, val) => onChange(items.map((it, i) => (i === index ? val : it)));
   const removeItem = (index) => onChange(items.filter((_, i) => i !== index));
@@ -44,10 +40,6 @@ const StringList = ({ title, items, onChange, rows = 3 }) => {
     </div>
   );
 };
-
-/* ----------------------------------------------------------------
-   Default data shape
----------------------------------------------------------------- */
 
 const initialData = {
   banner: {
@@ -168,7 +160,6 @@ export default function AdPPC() {
 
   const setTop = (key, value) => setPageData((current) => ({ ...current, [key]: value }));
 
-  /* ---------- Load existing content ---------- */
   const load = useCallback(async () => {
     setLoading(true);
     setLoadError("");
@@ -202,7 +193,6 @@ export default function AdPPC() {
     })();
   }, [load]);
 
-  /* ---------- Save ---------- */
   const handleSave = async (e) => {
     e?.preventDefault();
     setStatus("saving");

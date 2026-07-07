@@ -18,14 +18,13 @@ import { uploadFile } from "../../../../utils/pageApi";
 export const inputCls =
   "w-full bg-white border border-slate-200 rounded-xl px-4 h-[50px] text-sm shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 transition-all duration-200 hover:border-slate-400";
 
-// Premium form card wrapper
 export const FormCard = ({ children, className = "" }) => (
   <div className={`bg-white rounded-2xl border border-slate-200 shadow-[0_10px_30px_rgba(15,23,42,.06)] hover:shadow-[0_18px_45px_rgba(37,99,235,.12)] transition-all duration-300 p-8 mb-6 ${className}`}>
     {children}
   </div>
 );
 
-// SectionCard: Collapsible card section with styling (same as footer section head)
+// styled to match the footer section head, keep them in sync
 export const Section = ({ title, children, open, onToggle, icon: Icon, description }) => {
   const ActiveIcon = Icon || Sparkles;
   return (
@@ -69,7 +68,6 @@ export const Section = ({ title, children, open, onToggle, icon: Icon, descripti
 
 export const SectionCard = Section;
 
-// Inputs with icons and focus states
 export const TextInput = ({ icon: Icon, error, ...props }) => {
   return (
     <div className="relative w-full">
@@ -145,7 +143,6 @@ export const DateInput = ({ icon: Icon, ...props }) => {
   );
 };
 
-// Checkbox, Radio, and Switch (iOS toggle)
 export const Checkbox = ({ label, checked, onChange, ...props }) => (
   <label className="flex items-center gap-3 cursor-pointer group">
     <div className="relative flex items-center justify-center">
@@ -205,7 +202,6 @@ export const Radio = ({ label, checked, onChange, name, value, ...props }) => (
   </label>
 );
 
-// Buttons
 export const PrimaryButton = ({ children, loading, disabled, icon: Icon, onClick, ...props }) => (
   <button
     type="button"
@@ -313,7 +309,7 @@ export const RemoveBtn = ({ onClick }) => (
   </button>
 );
 
-// Premium Drag-and-Drop Image Uploader with progress bar and success animations
+// drag-drop uploader, fakes a progress bar since we don't get real upload progress from the API
 export const ImageInput = ({ label, value, onChange }) => {
   const fileRef = useRef(null);
   const [uploading, setUploading] = useState(false);
@@ -453,7 +449,6 @@ export const ImageInput = ({ label, value, onChange }) => {
 export const FileUploader = ImageInput;
 export const ImageUploader = ImageInput;
 
-// Premium custom form header
 export const PageHeader = ({ icon: Icon, title, description, breadcrumbs = [], actions = null }) => (
   <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-4" style={{ marginBottom: "2rem" }}>
     <div className="flex items-center gap-4">
