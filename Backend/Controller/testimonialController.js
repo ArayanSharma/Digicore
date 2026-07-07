@@ -1,6 +1,5 @@
 import Testimonial from "../Model/Testimonial.js";
 
-// CREATE Testimonial
 export const createTestimonial = async (req, res) => {
   try {
     const { name, role, review, image, rating } = req.body;
@@ -28,7 +27,6 @@ export const createTestimonial = async (req, res) => {
   }
 };
 
-// GET All Testimonials
 export const getTestimonials = async (req, res) => {
   try {
     const testimonials = await Testimonial.find().sort({
@@ -76,7 +74,6 @@ export const getTestimonialById = async (req, res) => {
   }
 };
 
-// UPDATE Testimonial
 export const updateTestimonial = async (req, res) => {
   try {
     const testimonial = await Testimonial.findByIdAndUpdate(req.params.id, req.body, {
@@ -106,7 +103,6 @@ export const updateTestimonial = async (req, res) => {
   }
 };
 
-// DELETE Testimonial
 export const deleteTestimonial = async (req, res) => {
   try {
     const testimonial = await Testimonial.findById(req.params.id);

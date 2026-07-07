@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import Category from "../Model/Category.js";
 import Service from "../Model/Service.js";
 
-// CREATE Category
 export const createCategory = async (req, res) => {
   try {
     const count = await Category.countDocuments();
@@ -40,7 +39,6 @@ export const createCategory = async (req, res) => {
   }
 };
 
-// GET All Categories
 export const getCategories = async (req, res) => {
   try {
     const { active } = req.query;
@@ -67,7 +65,7 @@ export const getCategories = async (req, res) => {
   }
 };
 
-// GET Single Category (by id or slug)
+// id can be the Mongo _id or the slug here
 export const getCategoryById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -97,7 +95,6 @@ export const getCategoryById = async (req, res) => {
   }
 };
 
-// UPDATE Category
 export const updateCategory = async (req, res) => {
   try {
     const category = await Category.findByIdAndUpdate(req.params.id, req.body, {
@@ -134,7 +131,6 @@ export const updateCategory = async (req, res) => {
   }
 };
 
-// DELETE Category
 export const deleteCategory = async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);

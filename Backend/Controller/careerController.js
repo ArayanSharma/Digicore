@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import Career from "../Model/Career.js";
 import { uploadToCloudinary } from "../utils/cloudinaryUpload.js";
 
-// CREATE Career
 export const createCareer = async (req, res) => {
   try {
     const { name, email, phone, position } = req.body;
@@ -40,7 +39,6 @@ export const createCareer = async (req, res) => {
   }
 };
 
-// GET All Careers
 export const getCareers = async (req, res) => {
   try {
     const careers = await Career.find().sort({
@@ -90,7 +88,6 @@ export const getCareerById = async (req, res) => {
   }
 };
 
-// UPDATE Career
 export const updateCareer = async (req, res) => {
   try {
     const { id } = req.params;
@@ -133,7 +130,6 @@ export const updateCareer = async (req, res) => {
   }
 };
 
-// DELETE Career
 export const deleteCareer = async (
   req,
   res

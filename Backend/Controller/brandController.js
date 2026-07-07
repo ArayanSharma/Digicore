@@ -1,6 +1,5 @@
 import Brand from "../Model/Brand.js";
 
-// CREATE Brand
 export const createBrand = async (req, res) => {
   try {
     const { image, altText } = req.body;
@@ -25,7 +24,6 @@ export const createBrand = async (req, res) => {
   }
 };
 
-// GET All Brands
 export const getBrands = async (req, res) => {
   try {
     const brands = await Brand.find().sort({
@@ -73,7 +71,6 @@ export const getBrandById = async (req, res) => {
   }
 };
 
-// UPDATE Brand
 export const updateBrand = async (req, res) => {
   try {
     const brand = await Brand.findByIdAndUpdate(req.params.id, req.body, {
@@ -103,7 +100,6 @@ export const updateBrand = async (req, res) => {
   }
 };
 
-// DELETE Brand
 export const deleteBrand = async (req, res) => {
   try {
     const brand = await Brand.findById(req.params.id);

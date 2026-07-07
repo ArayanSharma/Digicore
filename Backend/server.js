@@ -57,11 +57,9 @@ app.get("/", (req, res) => {
   res.send("API Running...");
 });
 
-// ─── Global Error Handler ────────────────────────────────────────
 app.use((err, req, res, next) => {
   console.error("Unhandled error:", err);
 
-  // Multer file-size limit exceeded
   if (err.code === "LIMIT_FILE_SIZE") {
     return res.status(400).json({
       success: false,
@@ -69,7 +67,6 @@ app.use((err, req, res, next) => {
     });
   }
 
-  // Custom unsupported file type error from our fileFilter
   if (err.code === "UNSUPPORTED_FILE_TYPE") {
     return res.status(400).json({
       success: false,
@@ -77,7 +74,6 @@ app.use((err, req, res, next) => {
     });
   }
 
-  // Multer unexpected field
   if (err.code === "LIMIT_UNEXPECTED_FILE") {
     return res.status(400).json({
       success: false,
@@ -85,7 +81,6 @@ app.use((err, req, res, next) => {
     });
   }
 
-  // Fallback
   res.status(err.status || 500).json({
     success: false,
     message: err.message || "Internal Server Error",

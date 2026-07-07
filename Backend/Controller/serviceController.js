@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import Service from "../Model/Service.js";
 
-// CREATE Service
 export const createService = async (req, res) => {
   try {
     const { category } = req.body;
@@ -40,7 +39,7 @@ export const createService = async (req, res) => {
   }
 };
 
-// GET All Services (optional ?category=<slug or id>&active=true)
+// optional query params: category=<slug or id>, active=true
 export const getServices = async (req, res) => {
   try {
     const { category, active } = req.query;
@@ -79,7 +78,7 @@ export const getServices = async (req, res) => {
   }
 };
 
-// GET Single Service (by id or slug)
+// id can be the Mongo _id or the slug here
 export const getServiceById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -109,7 +108,6 @@ export const getServiceById = async (req, res) => {
   }
 };
 
-// UPDATE Service
 export const updateService = async (req, res) => {
   try {
     const service = await Service.findByIdAndUpdate(req.params.id, req.body, {
@@ -146,7 +144,6 @@ export const updateService = async (req, res) => {
   }
 };
 
-// DELETE Service
 export const deleteService = async (req, res) => {
   try {
     const service = await Service.findById(req.params.id);

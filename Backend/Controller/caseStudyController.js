@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import CaseStudy from "../Model/CaseStudy.js";
 
-// CREATE Case Study
 export const createCaseStudy = async (req, res) => {
   try {
     const caseStudy = await CaseStudy.create(req.body);
@@ -35,7 +34,6 @@ export const createCaseStudy = async (req, res) => {
   }
 };
 
-// GET All Case Studies
 export const getCaseStudies = async (req, res) => {
   try {
     const { search, active } = req.query;
@@ -75,7 +73,7 @@ export const getCaseStudies = async (req, res) => {
   }
 };
 
-// GET Single Case Study (by id or slug)
+// id can be the Mongo _id or the slug here
 export const getCaseStudyById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -105,7 +103,6 @@ export const getCaseStudyById = async (req, res) => {
   }
 };
 
-// UPDATE Case Study
 export const updateCaseStudy = async (req, res) => {
   try {
     const { id } = req.params;
@@ -151,7 +148,6 @@ export const updateCaseStudy = async (req, res) => {
   }
 };
 
-// TOGGLE Case Study Active Status
 export const toggleCaseStudyStatus = async (req, res) => {
   try {
     const { id } = req.params;
@@ -190,7 +186,6 @@ export const toggleCaseStudyStatus = async (req, res) => {
   }
 };
 
-// DELETE Case Study
 export const deleteCaseStudy = async (req, res) => {
   try {
     const caseStudy = await CaseStudy.findById(req.params.id);

@@ -30,7 +30,7 @@ export const getHeader = async (req, res) => {
   try {
     let header = await Header.findOne({ configId: "header" });
     if (!header) {
-      // create a default config so frontend always receives a full config object
+      // frontend expects a full config object, never a 404
       header = await Header.create({ configId: "header", config: DEFAULT_CONFIG });
     }
     res.json(header);

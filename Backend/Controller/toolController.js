@@ -1,6 +1,5 @@
 import Tool from "../Model/Tool.js";
 
-// CREATE Tool
 export const createTool = async (req, res) => {
   try {
     const { image, altText } = req.body;
@@ -25,7 +24,6 @@ export const createTool = async (req, res) => {
   }
 };
 
-// GET All Tools
 export const getTools = async (req, res) => {
   try {
     const tools = await Tool.find().sort({
@@ -73,7 +71,6 @@ export const getToolById = async (req, res) => {
   }
 };
 
-// UPDATE Tool
 export const updateTool = async (req, res) => {
   try {
     const tool = await Tool.findByIdAndUpdate(req.params.id, req.body, {
@@ -103,7 +100,6 @@ export const updateTool = async (req, res) => {
   }
 };
 
-// DELETE Tool
 export const deleteTool = async (req, res) => {
   try {
     const tool = await Tool.findById(req.params.id);

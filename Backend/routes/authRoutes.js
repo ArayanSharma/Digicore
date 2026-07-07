@@ -24,7 +24,6 @@ const strongPasswordValidator = body("newPassword")
   .matches(/[0-9]/)
   .withMessage("Password must contain at least one number.");
 
-// POST /api/auth/login
 router.post(
   "/login",
   loginLimiter,
@@ -36,7 +35,6 @@ router.post(
   login
 );
 
-// POST /api/auth/forgot-password
 router.post(
   "/forgot-password",
   forgotPasswordLimiter,
@@ -45,10 +43,8 @@ router.post(
   forgotPassword
 );
 
-// POST /api/auth/resend-otp
 router.post("/resend-otp", otpLimiter, [emailValidator], validate, resendOtp);
 
-// POST /api/auth/verify-otp
 router.post(
   "/verify-otp",
   otpLimiter,
@@ -65,7 +61,6 @@ router.post(
   verifyOtp
 );
 
-// POST /api/auth/reset-password
 router.post(
   "/reset-password",
   otpLimiter,

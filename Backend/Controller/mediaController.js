@@ -5,24 +5,16 @@ import {
   updateOnCloudinary,
 } from "../utils/cloudinaryUpload.js";
 
-/**
- * Per-type file size limits (in bytes).
- */
 const SIZE_LIMITS = {
   image: 10 * 1024 * 1024, // 10 MB
   video: 100 * 1024 * 1024, // 100 MB
 };
 
-/**
- * Determine resource type from MIME type.
- */
 const getResourceType = (mimetype) => {
   if (mimetype.startsWith("image/")) return "image";
   if (mimetype.startsWith("video/")) return "video";
   return "auto";
 };
-
-// ─── UPLOAD MEDIA ────────────────────────────────────────────────
 
 export const uploadMedia = async (req, res) => {
   try {
@@ -36,7 +28,6 @@ export const uploadMedia = async (req, res) => {
     const { mimetype, buffer, originalname, size } = req.file;
     const resourceType = getResourceType(mimetype);
 
-    // Enforce per-type size limit
     const maxSize = SIZE_LIMITS[resourceType];
     if (maxSize && size > maxSize) {
       const maxMB = (maxSize / (1024 * 1024)).toFixed(0);
@@ -46,12 +37,10 @@ export const uploadMedia = async (req, res) => {
       });
     }
 
-    // Upload to Cloudinary
     const result = await uploadToCloudinary(buffer, {
       resource_type: resourceType,
     });
 
-    // Save metadata in MongoDB
     const media = await Media.create({
       url: result.url,
       publicId: result.publicId,
@@ -72,15 +61,12 @@ export const uploadMedia = async (req, res) => {
     });
   } catch (error) {
     console.error("Upload error:", error);
-
     res.status(500).json({
       success: false,
       message: error.message || "Failed to upload file",
     });
   }
 };
-
-// ─── GET ALL MEDIA ───────────────────────────────────────────────
 
 export const getAllMedia = async (req, res) => {
   try {
@@ -109,15 +95,12 @@ export const getAllMedia = async (req, res) => {
     });
   } catch (error) {
     console.error("Get all media error:", error);
-
     res.status(500).json({
       success: false,
       message: "Server Error",
     });
   }
 };
-
-// ─── GET MEDIA BY ID ─────────────────────────────────────────────
 
 export const getMediaById = async (req, res) => {
   try {
@@ -151,8 +134,6 @@ export const getMediaById = async (req, res) => {
   }
 };
 
-// ─── UPDATE MEDIA ────────────────────────────────────────────────
-
 export const updateMedia = async (req, res) => {
   try {
     if (!req.file) {
@@ -174,7 +155,6 @@ export const updateMedia = async (req, res) => {
     const { mimetype, buffer, originalname, size } = req.file;
     const resourceType = getResourceType(mimetype);
 
-    // Enforce per-type size limit
     const maxSize = SIZE_LIMITS[resourceType];
     if (maxSize && size > maxSize) {
       const maxMB = (maxSize / (1024 * 1024)).toFixed(0);
@@ -184,7 +164,6 @@ export const updateMedia = async (req, res) => {
       });
     }
 
-    // Delete old file from Cloudinary and upload new one
     const result = await updateOnCloudinary(
       existingMedia.publicId,
       existingMedia.resourceType,
@@ -192,7 +171,6 @@ export const updateMedia = async (req, res) => {
       { resource_type: resourceType }
     );
 
-    // Update MongoDB document
     existingMedia.url = result.url;
     existingMedia.publicId = result.publicId;
     existingMedia.resourceType = result.resourceType;
@@ -227,8 +205,6 @@ export const updateMedia = async (req, res) => {
   }
 };
 
-// ─── DELETE MEDIA ────────────────────────────────────────────────
-
 export const deleteMedia = async (req, res) => {
   try {
     const media = await Media.findById(req.params.id);
@@ -240,10 +216,7 @@ export const deleteMedia = async (req, res) => {
       });
     }
 
-    // Delete from Cloudinary
     await deleteFromCloudinary(media.publicId, media.resourceType);
-
-    // Delete from MongoDB
     await Media.findByIdAndDelete(req.params.id);
 
     res.status(200).json({

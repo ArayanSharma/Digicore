@@ -23,6 +23,6 @@ cloudinary.config({
   secure: true,
 });
 
-console.log("✓ Cloudinary configured successfully");
+console.log("Cloudinary configured");
 
 export default cloudinary;

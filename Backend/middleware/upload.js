@@ -1,8 +1,5 @@
 import multer from "multer";
 
-/**
- * Allowed MIME types for uploads.
- */
 const ALLOWED_IMAGE_TYPES = [
   "image/jpeg",
   "image/png",
@@ -24,15 +21,9 @@ const ALLOWED_DOC_TYPES = [
 
 const ALLOWED_TYPES = [...ALLOWED_IMAGE_TYPES, ...ALLOWED_VIDEO_TYPES, ...ALLOWED_DOC_TYPES];
 
-/**
- * Maximum file size: 100 MB (to accommodate videos).
- * Finer per-type validation is done in the controller.
- */
-const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100 MB
+// 100 MB to accommodate video uploads; per-type limits are enforced in the controller
+const MAX_FILE_SIZE = 100 * 1024 * 1024;
 
-/**
- * File filter — rejects uploads with unsupported MIME types.
- */
 const fileFilter = (req, file, cb) => {
   if (ALLOWED_TYPES.includes(file.mimetype)) {
     cb(null, true);
@@ -46,10 +37,7 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-/**
- * Multer instance using memory storage (buffers stay in memory
- * and are piped directly to Cloudinary via streamifier).
- */
+// memory storage — buffers go straight to Cloudinary via streamifier, nothing hits disk
 const upload = multer({
   storage: multer.memoryStorage(),
   fileFilter,
@@ -58,14 +46,7 @@ const upload = multer({
   },
 });
 
-/**
- * Middleware for single-file upload (field name: "file").
- */
 export const uploadSingle = upload.single("file");
-
-/**
- * Middleware for multi-file upload (field name: "files", max 10).
- */
 export const uploadMultiple = upload.array("files", 10);
 
 export default upload;

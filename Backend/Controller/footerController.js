@@ -1,7 +1,7 @@
 import Footer from "../Model/Footer.js";
 import { uploadToCloudinary } from "../utils/cloudinaryUpload.js";
 
-// GET Footer (creates the singleton with defaults on first request)
+// there's only ever one footer doc, create it with defaults if it's missing
 export const getFooter = async (req, res) => {
   try {
     let footer = await Footer.findOne();
@@ -24,7 +24,7 @@ export const getFooter = async (req, res) => {
   }
 };
 
-// UPDATE Footer (upserts the singleton)
+// upsert since there's only one footer doc
 export const updateFooter = async (req, res) => {
   try {
     const {
@@ -73,7 +73,6 @@ export const updateFooter = async (req, res) => {
   }
 };
 
-// UPLOAD Footer Logo
 export const uploadFooterLogo = async (req, res) => {
   try {
     if (!req.file) {

@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import Industry from "../Model/Industry.js";
 
-// CREATE Industry
 export const createIndustry = async (req, res) => {
   try {
     const industry = await Industry.create(req.body);
@@ -35,7 +34,6 @@ export const createIndustry = async (req, res) => {
   }
 };
 
-// GET All Industries
 export const getIndustries = async (req, res) => {
   try {
     const { search, active } = req.query;
@@ -70,7 +68,7 @@ export const getIndustries = async (req, res) => {
   }
 };
 
-// GET Single Industry (by id or slug)
+// id can be the Mongo _id or the slug here
 export const getIndustryById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -100,7 +98,6 @@ export const getIndustryById = async (req, res) => {
   }
 };
 
-// UPDATE Industry
 export const updateIndustry = async (req, res) => {
   try {
     const { id } = req.params;
@@ -146,7 +143,6 @@ export const updateIndustry = async (req, res) => {
   }
 };
 
-// TOGGLE Industry Active Status
 export const toggleIndustryStatus = async (req, res) => {
   try {
     const { id } = req.params;
@@ -185,7 +181,6 @@ export const toggleIndustryStatus = async (req, res) => {
   }
 };
 
-// DELETE Industry
 export const deleteIndustry = async (req, res) => {
   try {
     const industry = await Industry.findById(req.params.id);

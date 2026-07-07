@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import Contact from "../Model/Contact.js";
 
-// Create Contact
 export const createContact = async (req, res) => {
   try {
     const {
@@ -49,7 +48,6 @@ export const createContact = async (req, res) => {
   }
 };
 
-// Get All Contacts
 export const getContacts = async (req, res) => {
   try {
     const contacts = await Contact.find().sort({
@@ -74,7 +72,6 @@ export const getContacts = async (req, res) => {
   }
 };
 
-// Update Contact
 export const updateContact = async (req, res) => {
   try {
     const { id } = req.params;
@@ -112,7 +109,6 @@ export const updateContact = async (req, res) => {
   }
 };
 
-// Delete Contact
 export const deleteContact = async (req, res) => {
   try {
     await Contact.findByIdAndDelete(req.params.id);
